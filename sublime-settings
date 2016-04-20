@@ -1,0 +1,21 @@
+{
+  "color_scheme": "Packages/Material Theme/schemes/Material-Theme-Darker.tmTheme",
+  "default_line_ending": "unix",
+  "ensure_newline_at_eof_on_save": true,
+  "fallback_encoding": "UTF-8",
+  "font_size": 12,
+  "highlight_line": true,
+  "ignored_packages":
+  [
+    "Vintage"
+  ],
+  "line_padding_bottom": 1,
+  "rulers":
+  [
+    100
+  ],
+  "tab_size": 2,
+  "theme": "Material-Theme-Darker.sublime-theme",
+  "translate_tabs_to_spaces": true,
+  "trim_trailing_white_space_on_save": true
+}
