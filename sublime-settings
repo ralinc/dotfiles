@@ -1,22 +1,25 @@
 {
+  "bold_folder_labels": true,
   "color_scheme": "Packages/Material Theme/schemes/Material-Theme-Darker.tmTheme",
   "default_line_ending": "unix",
   "ensure_newline_at_eof_on_save": true,
   "fallback_encoding": "UTF-8",
-  "font_face": "Consolas",
+  "font_face": "Menlo",
   "font_size": 14,
   "highlight_line": true,
   "highlight_modified_tabs": true,
-  "bold_folder_labels": true,
   "ignored_packages":
   [
+    "Markdown",
+    "Markdown Extended",
+    "roxygen",
     "Vintage"
   ],
   "line_padding_bottom": 1,
   "line_padding_top": 1,
   "rulers":
   [
-    100
+    112
   ],
   "tab_size": 2,
   "theme": "Material-Theme-Darker.sublime-theme",
