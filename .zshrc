@@ -1,9 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# Load the oh-my-zsh
-source $ZSH/oh-my-zsh.sh
-
 # Set name of the theme to load.
 ZSH_THEME="clean"
 
@@ -15,6 +12,9 @@ DISABLE_LS_COLORS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git brew bundler gem)
+
+# Load the oh-my-zsh
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
