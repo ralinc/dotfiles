@@ -2,4 +2,4 @@ StringLiterals:
   Enabled: false
 
 Metrics/LineLength:
-  Max: 112
+  Max: 80

@@ -20,7 +20,7 @@
   "nonbsp": true, // true: Prohibit "non-breaking whitespace" characters.
   "nonew": false, // true: Prohibit use of constructors for side-effects (without assignment)
   "plusplus": false, // true: Prohibit use of `++` & `--`
-  "quotmark": false, // Quotation mark consistency:
+  "quotmark": false, // Quotation mark consistency
   "undef": true, // true: Require all non-global variables to be declared (prevents global leaks)
   "unused": true, // true: Require all defined variables be used
   "strict": false, // true: Requires all functions run in ES5 Strict Mode
@@ -38,7 +38,6 @@
   "es5": false, // true: Allow ES5 syntax (ex: getters and setters)
   "esnext": false, // true: Allow ES.next (ES6) syntax (ex: `const`)
   "moz": true, // true: Allow Mozilla specific syntax (extends and overrides esnext features)
-  // (ex: `for each`, multiple try/catch, function expression…)
   "evil": false, // true: Tolerate use of `eval` and `new Function()`
   "expr": false, // true: Tolerate `ExpressionStatement` as Programs
   "funcscope": false, // true: Tolerate defining variables inside control statements
@@ -86,8 +85,14 @@
     "safari": true,
     "require": true,
     "exports": true,
+    "API": true,
+    "TXT": true,
+    "psl": true,
+    "utils": true,
+    "Popup": true,
     "Fingerprint2": true,
     "ZeroClipboard": true,
-    "url": true
+    "url": true,
+    "moment": true
   }
 }
