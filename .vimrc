@@ -23,8 +23,7 @@ set number
 set nocompatible
 set autoread
 set scrolloff=4
-set expandtab
-set tabstop=2
+set tabstop=2 shiftwidth=2 expandtab
 set secure
 set autowrite
 set vb
@@ -34,6 +33,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
@@ -44,4 +44,4 @@ filetype plugin on
 
 let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
 let g:ctrlp_use_caching = 0
-
+let g:ctrlp_match_window = 'results:100'
