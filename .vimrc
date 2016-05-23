@@ -10,6 +10,11 @@
 set encoding=utf-8 nobomb
 scriptencoding utf-8
 
+map <C-h> <C-W>h
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-l> <C-W>l
+
 nmap 9 ^
 nmap 0 $
 imap jk <esc>
