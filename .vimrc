@@ -69,6 +69,7 @@ Plugin 'JulesWang/css.vim'
 Plugin 'ingydotnet/yaml-vim'
 Plugin 'maksimr/vim-jsbeautify'
 call vundle#end() 
+
 filetype plugin indent on
 
 syntax enable
@@ -82,6 +83,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_ruby_checkers = ['rubocop']
 
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
@@ -89,7 +91,6 @@ autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
 autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
-
 
 let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
 let g:ctrlp_use_caching = 0
