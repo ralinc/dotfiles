@@ -1,9 +1,2 @@
 Style/StringLiterals:
   EnforcedStyle: double_quotes
-
-Metrics/LineLength:
-  Max: 120
-
-Style/AlignHash:
-  EnforcedHashRocketStyle: table
-  EnforcedColonStyle: table
