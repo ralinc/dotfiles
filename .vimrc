@@ -48,6 +48,7 @@ set guioptions+=c
 set rtp+=~/.vim/bundle/Vundle.vim
 set nowrap
 set noswapfile
+set hlsearch
 
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
