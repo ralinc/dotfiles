@@ -10,6 +10,8 @@
 set encoding=utf-8 nobomb
 scriptencoding utf-8
 
+nmap j gj
+nmap k gk
 nmap 9 ^
 nmap 0 $
 imap jj <esc>:w<cr>
@@ -24,12 +26,14 @@ nmap <Leader>h <C-W>h
 nmap <Leader>j <C-W>j
 nmap <Leader>k <C-W>k
 nmap <Leader>l <C-W>l
+nmap <Leader>9 <C-W>-
+nmap <Leader>0 <C-W>+
 
 set backspace=indent,eol,start
 set ruler
 set showcmd
 set showmatch
-set nowrap
+set wrap
 set autoread
 set autowrite
 set wmh=0
@@ -69,6 +73,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-bundler'
 Plugin 'ngmy/vim-rubocop'
 Plugin 'pangloss/vim-javascript'
 Plugin 'othree/javascript-libraries-syntax.vim'
