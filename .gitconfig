@@ -1,0 +1,18 @@
+[user]
+  name = Ralin Chimev
+[push]
+  default = current
+[color]
+  ui = auto
+[alias]
+  aa = add --all
+  lo = log --oneline --decorate
+[core]
+  excludesfile = ~/.gitignore
+  autocrlf = input
+[merge]
+  ff = only
+[fetch]
+  prune = true
+[rebase]
+  autosquash = true
