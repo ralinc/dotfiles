@@ -1,20 +1,20 @@
-export ZSH=$HOME/.oh-my-zsh
-
-ZSH_THEME="clean"
+export LANG=en_US.UTF-8
+export EDITOR='vim'
 
 DISABLE_LS_COLORS="true"
+ZSH_THEME="clean"
 
-plugins=(git brew bundler gem)
-
+export ZSH=$HOME/.oh-my-zsh
+plugins=(git bundler)
 source $ZSH/oh-my-zsh.sh
 
-export PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:$PATH
-export PATH=$PATH:/usr/local/Cellar/git
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export RVM_DIR="$HOME/.rvm"
 export NVM_DIR="$HOME/.nvm"
-export EDITOR='vim'
-export SSH_KEY_PATH="~/.ssh/id_rsa"
 
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:$PATH"
+export PATH="$PATH:$RVM_DIR/bin"
+
+alias la="ls -la"
+
+. "$(brew --prefix nvm)/nvm.sh"
+[[ -s "$RVM_DIR/scripts/rvm" ]] && source "$RVM_DIR/scripts/rvm"
