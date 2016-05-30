@@ -33,7 +33,7 @@ set backspace=indent,eol,start
 set ruler
 set showcmd
 set showmatch
-set wrap
+set nowrap
 set autoread
 set autowrite
 set wmh=0
