@@ -106,6 +106,7 @@ let g:syntastic_ruby_checkers = ['rubocop']
 
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd FileType markdown setlocal nolist wrap lbr
+autocmd Filetype gitcommit setlocal spell textwidth=72
 autocmd FileType ruby,eruby,yaml setlocal ai sw=2 sts=2 et
 autocmd FileType ruby,eruby,yaml setlocal path+=lib
 autocmd FileType ruby,eruby,yaml setlocal colorcolumn=80
@@ -120,4 +121,3 @@ autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
 let g:ctrlp_use_caching = 0
 let g:ctrlp_match_window = 'results:100'
-
