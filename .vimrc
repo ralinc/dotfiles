@@ -14,7 +14,7 @@ nmap j gj
 nmap k gk
 nmap 9 ^
 nmap 0 $
-imap jj <esc>:w<cr>
+imap jk <esc>:w<cr>
 
 let mapleader = "\<Space>"
 
@@ -28,6 +28,8 @@ nmap <Leader>k <C-W>k
 nmap <Leader>l <C-W>l
 nmap <Leader>9 <C-W>-
 nmap <Leader>0 <C-W>+
+nmap <Leader>m ]m
+nmap <Leader>n [m
 
 set backspace=indent,eol,start
 set ruler
@@ -59,6 +61,8 @@ set hlsearch
 set grepprg=ag
 set nofoldenable
 set laststatus=2
+set novisualbell
+set noerrorbells
 
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -83,6 +87,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'JulesWang/css.vim'
          \| Plugin 'hail2u/vim-css3-syntax'
          \| Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'slim-template/vim-slim'
 Plugin 'elzr/vim-json'
 Plugin 'ingydotnet/yaml-vim'
 Plugin 'maksimr/vim-jsbeautify'
