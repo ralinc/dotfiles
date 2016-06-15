@@ -10,6 +10,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias la="ls -la"
 alias ra="touch tmp/restart.txt"
+alias glg="git log --oneline --graph --decorate --all"
 
 export NVM_DIR="$HOME/.nvm"
 . "$(brew --prefix nvm)/nvm.sh"
