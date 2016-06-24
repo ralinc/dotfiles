@@ -26,8 +26,6 @@ nmap <Leader>h <C-W>h
 nmap <Leader>j <C-W>j
 nmap <Leader>k <C-W>k
 nmap <Leader>l <C-W>l
-nmap <Leader>9 <C-W>-
-nmap <Leader>0 <C-W>+
 nmap <Leader>m ]m
 nmap <Leader>n [m
 
@@ -63,44 +61,53 @@ set nofoldenable
 set laststatus=2
 set novisualbell
 set noerrorbells
+" set rtp+=~/.fzf
 
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'ervandew/supertab'
-Plugin 'skwp/greplace.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/syntastic'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-bundler'
-Plugin 'ngmy/vim-rubocop'
-Plugin 'pangloss/vim-javascript'
-Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'mxw/vim-jsx'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'JulesWang/css.vim'
-         \| Plugin 'hail2u/vim-css3-syntax'
-         \| Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'slim-template/vim-slim'
-Plugin 'elzr/vim-json'
-Plugin 'ingydotnet/yaml-vim'
-Plugin 'maksimr/vim-jsbeautify'
-Plugin 'nanotech/jellybeans.vim'
-call vundle#end() 
+call plug#begin('~/.vim/plugged')
+Plug 'VundleVim/Vundle.vim'
+Plug 'ervandew/supertab'
+Plug 'skwp/greplace.vim'
+Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
+Plug 'tomtom/tcomment_vim'
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/syntastic'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-bundler'
+Plug 'thoughtbot/vim-rspec'
+Plug 'ngmy/vim-rubocop'
+Plug 'pangloss/vim-javascript'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'mxw/vim-jsx'
+Plug 'kchmck/vim-coffee-script'
+Plug 'JulesWang/css.vim'
+         \| Plug 'hail2u/vim-css3-syntax'
+         \| Plug 'cakebaker/scss-syntax.vim'
+Plug 'slim-template/vim-slim'
+Plug 'elzr/vim-json'
+Plug 'ingydotnet/yaml-vim'
+Plug 'maksimr/vim-jsbeautify'
+Plug 'nanotech/jellybeans.vim'
+Plug 'danro/rename.vim'
+call plug#end()
+
 filetype plugin indent on
-
 colorscheme jellybeans
 syntax on
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
+let g:ctrlp_use_caching = 0
+let g:ctrlp_match_window = 'results:100'
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -122,7 +129,3 @@ autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
 autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
-
-let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
-let g:ctrlp_use_caching = 0
-let g:ctrlp_match_window = 'results:100'

@@ -6,8 +6,9 @@
 [alias]
   aa = add --all
   lo = log --oneline --decorate
+  lg = log --oneline --graph --decorate --all
 [core]
-  autocrlf = true
+  autocrlf = input
 [fetch]
   prune = true
 [rebase]
