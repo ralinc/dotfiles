@@ -1,5 +1,5 @@
 "===========================================================================
-"                                ~My vimrc~
+
 "===========================================================================
 " Author: Ralin Chimev [http://www.ralin.net]
 " Source: https://github.com/ralinc/dotfiles
@@ -15,6 +15,7 @@ nmap k gk
 nmap 9 ^
 nmap 0 $
 imap jk <esc>:w<cr>
+map <C-n> :NERDTreeToggle<CR>
 
 let mapleader = "\<Space>"
 
@@ -64,7 +65,7 @@ set noerrorbells
 " set rtp+=~/.fzf
 
 call plug#begin('~/.vim/plugged')
-Plug 'VundleVim/Vundle.vim'
+Plug 'scrooloose/nerdtree'
 Plug 'ervandew/supertab'
 Plug 'skwp/greplace.vim'
 Plug 'tpope/vim-surround'
@@ -99,10 +100,6 @@ filetype plugin indent on
 colorscheme jellybeans
 syntax on
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
@@ -115,6 +112,8 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_ruby_checkers = ['rubocop']
+
+let g:NERDTreeWinSize = 50
 
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd FileType markdown setlocal nolist wrap lbr
@@ -129,3 +128,5 @@ autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
 autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+autocmd vimenter * NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
