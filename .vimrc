@@ -62,10 +62,12 @@ set nofoldenable
 set laststatus=2
 set novisualbell
 set noerrorbells
+set grepprg=ag\ --nogroup\ --nocolor
 " set rtp+=~/.fzf
 
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
 Plug 'ervandew/supertab'
 Plug 'skwp/greplace.vim'
 Plug 'tpope/vim-surround'
@@ -128,5 +130,4 @@ autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
 autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
-autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
