@@ -27,8 +27,9 @@ nmap <Leader>h <C-W>h
 nmap <Leader>j <C-W>j
 nmap <Leader>k <C-W>k
 nmap <Leader>l <C-W>l
-nmap <Leader>m ]m
-nmap <Leader>n [m
+nmap <Leader>n ]m
+nmap <Leader>m [m
+nmap <Leader>b %
 
 set backspace=indent,eol,start
 set ruler
@@ -63,21 +64,20 @@ set laststatus=2
 set novisualbell
 set noerrorbells
 set grepprg=ag\ --nogroup\ --nocolor
-" set rtp+=~/.fzf
 
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
 Plug 'ervandew/supertab'
 Plug 'skwp/greplace.vim'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
 Plug 'vim-airline/vim-airline'
-Plug 'tomtom/tcomment_vim'
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/syntastic'
 Plug 'vim-ruby/vim-ruby'
+Plug 'kana/vim-textobj-user'
+Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-bundler'
@@ -98,6 +98,7 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'danro/rename.vim'
 call plug#end()
 
+runtime macros/matchit.vim
 filetype plugin indent on
 colorscheme jellybeans
 syntax on
