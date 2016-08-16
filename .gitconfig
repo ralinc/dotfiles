@@ -9,6 +9,7 @@
   lg = log --oneline --graph --decorate --all
 [core]
   autocrlf = input
+  excludesfile = ~/.gitignore
 [fetch]
   prune = true
 [rebase]
