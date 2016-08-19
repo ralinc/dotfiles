@@ -19,16 +19,18 @@ map <C-n> :NERDTreeToggle<CR>
 
 let mapleader = "\<Space>"
 
-nmap <Leader>so :source $MYVIMRC<cr>
-nmap <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<cr>
-nmap <Leader>s :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<cr>
-nmap <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<cr>
-nmap <Leader>h <C-W>h
-nmap <Leader>j <C-W>j
-nmap <Leader>k <C-W>k
-nmap <Leader>l <C-W>l
-nmap <Leader>n ]m
-nmap <Leader>m [m
+map <Leader>so :source $MYVIMRC<cr>
+map <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<cr>
+map <Leader>s :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<cr>
+map <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<cr>
+map <Leader>h <C-W>h
+map <Leader>j <C-W>j
+map <Leader>k <C-W>k
+map <Leader>l <C-W>l
+map <Leader>n ]m
+map <Leader>m [m
+map <Leader>i mmgg=G`m<CR>
+map <Leader>p :set paste<CR><esc>"*]p:set nopaste<cr>
 
 set backspace=indent,eol,start
 set ruler
@@ -63,6 +65,7 @@ set laststatus=2
 set novisualbell
 set noerrorbells
 set grepprg=ag\ --nogroup\ --nocolor
+set wildignore+=tmp/**
 
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
@@ -88,12 +91,14 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'mxw/vim-jsx'
 Plug 'nanotech/jellybeans.vim'
 Plug 'danro/rename.vim'
+Plug 'skwp/greplace.vim'
 call plug#end()
 
-runtime macros/matchit.vim
 filetype plugin indent on
 colorscheme jellybeans
 syntax on
+
+runtime macros/matchit.vim
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
