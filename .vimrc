@@ -14,25 +14,36 @@ nmap j gj
 nmap k gk
 nmap 9 ^
 nmap 0 $
-imap jk <esc>:w<cr>
+imap jk <esc>
+
 map <C-n> :NERDTreeToggle<CR>
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-h> <C-w>h
+map <C-l> <C-w>l
 
 let mapleader = "\<Space>"
 
-map <Leader>so :source $MYVIMRC<cr>
-map <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<cr>
-map <Leader>s :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<cr>
-map <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<cr>
-map <Leader>h <C-W>h
-map <Leader>j <C-W>j
-map <Leader>k <C-W>k
-map <Leader>l <C-W>l
+map <Leader>so :source $MYVIMRC<CR>
+map <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
+map <Leader>h :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
+map <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 map <Leader>n ]m
 map <Leader>m [m
 map <Leader>i mmgg=G`m<CR>
-map <Leader>p :set paste<CR><esc>"*]p:set nopaste<cr>
+map <Leader>p :set paste<CR><esc>"*]p:set nopaste<CR>
+map <Leader>ct :!ctags -R .<CR>
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>w :w<CR>
 
+set splitbelow
+set splitright
 set backspace=indent,eol,start
+set nobackup
+set nowritebackup
+set noswapfile
+set history=50
 set ruler
 set showcmd
 set showmatch
@@ -45,8 +56,9 @@ set guioptions-=T
 set et
 set sw=2
 set smarttab
-set noincsearch
-set ignorecase smartcase
+set incsearch
+set ignorecase
+set smartcase
 set number
 set autoindent
 set lazyredraw
@@ -54,18 +66,24 @@ set nocompatible
 set scrolloff=8
 set sidescrolloff=16
 set colorcolumn=80
-set tabstop=2 shiftwidth=2 expandtab
+set tabstop=2
+set shiftwidth=2
+set shiftround
+set expandtab
 set secure
 set vb
-set noswapfile
 set hlsearch
-set grepprg=ag
+set grepprg=ag\ --nogroup\ --nocolor
 set nofoldenable
 set laststatus=2
 set novisualbell
 set noerrorbells
-set grepprg=ag\ --nogroup\ --nocolor
 set wildignore+=tmp/**
+set list listchars=tab:»·,trail:·,nbsp:·
+set textwidth=80
+set numberwidth=5
+set wildmode=list:longest,list:full
+set diffopt+=vertical
 
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
@@ -89,15 +107,14 @@ Plug 'scrooloose/syntastic'
 Plug 'pangloss/vim-javascript'
 Plug 'kchmck/vim-coffee-script'
 Plug 'mxw/vim-jsx'
-Plug 'nanotech/jellybeans.vim'
 Plug 'danro/rename.vim'
 Plug 'skwp/greplace.vim'
+Plug 'nanotech/jellybeans.vim'
 call plug#end()
 
+syntax on
 filetype plugin indent on
 colorscheme jellybeans
-syntax on
-
 runtime macros/matchit.vim
 
 let g:ctrlp_map = '<c-p>'
