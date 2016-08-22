@@ -1,16 +1,26 @@
-[user]
-  email = ralin.chimev@gmail.com
-  name = Ralin Chimev
-[color]
-  ui = auto
 [alias]
   aa = add --all
+  b = branch
+  co = checkout
+  df = diff --word-diff --color-words
   lo = log --oneline --decorate
   lg = log --oneline --graph --decorate --all
+  no-ff = merge --no-ff
+  rbc = rebase --continue
+  ri = rebase -i
+[color]
+  ui = auto
 [core]
   autocrlf = input
   excludesfile = ~/.gitignore
+[diff]
+  tool = vimdiff
+[github]
+  user = ralinc
 [fetch]
   prune = true
 [rebase]
   autosquash = true
+[user]
+  email = ralin.chimev@gmail.com
+  name = Ralin Chimev
