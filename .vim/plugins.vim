@@ -21,6 +21,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'kchmck/vim-coffee-script'
 Plug 'mxw/vim-jsx'
 Plug 'danro/rename.vim'
+Plug 'mileszs/ack.vim'
 Plug 'skwp/greplace.vim'
 Plug 'nanotech/jellybeans.vim'
 call plug#end()

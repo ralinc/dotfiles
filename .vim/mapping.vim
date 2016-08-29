@@ -24,3 +24,4 @@ map <Leader>ct :!ctags -R .<CR>
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>w :w<CR>
+map <Leader>a :Ack!<space>
