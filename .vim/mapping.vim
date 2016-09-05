@@ -28,6 +28,7 @@ map <Leader>[ [m
 
 map <Leader>i mmgg=G`m<CR>
 map <Leader>p :set paste<CR><esc>"*]p:set nopaste<CR>
+map <Leader>d obinding.pry<ESC>:w<CR>
 
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>sf :call RunCurrentSpecFile()<CR>
