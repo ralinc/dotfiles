@@ -11,6 +11,10 @@ map <C-l> <C-w>l
 
 map <C-n> :NERDTreeToggle<CR>
 
+map <C-p> :FZF -m<CR>
+map <C-p>r :BTags<CR>
+map <C-p>h :History<CR>
+
 let mapleader = "\<Space>"
 
 map <Leader>w :w<CR>
@@ -19,8 +23,8 @@ map <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
 map <Leader>h :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 map <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 
-map <Leader>n ]m
-map <Leader>m [m
+map <Leader>] ]m
+map <Leader>[ [m
 
 map <Leader>i mmgg=G`m<CR>
 map <Leader>p :set paste<CR><esc>"*]p:set nopaste<CR>
