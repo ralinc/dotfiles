@@ -15,6 +15,8 @@ map <C-p> :FZF -m<CR>
 map <C-p>r :BTags<CR>
 map <C-p>h :History<CR>
 
+imap hh <C-y>,
+
 let mapleader = "\<Space>"
 
 map <Leader>w :w<CR>
