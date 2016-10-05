@@ -23,6 +23,7 @@ set incsearch
 set ignorecase
 set smartcase
 set number
+set relativenumber
 set autoindent
 set lazyredraw
 set nocompatible

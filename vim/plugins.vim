@@ -26,4 +26,5 @@ Plug 'mileszs/ack.vim'
 Plug 'skwp/greplace.vim'
 Plug 'mattn/emmet-vim'
 Plug 'nanotech/jellybeans.vim'
+Plug 'slim-template/vim-slim'
 call plug#end()

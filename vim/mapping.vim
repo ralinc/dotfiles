@@ -1,7 +1,5 @@
 nmap j gj
 nmap k gk
-nmap 9 ^
-nmap 0 $
 imap jk <esc>
 
 map <C-j> <C-w>j
@@ -30,7 +28,8 @@ map <Leader>[ [m
 
 map <Leader>i mmgg=G`m<CR>
 map <Leader>p :set paste<CR><esc>"*]p:set nopaste<CR>
-map <Leader>d obinding.pry<ESC>:w<CR>
+map <Leader>dp obinding.pry<ESC>:w<CR>
+map <Leader>db obyebug<ESC>:w<CR>
 
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>sf :call RunCurrentSpecFile()<CR>

@@ -20,6 +20,7 @@ call s:SourceConfigFiles()
 syntax on
 filetype plugin indent on
 colorscheme jellybeans
+runtime macros/matchit.vim
 
 let g:fzf_layout = { 'down': '~33%' }
 let g:ackprg = 'ag --nogroup --nocolor --column'

@@ -1,2 +1,0 @@
-'.platform-darwin .editor':
-  'cmd-d': 'editor:delete-line'
