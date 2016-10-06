@@ -1,2 +1,79 @@
-Documentation:
+AllCops:
+  TargetRubyVersion: 2.3.1
+
+Lint/DefEndAlignment:
+  AlignWith: start_of_line
+
+Metrics/LineLength:
+  Max: 100
+  AllowURI: true
+
+Metrics/AbcSize:
+  Max: 50
+
+Style/AsciiComments:
   Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/DotPosition:
+  EnforcedStyle: trailing
+
+Style/MutableConstant:
+  Enabled: false
+
+Style/ModuleFunction:
+  Enabled: false
+
+Style/PerlBackrefs:
+  Enabled: false
+
+Style/PredicateName:
+  NamePrefixBlacklist:
+    - is_
+
+Style/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+Style/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Style/DoubleNegation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/SingleLineBlockParams:
+  Enabled: false
+
+Style/SignalException:
+  EnforcedStyle: only_raise
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/ClassLength:
+  Max: 100
+
+Metrics/ModuleLength:
+  Max: 100
+
+Metrics/ParameterLists:
+  CountKeywordArgs: true
+
+Style/ClosingParenthesisIndentation:
+  Enabled: true
+
+Style/SymbolArray:
+  Enabled: true
