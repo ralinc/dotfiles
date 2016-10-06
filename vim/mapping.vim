@@ -1,3 +1,4 @@
+nmap 0 ^
 nmap j gj
 nmap k gk
 imap jk <esc>
