@@ -27,4 +27,5 @@ Plug 'skwp/greplace.vim'
 Plug 'mattn/emmet-vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'slim-template/vim-slim'
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()

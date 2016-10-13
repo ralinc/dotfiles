@@ -1,3 +1,4 @@
+autocmd VimResized * :wincmd =
 autocmd BufReadCmd set nohlsearch
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd FileType markdown setlocal nolist wrap lbr
