@@ -24,7 +24,10 @@ runtime macros/matchit.vim
 
 let g:fzf_layout = { 'down': '~33%' }
 let g:ackprg = 'ag --nogroup --nocolor --column'
+
 let g:NERDTreeWinSize = 50
+let g:NERDTreeMapOpenSplit = 'h'
+let g:NERDTreeMapOpenVSplit = 'v'
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
