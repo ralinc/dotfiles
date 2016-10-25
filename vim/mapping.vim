@@ -9,6 +9,7 @@ map <C-h> <C-w>h
 map <C-l> <C-w>l
 
 map <C-n> :NERDTreeToggle<CR>
+map <C-n>f :NERDTreeFind<CR>
 
 map <C-p> :FZF -m<CR>
 map <C-p>r :BTags<CR>
