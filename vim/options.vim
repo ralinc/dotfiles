@@ -20,8 +20,8 @@ set et
 set sw=2
 set smarttab
 set incsearch
+set hlsearch
 set ignorecase
-set smartcase
 set number
 set relativenumber
 set autoindent
@@ -36,7 +36,6 @@ set shiftround
 set expandtab
 set secure
 set vb
-set hlsearch
 set grepprg=ag\ --nogroup\ --nocolor
 set nofoldenable
 set laststatus=2

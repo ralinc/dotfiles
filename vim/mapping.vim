@@ -21,8 +21,8 @@ let mapleader = "\<Space>"
 map <Leader>w :w<CR>
 
 map <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
-map <Leader>h :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
-map <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
+map <Leader>- :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
+map <Leader>\ :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 
 map <Leader>] ]m
 map <Leader>[ [m
@@ -40,6 +40,7 @@ map <Leader>sa :call RunAllSpecs()<CR>
 map <Leader>f :Ack!<space>
 map <Leader>fw *<C-O>:AckFromSearch!<CR>
 map <Leader>x :%s/
+map <Leader>h :noh<CR>
 
 map <Leader>a :A<CR>
 map <Leader>r :R<CR>
