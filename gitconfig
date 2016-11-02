@@ -4,9 +4,9 @@
 [color]
   ui = auto
 [alias]
-  aa = add --all
   lo = log --oneline --decorate
-  lg = log --oneline --graph --decorate --all
+  lg = log --oneline --decorate --graph --all
+  glog = log -E -i --grep
 [core]
   autocrlf = input
   excludesfile = ~/.gitignore

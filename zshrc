@@ -5,11 +5,11 @@ DISABLE_LS_COLORS="true"
 ZSH_THEME="clean"
 
 export ZSH=$HOME/.oh-my-zsh
-plugins=(bundler)
+plugins=(git bundler)
 
 source $ZSH/oh-my-zsh.sh
 
-alias la="ls -la"
+alias ll="ls -la"
 alias tl="tail -f log/development.log"
 alias ctags="`brew --prefix`/bin/ctags"
 
