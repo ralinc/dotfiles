@@ -37,4 +37,5 @@ let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_ruby_checkers = ['rubocop']
 
 let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
+
+let g:rspec_command = "Dispatch rspec {spec}"
