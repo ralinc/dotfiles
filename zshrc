@@ -12,6 +12,7 @@ source $ZSH/oh-my-zsh.sh
 alias ll="ls -la"
 alias tl="tail -f log/development.log"
 alias ctags="`brew --prefix`/bin/ctags"
+alias gph="git push heroku master && heroku run rake db:migrate && heroku restart"
 
 export NVM_DIR="$HOME/.nvm"
 . "$(brew --prefix nvm)/nvm.sh"
