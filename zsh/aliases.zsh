@@ -1,7 +1,4 @@
 alias qq="cd . && source ~/.zshrc"
-alias cp="cp -iv"
-alias rm="rm -iv"
-alias mv="mv -iv"
 alias ls="ls -FGh"
 alias ll="ls -la"
 alias ctags="`brew --prefix`/bin/ctags"
