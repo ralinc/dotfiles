@@ -29,5 +29,6 @@ Plug 'mattn/emmet-vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'slim-template/vim-slim'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-runner'
 Plug 'suan/vim-instant-markdown'
 call plug#end()

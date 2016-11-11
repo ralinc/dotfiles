@@ -38,4 +38,6 @@ let g:syntastic_ruby_checkers = ['rubocop']
 
 let g:user_emmet_install_global = 0
 
-let g:rspec_command = "Dispatch rspec {spec}"
+" let g:rspec_command = "Dispatch bundle exec rspec {spec}"
+" let g:rspec_command = '!bundle exec rspec {spec}'
+let g:rspec_command = "VtrSendCommandToRunner! bundle exec rspec {spec}"
