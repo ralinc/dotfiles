@@ -1,6 +1,7 @@
 nmap 0 ^
 nmap j gj
 nmap k gk
+nmap gb <C-^>
 imap jk <esc>
 
 map <C-j> <C-w>j
