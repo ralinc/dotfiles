@@ -26,9 +26,10 @@ map <Leader>\ :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 map <Leader>] ]m
 map <Leader>[ [m
 map <Leader>i mmgg=G`m<CR>
-map <Leader>p :set paste<CR><esc>"*]p:set nopaste<CR>
-map <Leader>dp obinding.pry<ESC>:w<CR>
-map <Leader>db obyebug<ESC>:w<CR>
+" map <Leader>p :set paste<CR><esc>"*]p:set nopaste<CR>
+map <Leader>p :set paste<CR>
+map <Leader>n :set nopaste<CR>
+map <Leader>d obinding.pry<ESC>:w<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>sf :call RunCurrentSpecFile()<CR>
 map <Leader>sl :call RunLastSpec()<CR>
