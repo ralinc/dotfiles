@@ -77,3 +77,6 @@ Style/ClosingParenthesisIndentation:
 
 Style/SymbolArray:
   Enabled: true
+
+Style/NumericLiterals:
+  Enabled: false
