@@ -26,6 +26,10 @@ map <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
 map <Leader>- :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 map <Leader>\ :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 
+map <Leader>z <C-w>\|
+map <Leader>zh <C-w>_
+map <Leader>0 <C-w>=
+
 map <Leader>] ]m
 map <Leader>[ [m
 
