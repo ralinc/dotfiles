@@ -31,4 +31,5 @@ Plug 'slim-template/vim-slim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'suan/vim-instant-markdown'
+Plug 'vim-scripts/ZoomWin'
 call plug#end()

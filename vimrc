@@ -46,6 +46,6 @@ let g:syntastic_warning_symbol = '⚠️'
 
 let g:jsx_ext_required = 0
 
+let g:rspec_command = '!bundle exec rspec {spec}'
 " let g:rspec_command = "Dispatch bundle exec rspec {spec}"
-" let g:rspec_command = '!bundle exec rspec {spec}'
-let g:rspec_command = "VtrSendCommandToRunner! bundle exec rspec {spec}"
+" let g:rspec_command = "VtrSendCommandToRunner! bundle exec rspec {spec}"
