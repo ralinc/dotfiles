@@ -15,7 +15,10 @@ set autoread
 set autowrite
 set wmh=0
 set viminfo+=!
+set guioptions-=m
 set guioptions-=T
+set guioptions-=L
+set guioptions-=r
 set et
 set sw=2
 set smarttab
