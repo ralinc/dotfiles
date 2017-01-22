@@ -50,3 +50,4 @@ set textwidth=0
 set numberwidth=5
 set wildmode=list:longest,list:full
 set diffopt+=vertical
+set gcr=n:blinkon0
