@@ -59,3 +59,5 @@ map <Leader>r :R<CR>
 map <Leader>ct :!ctags -R .<CR>
 map <Leader>so :source $MYVIMRC<CR>
 map <Leader>rn :Rename<Space>
+
+map <Leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>

@@ -31,5 +31,7 @@ Plug 'slim-template/vim-slim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'christoomey/vim-tmux-runner'
 Plug 'suan/vim-instant-markdown'
+Plug 'vim-scripts/indentpython.vim'
 Plug 'nvie/vim-flake8'
+Plug 'Valloric/YouCompleteMe'
 call plug#end()

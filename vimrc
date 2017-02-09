@@ -22,12 +22,22 @@ filetype plugin indent on
 colorscheme jellybeans
 runtime macros/matchit.vim
 
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
+
 let g:fzf_layout = { 'down': '~33%' }
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
 let g:NERDTreeWinSize = 50
 let g:NERDTreeMapOpenSplit = 'h'
 let g:NERDTreeMapOpenVSplit = 'v'
+let g:NERDTreeIgnore=['\.pyc$', '\~$']
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_loc_list_height = 5
@@ -58,3 +68,5 @@ let g:rspec_command = '!bundle exec rspec {spec}'
 " let g:rspec_command = "VtrSendCommandToRunner! bundle exec rspec {spec}"
 
 let python_highlight_all=1
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:flake8_show_quickfix=0
