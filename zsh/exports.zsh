@@ -1,1 +1,1 @@
-export PYSPARK_PYTHON=python3
+export PYSPARK_PYTHON=python
