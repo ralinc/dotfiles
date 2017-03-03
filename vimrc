@@ -70,3 +70,6 @@ let g:rspec_command = '!bundle exec rspec {spec}'
 let python_highlight_all=1
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:flake8_show_quickfix=0
+
+let g:reek_on_loading = 0
+let g:reek_line_limit = 1000
