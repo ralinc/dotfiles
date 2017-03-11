@@ -6,7 +6,8 @@
 [alias]
   lo = log --oneline --decorate
   lg = log --oneline --decorate --graph --all
-  glog = log -E -i --grep
+  gl = log -E -i --grep
+  ds = diff --cached
   unstage = reset
   uncommit = reset --soft HEAD^
 [core]
