@@ -32,7 +32,7 @@ set lazyredraw
 set nocompatible
 set scrolloff=8
 set sidescrolloff=16
-set colorcolumn=80
+set colorcolumn=100
 set tabstop=2
 set shiftwidth=2
 set shiftround
