@@ -34,4 +34,5 @@ Plug 'suan/vim-instant-markdown'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'nvie/vim-flake8'
 Plug 'rainerborene/vim-reek'
+Plug 'ntpeters/vim-better-whitespace'
 call plug#end()
