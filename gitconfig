@@ -8,6 +8,7 @@
   lg = log --oneline --decorate --graph --all
   gl = log -E -i --grep
   ds = diff --cached
+  sf = diff-tree --no-commit-id --name-only -r
   unstage = reset
   uncommit = reset --soft HEAD^
 [core]
