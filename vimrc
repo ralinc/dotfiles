@@ -63,9 +63,7 @@ highlight link SyntasticStyleWarningSign SignColumn
 
 let g:jsx_ext_required = 0
 
-let g:rspec_command = '!bundle exec rspec {spec}'
-" let g:rspec_command = "Dispatch bundle exec rspec {spec}"
-" let g:rspec_command = "VtrSendCommandToRunner! bundle exec rspec {spec}"
+let g:rspec_command = "Dispatch rspec {spec}"
 
 let python_highlight_all=1
 let g:ycm_autoclose_preview_window_after_completion=1
