@@ -1,0 +1,15 @@
+.Spotlight-V100
+.Trashes
+
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+tags
+gems.tags
+
+*.pyc
+
+venv
+node_modules
+.sass-cache
