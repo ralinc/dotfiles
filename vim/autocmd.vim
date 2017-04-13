@@ -1,7 +1,12 @@
 au VimResized * :wincmd =
 au BufReadCmd set nohlsearch
-au BufNewFile,BufRead *.html, *.css, *.js setlocal tabstop=2 | softtabstop=2 | shiftwidth=2
-au BufNewFile,BufRead *.md setlocal filetype=markdown
+au BufNewFile,BufRead *.html,*.css,*.js
+    \ setlocal tabstop=2     |
+    \ setlocal softtabstop=2 |
+    \ setlocal shiftwidth=2
+au BufNewFile,BufRead *.md
+    \ setlocal filetype=markdown |
+    \ setlocal textwidth=80
 au BufNewFile,BufRead *.py
     \ setlocal tabstop=4      |
     \ setlocal softtabstop=4  |
