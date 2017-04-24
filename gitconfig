@@ -9,6 +9,7 @@
   gl = log -E -i --grep
   ds = diff --cached
   sf = diff-tree --no-commit-id --name-only -r
+  mff = merge --ff-only
   mnff = merge --no-ff
   unstage = reset
   uncommit = reset --soft HEAD^
