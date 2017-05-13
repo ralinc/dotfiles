@@ -46,7 +46,6 @@ set novisualbell
 set noerrorbells
 set wildignore+=tmp/**
 set list listchars=tab:»·,trail:·,nbsp:·
-set textwidth=0
 set numberwidth=5
 set wildmode=list:longest,list:full
 set diffopt+=vertical
