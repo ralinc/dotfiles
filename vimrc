@@ -22,15 +22,6 @@ filetype plugin indent on
 colorscheme jellybeans
 runtime macros/matchit.vim
 
-py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
-
 let g:fzf_layout = { 'down': '~33%' }
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
