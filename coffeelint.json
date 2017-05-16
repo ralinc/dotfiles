@@ -1,0 +1,22 @@
+{
+  "arrow_spacing": {
+    "level": "error"
+  },
+  "eol_last": {
+    "level": "error"
+  },
+  "max_line_length": {
+    "value": 120,
+    "level": "error",
+    "limitComments": true
+  },
+  "no_empty_param_list": {
+    "level": "warn"
+  },
+  "no_unnecessary_double_quotes": {
+    "level": "error"
+  },
+  "space_operators": {
+    "level": "error"
+  }
+}
