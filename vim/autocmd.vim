@@ -1,5 +1,6 @@
 au VimResized * :wincmd =
 au BufReadCmd set nohlsearch
+au BufNewFile,BufRead *.slim setlocal filetype=slim
 au BufNewFile,BufRead *.html,*.css,*.js
     \ setlocal tabstop=2     |
     \ setlocal softtabstop=2 |
