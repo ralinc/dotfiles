@@ -39,7 +39,7 @@ map <Leader>i mmgg=G`m<CR>
 map <Leader>p :set paste<CR>
 map <Leader>n :set nopaste<CR>
 
-map <Leader>dr obinding.pry<ESC>:w<CR>
+map <Leader>dr odebugger<ESC>:w<CR>
 map <Leader>dj odebugger;<ESC>:w<CR>
 
 map <Leader>s :call RunNearestSpec()<CR>
