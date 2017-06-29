@@ -11,6 +11,8 @@
   sf = diff-tree --no-commit-id --name-only -r
   mff = merge --ff-only
   mnff = merge --no-ff
+  rhm = reset --hard origin/master
+  rhs = reset --hard origin/staging
   unstage = reset
   uncommit = reset --soft HEAD^
 [core]
