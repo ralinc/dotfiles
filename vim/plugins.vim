@@ -1,28 +1,34 @@
-call plug#begin('~/.vim/plugged')
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'danro/rename.vim'
-Plug 'ervandew/supertab'
-Plug 'mattn/emmet-vim'
-Plug 'mileszs/ack.vim'
-Plug 'mxw/vim-jsx'
-Plug 'nanotech/jellybeans.vim'
-Plug 'ngmy/vim-rubocop'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'nvie/vim-flake8'
-Plug 'pangloss/vim-javascript'
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
-Plug 'skwp/greplace.vim'
-Plug 'slim-template/vim-slim'
-Plug 'suan/vim-instant-markdown'
-Plug 'thoughtbot/vim-rspec'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-scripts/indentpython.vim'
-Plug 'vim-ruby/vim-ruby'
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
-call plug#end()
+packadd minpac
+
+call minpac#init()
+
+call minpac#add('christoomey/vim-tmux-navigator')
+call minpac#add('danro/rename.vim')
+call minpac#add('ervandew/supertab')
+call minpac#add('mattn/emmet-vim')
+call minpac#add('mileszs/ack.vim')
+call minpac#add('mxw/vim-jsx')
+call minpac#add('nanotech/jellybeans.vim')
+call minpac#add('ngmy/vim-rubocop')
+call minpac#add('ntpeters/vim-better-whitespace')
+call minpac#add('nvie/vim-flake8')
+call minpac#add('pangloss/vim-javascript')
+call minpac#add('scrooloose/nerdtree')
+call minpac#add('scrooloose/syntastic')
+call minpac#add('skwp/greplace.vim')
+call minpac#add('slim-template/vim-slim')
+call minpac#add('suan/vim-instant-markdown')
+call minpac#add('thoughtbot/vim-rspec')
+call minpac#add('tpope/vim-commentary')
+call minpac#add('tpope/vim-endwise')
+call minpac#add('tpope/vim-rails')
+call minpac#add('tpope/vim-repeat')
+call minpac#add('tpope/vim-surround')
+call minpac#add('vim-airline/vim-airline')
+call minpac#add('vim-scripts/indentpython.vim')
+call minpac#add('vim-ruby/vim-ruby')
+call minpac#add('junegunn/fzf.vim')
+set rtp+=/usr/local/opt/fzf
+
+command! PackUpdate call minpac#update()
+command! PackClean call minpac#clean()

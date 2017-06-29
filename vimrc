@@ -4,7 +4,7 @@
 " Author: Ralin Chimev [http://www.ralin.net]
 " Source: https://github.com/ralinc/dotfiles
 "
-" My .vimrc, mostly for ruby & javascript development.
+" My .vimrc, mostly for ruby, python & javascript development.
 "---------------------------------------------------------------------
 
 function! s:SourceConfigFiles()
