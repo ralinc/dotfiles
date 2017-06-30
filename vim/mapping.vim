@@ -35,10 +35,6 @@ map <Leader>[ [m
 
 map <Leader>i mmgg=G`m<CR>
 
-" map <Leader>p :set paste<CR><esc>"*]p:set nopaste<CR>
-map <Leader>p :set paste<CR>
-map <Leader>n :set nopaste<CR>
-
 map <Leader>dr odebugger<ESC>:w<CR>
 map <Leader>dj odebugger;<ESC>:w<CR>
 
@@ -61,3 +57,9 @@ map <Leader>so :source $MYVIMRC<CR>
 map <Leader>rn :Rename<Space>
 
 map <Leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+map <Leader>y "*y
+map <Leader>p "*p
+
+map <Leader>sp :set paste<CR>
+map <Leader>sn :set nopaste<CR>
