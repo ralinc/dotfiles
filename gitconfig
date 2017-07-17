@@ -4,17 +4,18 @@
 [color]
   ui = auto
 [alias]
-  lo = log --oneline --decorate
-  lg = log --oneline --decorate --graph --all
-  gl = log -E -i --grep
-  ds = diff --cached
-  sf = diff-tree --no-commit-id --name-only -r
+  sl = log --oneline --decorate
+  sla = log --oneline --decorate --graph --all
+  glog = log -E -i --grep
+  slog = log -S
+  flog = log --oneline --
   mff = merge --ff-only
   mnff = merge --no-ff
   rhm = reset --hard origin/master
   rhs = reset --hard origin/staging
   unstage = reset
   uncommit = reset --soft HEAD^
+  sf = diff-tree --no-commit-id --name-only -r
 [core]
   autocrlf = input
   excludesfile = ~/.gitignore
