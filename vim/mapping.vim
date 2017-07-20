@@ -34,7 +34,7 @@ map <Leader>0 <C-w>=
 map <Leader>] ]m
 map <Leader>[ [m
 
-map <Leader>i mmgg=G`m<CR>
+map <Leader>i mmgg=G`m
 
 map <Leader>dr odebugger<ESC>:w<CR>
 map <Leader>dj odebugger;<ESC>:w<CR>
