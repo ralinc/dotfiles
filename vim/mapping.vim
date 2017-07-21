@@ -63,4 +63,4 @@ map <Leader>y "*y
 map <Leader>p "*p
 
 map <Leader>sp :set paste<CR>
-map <Leader>sn :set nopaste<CR>
+map <Leader>up :set nopaste<CR>
