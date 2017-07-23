@@ -30,10 +30,10 @@ let g:NERDTreeMapOpenSplit = 'h'
 let g:NERDTreeMapOpenVSplit = 'v'
 let g:NERDTreeIgnore=['\.pyc$', '\~$']
 
-let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_loc_list_height = 5
+let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_ruby_checkers = ['rubocop']
@@ -43,6 +43,11 @@ let g:syntastic_scss_sass_quiet_messages = {
     \   'Undefined (mixin|variable)',
     \ ]}
 
+let g:jsx_ext_required = 0
+let g:rspec_command = "!bundle exec rspec {spec}"
+let g:ycm_autoclose_preview_window_after_completion=1
+let python_highlight_all=1
+
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -51,14 +56,3 @@ highlight link SyntasticErrorSign SignColumn
 highlight link SyntasticWarningSign SignColumn
 highlight link SyntasticStyleErrorSign SignColumn
 highlight link SyntasticStyleWarningSign SignColumn
-
-let g:jsx_ext_required = 0
-
-let g:rspec_command = "!bundle exec rspec {spec}"
-
-let python_highlight_all=1
-let g:ycm_autoclose_preview_window_after_completion=1
-let g:flake8_show_quickfix=0
-
-let g:reek_on_loading = 0
-let g:reek_line_limit = 1000

@@ -15,7 +15,6 @@ map <C-p> :FZF -m<CR>
 map <C-p>r :BTags<CR>
 map <C-p>h :History<CR>
 
-nmap <CR> o<Esc>
 imap hh <C-y>,
 
 let mapleader = "\<Space>"
@@ -36,8 +35,7 @@ map <Leader>[ [m
 
 map <Leader>i mmgg=G`m
 
-map <Leader>dr odebugger<ESC>:w<CR>
-map <Leader>dj odebugger;<ESC>:w<CR>
+map <Leader>d odebugger<ESC>:w<CR>
 
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>sf :call RunCurrentSpecFile()<CR>
@@ -57,10 +55,7 @@ map <Leader>ct :!ctags -R .<CR>
 map <Leader>so :source $MYVIMRC<CR>
 map <Leader>rn :Rename<Space>
 
-map <Leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
 map <Leader>y "*y
 map <Leader>p "*p
-
 map <Leader>sp :set paste<CR>
 map <Leader>up :set nopaste<CR>

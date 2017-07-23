@@ -31,4 +31,3 @@ au FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 au FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 au BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 au BufEnter * EnableStripWhitespaceOnSave
-au BufWritePost *.py call Flake8()
