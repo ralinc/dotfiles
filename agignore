@@ -1,4 +1,12 @@
 log
-tags
+vendor
 tmp
-.git/
+doc
+coverage
+public/assets
+*.sql
+/.git/
+*.svg
+public/fonts
+tags
+out
