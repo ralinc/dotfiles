@@ -36,6 +36,9 @@ map <Leader>zv <C-w>\|
 map <Leader>zs <C-w>_
 map <Leader>0 <C-w>=
 
+map <Leader>qo :copen<cr>
+map <Leader>qc :ccl<cr>
+
 map <Leader>] ]m
 map <Leader>[ [m
 
