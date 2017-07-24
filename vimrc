@@ -17,12 +17,14 @@ endfunction
 
 call s:SourceConfigFiles()
 
-syntax on
-filetype plugin indent on
 colorscheme jellybeans
+
+filetype plugin indent on
+syntax on
+
 runtime macros/matchit.vim
 
-let g:fzf_layout = { 'down': '~33%' }
+let g:fzf_layout = {'down': '~33%'}
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
 let g:NERDTreeWinSize = 50
@@ -44,7 +46,7 @@ let g:syntastic_scss_sass_quiet_messages = {
     \ ]}
 
 let g:jsx_ext_required = 0
-let g:rspec_command = "!bundle exec rspec {spec}"
+let g:rspec_command = "!clear && bundle exec rspec {spec}"
 let g:ycm_autoclose_preview_window_after_completion=1
 let python_highlight_all=1
 
