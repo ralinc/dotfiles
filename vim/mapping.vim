@@ -55,18 +55,12 @@ map <Leader>h :noh<CR>
 
 map <Leader>a :A<CR>
 map <Leader>r :R<CR>
-map <Leader>m :Emodel<space>
 map <Leader>vm :Vmodel<cr>
 map <Leader>vc :Vcontroller<cr>
 map <Leader>vv :Vview<cr>
-map <Leader>vd :vnew db/schema.rb<cr>
+map <Leader>vs :vnew db/schema.rb<cr>
 
 map <Leader>ct :!ctags -R .<CR>
-
 map <Leader>rn :Rename<Space>
-
 map <Leader>vi :tabe ~/.vimrc<CR>
 map <Leader>so :source $MYVIMRC<CR>
-
-map <Leader>y "*y
-map <Leader>p :set paste<CR><esc>"*]p:set nopaste<cr>

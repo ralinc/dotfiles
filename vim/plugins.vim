@@ -2,6 +2,9 @@ packadd minpac
 
 call minpac#init()
 
+" call minpac#add('vim-airline/vim-airline')
+call minpac#add('christoomey/vim-sort-motion')
+call minpac#add('christoomey/vim-system-copy')
 call minpac#add('christoomey/vim-tmux-navigator')
 call minpac#add('danro/rename.vim')
 call minpac#add('ervandew/supertab')
@@ -27,7 +30,6 @@ call minpac#add('tpope/vim-rails')
 call minpac#add('tpope/vim-repeat')
 call minpac#add('tpope/vim-sleuth')
 call minpac#add('tpope/vim-surround')
-call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-ruby/vim-ruby')
 set rtp+=/usr/local/opt/fzf
 
