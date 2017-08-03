@@ -46,9 +46,13 @@ let g:syntastic_scss_sass_quiet_messages = {
     \ ]}
 
 let g:jsx_ext_required = 0
+
 let g:rspec_command = "!clear && bundle exec rspec {spec}"
-let g:ycm_autoclose_preview_window_after_completion=1
+
 let python_highlight_all=1
+
+let g:terraform_align=1
+let g:terraform_fmt_on_save=1
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
