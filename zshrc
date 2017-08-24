@@ -1,5 +1,3 @@
-export LANG=en_US.UTF-8
-
 BASE="$HOME/.zsh"
 ZSH_THEME=""
 
