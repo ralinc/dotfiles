@@ -63,6 +63,7 @@ map <Leader>vm :Vmodel
 map <Leader>vv :Vview
 map <Leader>vs :Vnew db/schema.rb<cr>
 map <Leader>vq :Vnew db/structure.sql<cr>
+map <Leader>bo :Btabedit<space>
 
 nmap <Leader>op obinding.pry<esc>:w<cr>
 nmap <Leader>od odebugger;<esc>:w<cr>
