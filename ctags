@@ -1,6 +1,7 @@
 --recurse=yes
+--exclude=.bundle
 --exclude=.git
---exclude=vendor/*
---exclude=node_modules/*
 --exclude=db/*
 --exclude=log/*
+--exclude=node_modules/*
+--exclude=vendor/*
