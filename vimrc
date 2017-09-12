@@ -47,7 +47,8 @@ let g:syntastic_scss_sass_quiet_messages = {
 
 let g:jsx_ext_required = 0
 
-let g:rspec_command = "!clear && bundle exec rspec {spec}"
+" let g:rspec_command = "!clear && bundle exec rspec {spec}"
+let g:rspec_command = "VtrSendCommandToRunner! bundle exec rspec {spec}"
 
 let python_highlight_all=1
 

@@ -45,6 +45,8 @@ map <Leader>sp :call RunNearestSpec()<cr>
 map <Leader>sf :call RunCurrentSpecFile()<cr>
 map <Leader>sl :call RunLastSpec()<cr>
 map <Leader>sa :call RunAllSpecs()<cr>
+map <leader>sz :VtrFocusRunner<cr>
+map <leader>sc :VtrKillRunner<cr>
 
 map <Leader>f :Ack!<space>
 map <Leader>fw *<C-O>:AckFromSearch!<cr>
