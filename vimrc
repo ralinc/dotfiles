@@ -55,6 +55,8 @@ let python_highlight_all=1
 let g:terraform_align=1
 let g:terraform_fmt_on_save=1
 
+let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
+
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
