@@ -1,15 +1,50 @@
 AllCops:
-  TargetRubyVersion: 2.3.1
+  TargetRubyVersion: 2.4
 
 Lint/DefEndAlignment:
-  AlignWith: start_of_line
+  EnforcedStyleAlignWith: start_of_line
 
 Metrics/LineLength:
-  Max: 100
+  Max: 128
   AllowURI: true
 
 Metrics/AbcSize:
-  Max: 50
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Rails:
+  Enabled: true
+
+Rails/ActionFilter:
+  EnforcedStyle: action
+
+Rails/DynamicFindBy:
+  Enabled: false
+
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
+Rails/Output:
+  Include:
+    - app/**/*.rb
+    - config/**/*.rb
+
+Rails/OutputSafety:
+  Enabled: false
+
+Rails/RequestReferer:
+  EnforcedStyle: referrer
+
+Rails/SafeNavigation:
+  ConvertTry: true
+
+Rails/SkipsModelValidations:
+  Enabled: false
 
 Style/AsciiComments:
   Enabled: false
@@ -19,6 +54,9 @@ Style/Documentation:
 
 Style/DotPosition:
   EnforcedStyle: trailing
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
 
 Style/MutableConstant:
   Enabled: false
@@ -48,8 +86,9 @@ Style/MultilineOperationIndentation:
 Style/MultilineMethodCallIndentation:
   EnforcedStyle: indented
 
-Style/DoubleNegation:
-  Enabled: false
+Style/MultilineAssignmentLayout:
+  Enabled: true
+  EnforcedStyle: new_line
 
 Style/FrozenStringLiteralComment:
   Enabled: false
@@ -60,6 +99,15 @@ Style/SingleLineBlockParams:
 Style/SignalException:
   EnforcedStyle: only_raise
 
+Style/SpaceInLambdaLiteral:
+  EnforcedStyle: require_space
+
+Style/LambdaCall:
+  EnforcedStyle: braces
+
+Metrics/BlockLength:
+  Enabled: false
+
 Metrics/MethodLength:
   Max: 20
 
@@ -69,14 +117,11 @@ Metrics/ClassLength:
 Metrics/ModuleLength:
   Max: 100
 
-Metrics/ParameterLists:
-  CountKeywordArgs: true
-
 Style/ClosingParenthesisIndentation:
   Enabled: true
 
 Style/SymbolArray:
   Enabled: true
 
-Style/NumericLiterals:
-  Enabled: false
+Style/BracesAroundHashParameters:
+  EnforcedStyle: context_dependent
