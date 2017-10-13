@@ -61,12 +61,12 @@ map <Leader>ec :Econtroller
 map <Leader>em :Emodel
 map <Leader>ev :Eview
 map <Leader>eg :Emigration<cr>
+map <Leader>es :Eschema<cr>
 map <Leader>vc :Vcontroller
 map <Leader>vm :Vmodel
 map <Leader>vv :Vview
 map <Leader>vr :Vinit<cr>
-map <Leader>vs :Vnew db/schema.rb<cr>
-map <Leader>vq :Vnew db/structure.sql<cr>
+map <Leader>vs :Vschema<cr>
 map <Leader>bo :Btabedit<space>
 
 nmap <Leader>op obinding.pry<esc>:w<cr>
