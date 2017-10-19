@@ -26,7 +26,7 @@ map <Leader>i mmgg=G`m
 
 map <Leader>t :tabe<Space>
 map <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<cr>
-map <Leader>s :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<cr>
+map <Leader>h :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<cr>
 map <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<cr>
 
 map <Leader>zv <C-w>\|
@@ -53,7 +53,7 @@ map <Leader>f :Ack!<space>
 map <Leader>fw *<C-O>:AckFromSearch!<cr>
 
 map <Leader>x :%s/
-map <Leader>h :noh<cr>
+map <Leader>nh :noh<cr>
 
 map <Leader>a :A<cr>
 map <Leader>r :R<cr>
