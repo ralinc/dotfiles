@@ -53,7 +53,7 @@ map <Leader>f :Ack!<space>
 map <Leader>fw *<C-O>:AckFromSearch!<cr>
 
 map <Leader>x :%s/
-map <Leader>nh :noh<cr>
+map <Leader>n :noh<cr>
 
 map <Leader>a :A<cr>
 map <Leader>r :R<cr>
