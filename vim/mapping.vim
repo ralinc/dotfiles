@@ -38,6 +38,7 @@ map <Leader>qc :ccl<cr>
 
 map <Leader>b :Gblame<cr>
 map <Leader>d :Gdiff<cr>
+map <Leader>ga :Gw<cr>
 
 map <Leader>] ]m
 map <Leader>[ [m
