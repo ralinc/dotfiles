@@ -3,6 +3,7 @@ filetype plugin on
 syntax on
 
 
+set autoindent
 set autoread
 set autowrite
 set encoding=utf-8 nobomb
@@ -36,11 +37,13 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-h> <C-w>h
 map <C-l> <C-w>l
+map <C-p> :FZF -m<cr>
 
 let mapleader = "\<Space>"
 
 nmap <Leader>q :q<cr>
 nmap <Leader>w :w<cr>
+nmap <Leader>f :Ack!<space>
 nmap <Leader>so :source $MYVIMRC<cr>
 nmap <Leader>todo :e ~/Documents/daily.md<cr>
 nmap <Leader>pj :%!python -m json.tool<cr>
@@ -53,8 +56,12 @@ packadd minpac
 call minpac#init()
 
 call minpac#add('christoomey/vim-system-copy')
+call minpac#add('junegunn/fzf.vim')
+call minpac#add('mileszs/ack.vim')
 call minpac#add('nanotech/jellybeans.vim')
 call minpac#add('vim-airline/vim-airline')
+
+set rtp+=/usr/local/opt/fzf
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()

@@ -3,17 +3,11 @@ set autoindent
 set autoread
 set autowrite
 set backspace=indent,eol,start
-set colorcolumn=100
 set diffopt+=vertical
 set encoding=utf-8 nobomb
 set expandtab
-set gcr=n:blinkon0
 set gdefault
 set grepprg=ag\ --nogroup\ --nocolor
-set guioptions-=m
-set guioptions-=T
-set guioptions-=L
-set guioptions-=r
 set ignorecase
 set incsearch
 set history=500
@@ -24,7 +18,6 @@ set list listchars=tab:»·,trail:·,nbsp:·
 set nobackup
 set nocompatible
 set nofoldenable
-set noincsearch
 set noswapfile
 set nowrap
 set nowritebackup
@@ -32,23 +25,19 @@ set number
 set numberwidth=5
 set relativenumber
 set ruler
-set scrolloff=8
+set scrolloff=10
 set secure
-set sidescrolloff=16
-set shiftround
+set sidescrolloff=20
 set shiftwidth=2
-set showcmd
-set showmatch
 set smartcase
 set smarttab
 set splitbelow
 set splitright
 set tabstop=2
 set timeoutlen=500
-set viminfo+=!
 set wildmenu
 set wildmode=list:longest,list:full
 set wmh=0
 set novisualbell
 set noerrorbells
-set wildignore+=tmp/**
+set wildignore+=tmp/**,log/**

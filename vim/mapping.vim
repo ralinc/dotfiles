@@ -20,55 +20,55 @@ imap hh <C-y>,
 
 let mapleader = "\<Space>"
 
-map <Leader>q :q<cr>
-map <Leader>w :w<cr>
-map <Leader>i mmgg=G`m
+nmap <Leader>q :q<cr>
+nmap <Leader>w :w<cr>
+nmap <Leader>i mmgg=G`m
 
-map <Leader>t :tabe<Space>
-map <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<cr>
-map <Leader>h :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<cr>
-map <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<cr>
+nmap <Leader>t :tabe<Space>
+nmap <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<cr>
+nmap <Leader>h :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<cr>
+nmap <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<cr>
 
-map <Leader>zv <C-w>\|
-map <Leader>zh <C-w>_
-map <Leader>z0 <C-w>=
+nmap <Leader>zv <C-w>\|
+nmap <Leader>zh <C-w>_
+nmap <Leader>z0 <C-w>=
 
-map <Leader>qo :copen<cr>
-map <Leader>qc :ccl<cr>
+nmap <Leader>qo :copen<cr>
+nmap <Leader>qc :ccl<cr>
 
-map <Leader>b :Gblame<cr>
-map <Leader>d :Gdiff<cr>
-map <Leader>ga :Gw<cr>
+nmap <Leader>b :Gblame<cr>
+nmap <Leader>d :Gdiff<cr>
+nmap <Leader>ga :Gw<cr>
 
-map <Leader>] ]m
-map <Leader>[ [m
+nmap <Leader>] ]m
+nmap <Leader>[ [m
 
-map <Leader>sp :call RunNearestSpec()<cr>
-map <Leader>sf :call RunCurrentSpecFile()<cr>
-map <Leader>sl :call RunLastSpec()<cr>
-map <Leader>sa :call RunAllSpecs()<cr>
-map <leader>sz :VtrFocusRunner<cr>
-map <leader>sc :VtrKillRunner<cr>
+nmap <Leader>sp :call RunNearestSpec()<cr>
+nmap <Leader>sf :call RunCurrentSpecFile()<cr>
+nmap <Leader>sl :call RunLastSpec()<cr>
+nmap <Leader>sa :call RunAllSpecs()<cr>
+nmap <leader>sz :VtrFocusRunner<cr>
+nmap <leader>sc :VtrKillRunner<cr>
 
-map <Leader>f :Ack!<space>
-map <Leader>fw *<C-O>:AckFromSearch!<cr>
+nmap <Leader>f :Ack!<space>
+nmap <Leader>fw *<C-O>:AckFromSearch!<cr>
 
-map <Leader>x :%s/
-map <Leader>n :noh<cr>
+nmap <Leader>x :%s/
+nmap <Leader>n :noh<cr>
 
-map <Leader>a :A<cr>
-map <Leader>r :R<cr>
-map <Leader>ec :Econtroller
-map <Leader>em :Emodel
-map <Leader>ev :Eview
-map <Leader>eg :Emigration<cr>
-map <Leader>es :Eschema<cr>
-map <Leader>vc :Vcontroller
-map <Leader>vm :Vmodel
-map <Leader>vv :Vview
-map <Leader>vr :Vinit<cr>
-map <Leader>vs :Vschema<cr>
-map <Leader>bo :Btabedit<space>
+nmap <Leader>a :A<cr>
+nmap <Leader>r :R<cr>
+nmap <Leader>ec :Econtroller
+nmap <Leader>em :Emodel
+nmap <Leader>ev :Eview
+nmap <Leader>eg :Emigration<cr>
+nmap <Leader>es :Eschema<cr>
+nmap <Leader>vc :Vcontroller
+nmap <Leader>vm :Vmodel
+nmap <Leader>vv :Vview
+nmap <Leader>vr :Vinit<cr>
+nmap <Leader>vs :Vschema<cr>
+nmap <Leader>bo :Btabedit<space>
 
 nmap <Leader>op obinding.pry<esc>:w<cr>
 nmap <Leader>od odebugger;<esc>:w<cr>
