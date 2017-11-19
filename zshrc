@@ -19,3 +19,5 @@ eval "$(rbenv init -)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 eval "$(hub alias -s)"
+
+source ~/.zshrc.local
