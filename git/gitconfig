@@ -10,7 +10,9 @@
 [alias]
   cm = !git fetch && git checkout master && git reset --hard origin/master && git checkout -
   cs = !git fetch && git checkout staging && git reset --hard origin/staging
-  files = diff-tree --no-commit-id --name-only -r
+  fix = commit --fixup
+  rim = rebase -i master
+  file = diff-tree --no-commit-id --name-only -r
   flog = log --oneline --
   glog = log -E -i --grep
   slog = log -S
