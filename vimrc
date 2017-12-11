@@ -22,6 +22,8 @@ syntax on
 
 runtime macros/matchit.vim
 
+let g:airline#extensions#default#layout = [['c', 'x' ], ['z', 'error', 'warning']]
+
 let g:fzf_layout = {'down': '~33%'}
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
