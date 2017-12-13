@@ -32,6 +32,7 @@ call minpac#add('tpope/vim-rails')
 call minpac#add('tpope/vim-repeat')
 call minpac#add('tpope/vim-sleuth')
 call minpac#add('tpope/vim-surround')
+call minpac#add('tpope/vim-unimpaired')
 call minpac#add('vim-airline/vim-airline')
 
 set rtp+=/usr/local/opt/fzf
