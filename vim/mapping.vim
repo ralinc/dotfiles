@@ -78,6 +78,6 @@ nmap <Leader>ct :!ctags -R .<cr>
 nmap <Leader>so :source $MYVIMRC<cr>
 nmap <Leader>todo :e ~/Documents/daily.md<cr>
 nmap <Leader>pj :%!python -m json.tool<cr>
-
 nmap <Leader>pp :set paste<cr>
 nmap <Leader>nn :set nopaste<cr>
+nmap <Leader>md :!mkdir -p %:h<cr>
