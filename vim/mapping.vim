@@ -62,6 +62,7 @@ nmap <Leader>ec :Econtroller
 nmap <Leader>em :Emodel
 nmap <Leader>ev :Eview
 nmap <Leader>eg :Emigration<cr>
+nmap <Leader>er :Einitializer<cr>
 nmap <Leader>es :Eschema<cr>
 nmap <Leader>vc :Vcontroller
 nmap <Leader>vm :Vmodel
