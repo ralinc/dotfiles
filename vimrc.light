@@ -44,7 +44,6 @@ let mapleader = "\<Space>"
 nmap <Leader>q :q<cr>
 nmap <Leader>w :w<cr>
 nmap <Leader>f :Ack!<space>
-nmap <Leader>so :source $MYVIMRC<cr>
 nmap <Leader>todo :e ~/Documents/daily.md<cr>
 nmap <Leader>pj :%!python -m json.tool<cr>
 nmap <Leader>pp :set paste<cr>
