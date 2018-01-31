@@ -1,7 +1,6 @@
-filetype plugin on
-
 syntax on
-
+filetype plugin on
+runtime macros/matchit.vim
 
 set autoindent
 set autoread
@@ -28,7 +27,6 @@ set tabstop=2
 set novisualbell
 set noerrorbells
 
-
 imap jk <esc>
 nmap j gj
 nmap k gk
@@ -37,32 +35,10 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-h> <C-w>h
 map <C-l> <C-w>l
-map <C-p> :FZF -m<cr>
 
 let mapleader = "\<Space>"
 
 nmap <Leader>q :q<cr>
 nmap <Leader>w :w<cr>
-nmap <Leader>f :Ack!<space>
-nmap <Leader>todo :e ~/Documents/daily.md<cr>
-nmap <Leader>pj :%!python -m json.tool<cr>
 nmap <Leader>pp :set paste<cr>
 nmap <Leader>nn :set nopaste<cr>
-
-
-packadd minpac
-
-call minpac#init()
-
-call minpac#add('christoomey/vim-system-copy')
-call minpac#add('junegunn/fzf.vim')
-call minpac#add('mileszs/ack.vim')
-call minpac#add('nanotech/jellybeans.vim')
-call minpac#add('vim-airline/vim-airline')
-
-set rtp+=/usr/local/opt/fzf
-
-command! PackUpdate call minpac#update()
-command! PackClean call minpac#clean()
-
-colorscheme jellybeans
