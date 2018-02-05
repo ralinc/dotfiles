@@ -2,7 +2,6 @@ imap jk <esc>
 nmap j gj
 nmap k gk
 nmap 0 ^
-nmap gb <C-^>
 
 map <C-j> <C-w>j
 map <C-k> <C-w>k
@@ -24,10 +23,10 @@ nmap <Leader>q :q<cr>
 nmap <Leader>w :w<cr>
 nmap <Leader>i mmgg=G`m
 
-nmap <Leader>t :tabe<Space>
 nmap <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<cr>
-nmap <Leader>h :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<cr>
 nmap <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<cr>
+nmap <Leader>h :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<cr>
+nmap <Leader>t :tabe<cr>
 
 nmap <Leader>zv <C-w>\|
 nmap <Leader>zh <C-w>_
@@ -38,7 +37,6 @@ nmap <Leader>qc :ccl<cr>
 
 nmap <Leader>b :Gblame<cr>
 nmap <Leader>d :Gdiff<cr>
-nmap <Leader>ga :Gw<cr>
 
 nmap <Leader>] ]m
 nmap <Leader>[ [m
@@ -77,7 +75,6 @@ nmap <Leader>od odebugger;<esc>:w<cr>
 nmap <Leader>rn :Rename<Space>
 nmap <Leader>ct :!ctags -R .<cr>
 nmap <Leader>so :source $MYVIMRC<cr>
-nmap <Leader>todo :e ~/Documents/daily.md<cr>
 nmap <Leader>pj :%!python -m json.tool<cr>
 nmap <Leader>pp :set paste<cr>
 nmap <Leader>nn :set nopaste<cr>
