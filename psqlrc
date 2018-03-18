@@ -1,9 +1,18 @@
-\pset null '[NULL]'
-
-\set PROMPT1 '%[%033[1m%]%M %n@%/%R%[%033[0m%]%# '
-\set PROMPT2 '[more] %R > '
-
+\set PROMPT1 '%~%x%# '
 \x auto
-\set HISTFILE ~/.psql_history- :DBNAME
-\set HISTCONTROL ignoredups
-\set COMP_KEYWORD_CASE upper
+\set ON_ERROR_STOP on
+\set ON_ERROR_ROLLBACK interactive
+
+\set HISTFILE ~/.psql_history-:DBNAME
+\set VERBOSITY verbose
+
+\pset null '[NULL]'
+\pset linestyle 'unicode'
+\pset unicode_border_linestyle single
+\pset unicode_column_linestyle single
+\pset unicode_header_linestyle double
+
+set intervalstyle to 'postgres_verbose';
+
+\setenv LESS '-iMFXSx4R'
+\setenv EDITOR 'vim'
