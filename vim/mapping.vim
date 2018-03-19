@@ -76,6 +76,8 @@ nmap <Leader>rn :Rename<Space>
 nmap <Leader>ct :!ctags -R .<cr>
 nmap <Leader>so :source $MYVIMRC<cr>
 nmap <Leader>pj :%!python -m json.tool<cr>
+nmap <Leader>md :!mkdir -p %:h<cr>
+
+set pastetoggle=<F2>
 nmap <Leader>pp :set paste<cr>
 nmap <Leader>nn :set nopaste<cr>
-nmap <Leader>md :!mkdir -p %:h<cr>
