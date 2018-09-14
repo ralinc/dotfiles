@@ -3,15 +3,12 @@
   name = Ralin Chimev
 [github]
   user = ralinc
-[init]
-  templatedir = ~/.git_template
 [color]
   ui = auto
 [alias]
   cm = !git fetch && git checkout master && git reset --hard origin/master && git checkout -
   cs = !git fetch && git checkout staging && git reset --hard origin/staging
   fix = commit --fixup
-  rim = rebase -i master
   file = diff-tree --no-commit-id --name-only -r
   flog = log --oneline --
   glog = log -E -i --grep
@@ -19,8 +16,6 @@
   mffo = merge --ff-only
   mnff = merge --no-ff
   ms = merge --squash
-  pr = !hub pull-request
-  ru = !git reset --hard $(git upstream)
   sl = log --oneline --decorate
   sla = log --oneline --decorate --graph --all
   unstage = reset
