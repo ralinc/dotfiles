@@ -1,9 +1,7 @@
-"===========================================================================
+"===============================================
 " Author: Ralin Chimev [http://www.ralin.net]
 " Source: https://github.com/ralinc/dotfiles
-"
-" My .vimrc, mostly for ruby & javascript development.
-"---------------------------------------------------------------------
+"-----------------------------------------------
 
 function! s:SourceConfigFiles()
   for config_file in split(glob('~/.vim/*.vim'), '\n')
@@ -41,12 +39,10 @@ let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_sass_checkers=["sasslint"]
 let g:syntastic_scss_checkers=["sasslint"]
-
 let g:syntastic_eruby_ruby_quiet_messages = {'regex': 'possibly useless use of a variable in void context'}
 
 let g:jsx_ext_required = 0
 
-" let g:rspec_command = "!clear && bundle exec rspec {spec}"
 let g:rspec_command = "VtrSendCommandToRunner! bundle exec rspec {spec}"
 
 let python_highlight_all=1
