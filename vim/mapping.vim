@@ -35,8 +35,9 @@ nmap <Leader>z0 <C-w>=
 nmap <Leader>qo :copen<cr>
 nmap <Leader>qc :ccl<cr>
 
-nmap <Leader>b :Gblame<cr>
-nmap <Leader>d :Gdiff<cr>
+nmap <Leader>gb :Gblame<cr>
+nmap <Leader>gd :Gdiff<cr>
+nmap <Leader>gc :Gread<cr>
 
 nmap <Leader>] ]m
 nmap <Leader>[ [m
