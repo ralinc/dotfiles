@@ -50,6 +50,7 @@ nmap <leader>sz :VtrFocusRunner<cr>
 nmap <leader>sc :VtrKillRunner<cr>
 
 nmap <Leader>f :Ack!<space>
+nmap <Leader>fe :Ack! -w<space>
 nmap <Leader>fw *<C-O>:AckFromSearch!<cr>
 
 nmap <Leader>x :%s/
