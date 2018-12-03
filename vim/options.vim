@@ -17,13 +17,16 @@ set lazyredraw
 set list listchars=tab:»·,trail:·,nbsp:·
 set nobackup
 set nocompatible
+set nocursorline
 set nofoldenable
 set noswapfile
 set nowrap
 set nowritebackup
 set number
 set numberwidth=5
+set re=1
 set relativenumber
+set rnu
 set ruler
 set scrolloff=10
 set secure
@@ -35,6 +38,7 @@ set splitbelow
 set splitright
 set tabstop=2
 set timeoutlen=500
+set ttyfast
 set wildmenu
 set wildmode=list:longest,list:full
 set wmh=0
