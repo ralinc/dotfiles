@@ -58,15 +58,15 @@ nmap <Leader>n :noh<cr>
 
 nmap <Leader>a :A<cr>
 nmap <Leader>r :R<cr>
-nmap <Leader>ec :Econtroller
-nmap <Leader>em :Emodel
-nmap <Leader>ev :Eview
+nmap <Leader>ec :Econtroller<space>
+nmap <Leader>em :Emodel<space>
+nmap <Leader>ev :Eview<space>
 nmap <Leader>eg :Emigration<cr>
 nmap <Leader>er :Einitializer<cr>
 nmap <Leader>es :Eschema<cr>
-nmap <Leader>vc :Vcontroller
-nmap <Leader>vm :Vmodel
-nmap <Leader>vv :Vview
+nmap <Leader>vc :Vcontroller<space>
+nmap <Leader>vm :Vmodel<space>
+nmap <Leader>vv :Vview<space>
 nmap <Leader>vr :Vinit<cr>
 nmap <Leader>vs :Vschema<cr>
 nmap <Leader>bo :Btabedit<space>
