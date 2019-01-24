@@ -25,6 +25,9 @@ let g:airline#extensions#default#layout = [['c', 'x' ], ['z', 'error', 'warning'
 let g:fzf_layout = {'down': '~33%'}
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
+set grepprg=ag
+let g:grep_cmd_opts = '--line-numbers --noheading'
+
 let g:NERDTreeWinSize = 50
 let g:NERDTreeMapOpenSplit = 'h'
 let g:NERDTreeMapOpenVSplit = 'v'
