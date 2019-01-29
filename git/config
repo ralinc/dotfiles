@@ -10,9 +10,10 @@
   cs = !git fetch && git checkout staging && git reset --hard origin/staging
   fix = commit --fixup
   file = diff-tree --no-commit-id --name-only -r
-  flog = log --oneline --
-  glog = log -E -i --grep
-  slog = log -S
+  mlog = log -E -i --grep
+  clog = log -S
+  plog = log --pretty=format:'%C(yellow)%h%C(reset) - %an [%C(green)%ar%C(reset)] %s'
+  flog = log --pretty=format:'%C(yellow)%h%C(reset) - %an [%C(green)%ar%C(reset)] %s' --
   mffo = merge --ff-only
   mnff = merge --no-ff
   ms = merge --squash
