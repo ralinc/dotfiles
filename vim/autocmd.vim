@@ -32,4 +32,3 @@ au FileType markdown setlocal nolist wrap lbr
 au Filetype gitcommit setlocal spell textwidth=72
 
 au BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-au BufEnter * EnableStripWhitespaceOnSave

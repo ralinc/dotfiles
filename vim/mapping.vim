@@ -83,3 +83,5 @@ nmap <Leader>md :!mkdir -p %:h<cr>
 set pastetoggle=<F2>
 nmap <Leader>pp :set paste<cr>
 nmap <Leader>nn :set nopaste<cr>
+
+nmap <Leader>sw :StripWhitespace<cr>
