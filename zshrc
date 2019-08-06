@@ -15,9 +15,11 @@ export NVM_DIR="$HOME/.nvm"
 export FZF_DEFAULT_COMMAND='ag -g ""'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
 eval "$(rbenv init -)"
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 source ~/.bin/tmuxinator.zsh
 source ~/.zshrc.local
