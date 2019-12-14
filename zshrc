@@ -21,5 +21,4 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(rbenv init -)"
 eval "$(pyenv init -)"
 
-source ~/.bin/tmuxinator.zsh
 source ~/.zshrc.local
