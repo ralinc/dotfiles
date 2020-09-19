@@ -30,6 +30,7 @@ au FileType ruby,eruby,yaml setlocal path+=lib
 au FileType ruby,eruby,yaml setlocal colorcolumn=80
 au FileType ruby,eruby,yaml setlocal iskeyword+=?
 au FileType python setlocal ai et si sw=4 sts=4
+au FileType python nnoremap <leader>y :0,$!yapf<Cr>
 au FileType markdown setlocal spell nolist wrap lbr textwidth=80
 au Filetype gitcommit setlocal spell textwidth=72
 
