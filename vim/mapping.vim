@@ -46,8 +46,10 @@ nmap <Leader>sp :call RunNearestSpec()<cr>
 nmap <Leader>sf :call RunCurrentSpecFile()<cr>
 nmap <Leader>sl :call RunLastSpec()<cr>
 nmap <Leader>sa :call RunAllSpecs()<cr>
-nmap <leader>sz :VtrFocusRunner<cr>
-nmap <leader>sc :VtrKillRunner<cr>
+
+nmap <leader>to :VtrOpenRunner<cr>
+nmap <leader>tc :VtrKillRunner<cr>
+nmap <leader>tz :VtrFocusRunner<cr>
 
 nmap <Leader>f :Ack!<space>
 nmap <Leader>fe :Ack! -w<space>
@@ -86,4 +88,4 @@ nmap <Leader>nn :set nopaste<cr>
 
 nmap <Leader>sw :StripWhitespace<cr>
 
-nmap <Leader>pr :!clear;python %<CR>
+nmap <Leader>pr :exec "VtrSendCommand! python " . expand('%')<cr>

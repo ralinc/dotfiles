@@ -50,6 +50,10 @@ let g:rspec_command = "VtrSendCommandToRunner! bundle exec rspec {spec}"
 
 let python_highlight_all=1
 
+let g:VtrStripLeadingWhitespace = 0
+let g:VtrClearEmptyLines = 0
+let g:VtrAppendNewline = 1
+
 let g:terraform_align=1
 let g:terraform_fmt_on_save=1
 
