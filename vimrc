@@ -61,6 +61,8 @@ let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
 let g:go_fmt_command = "goimports"
 
+let g:pymode_options_max_line_length = 120
+
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
