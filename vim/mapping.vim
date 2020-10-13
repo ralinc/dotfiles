@@ -26,7 +26,7 @@ nmap <Leader>i mmgg=G`m
 nmap <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<cr>
 nmap <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<cr>
 nmap <Leader>h :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<cr>
-nmap <Leader>t :tabe<cr>
+nmap <Leader>te :tabe<cr>
 
 nmap <Leader>zv <C-w>\|
 nmap <Leader>zh <C-w>_
@@ -48,8 +48,8 @@ nmap <Leader>sl :call RunLastSpec()<cr>
 nmap <Leader>sa :call RunAllSpecs()<cr>
 
 nmap <leader>to :VtrOpenRunner<cr>
-nmap <leader>tc :VtrKillRunner<cr>
-nmap <leader>tz :VtrFocusRunner<cr>
+nmap <leader>tk :VtrKillRunner<cr>
+nmap <leader>tf :VtrFocusRunner<cr>
 
 nmap <Leader>f :Ack!<space>
 nmap <Leader>fe :Ack! -w<space>
