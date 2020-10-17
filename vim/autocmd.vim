@@ -29,9 +29,14 @@ au FileType ruby,eruby,yaml setlocal ai et sw=2 sts=2
 au FileType ruby,eruby,yaml setlocal path+=lib
 au FileType ruby,eruby,yaml setlocal colorcolumn=80
 au FileType ruby,eruby,yaml setlocal iskeyword+=?
+
+au BufRead,BufNewFile *.py let python_highlight_all=1
 au FileType python setlocal ai et si sw=4 sts=4
 au FileType python nnoremap <leader>y :0,$!yapf --style='{column_limit: 120}'<cr>
+au FileType python nnoremap <leader>b :Black<cr>
+
 au FileType markdown setlocal spell nolist wrap lbr textwidth=80
+
 au Filetype gitcommit setlocal spell textwidth=72
 
 au BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

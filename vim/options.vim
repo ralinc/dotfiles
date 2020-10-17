@@ -31,6 +31,7 @@ set ruler
 set scrolloff=10
 set secure
 set sidescrolloff=20
+set shell=/bin/zsh
 set shiftwidth=2
 set smartcase
 set smarttab

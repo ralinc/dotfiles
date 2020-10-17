@@ -71,7 +71,6 @@ nmap <Leader>vm :Vmodel<space>
 nmap <Leader>vv :Vview<space>
 nmap <Leader>vr :Vinit<cr>
 nmap <Leader>vs :Vschema<cr>
-nmap <Leader>bo :Btabedit<space>
 
 nmap <Leader>op obinding.pry<esc>:w<cr>
 nmap <Leader>od odebugger;<esc>:w<cr>

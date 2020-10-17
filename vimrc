@@ -33,41 +33,36 @@ let g:NERDTreeMapOpenSplit = 'h'
 let g:NERDTreeMapOpenVSplit = 'v'
 let g:NERDTreeIgnore=['\.pyc$', '\~$']
 
-let g:syntastic_loc_list_height = 5
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_ruby_checkers = ['rubocop']
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_sass_checkers=["sasslint"]
-let g:syntastic_scss_checkers=["sasslint"]
-let g:syntastic_eruby_ruby_quiet_messages = {'regex': 'possibly useless use of a variable in void context'}
-
 let g:jsx_ext_required = 0
 
 let g:rspec_command = "VtrSendCommandToRunner! bundle exec rspec {spec}"
-
-let python_highlight_all=1
 
 let g:VtrStripLeadingWhitespace = 0
 let g:VtrClearEmptyLines = 0
 let g:VtrAppendNewline = 1
 
-let g:terraform_align=1
-let g:terraform_fmt_on_save=1
-
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
 let g:go_fmt_command = "goimports"
 
-let g:pymode_options_max_line_length = 120
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_enter = 0
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+let g:ale_virtualenv_dir_names = []
+let g:ale_fixers = {
+\    '*': ['remove_trailing_lines', 'trim_whitespace'],
+\    'javascript': ['eslint'],
+\    'python': ['yapf', 'isort'],
+\  }
+let g:ale_linters = {
+\    'javascript': ['eslint'],
+\    'go': ['gofmt'],
+\    'python': ['black', 'yapf'],
+\    'ruby': ['rubocop'],
+\  }
+let g:airline#extensions#ale#enabled = 1
 
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
-highlight link SyntasticErrorSign SignColumn
-highlight link SyntasticWarningSign SignColumn
-highlight link SyntasticStyleErrorSign SignColumn
-highlight link SyntasticStyleWarningSign SignColumn
