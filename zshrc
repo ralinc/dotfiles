@@ -19,4 +19,6 @@ eval "$(rbenv init -)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
+export PATH="$HOME/bin:$PATH"
+
 source ~/.zshrc.local
