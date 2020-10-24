@@ -86,5 +86,6 @@ nmap <Leader>pp :set paste<cr>
 nmap <Leader>nn :set nopaste<cr>
 
 nmap <Leader>sw :StripWhitespace<cr>
+nmap <Leader>fx :ALEFix<cr>
 
 nmap <Leader>pr :exec "VtrSendCommand! python " . expand('%')<cr>

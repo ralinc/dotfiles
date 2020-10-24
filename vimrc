@@ -1,5 +1,5 @@
 "===============================================
-" Author: Ralin Chimev [http://www.ralin.net]
+" Author: Ralin Chimev [http://ralin.io]
 " Source: https://github.com/ralinc/dotfiles
 "-----------------------------------------------
 
@@ -46,20 +46,19 @@ let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 let g:go_fmt_command = "goimports"
 
 let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_enter = 0
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
 let g:ale_virtualenv_dir_names = []
 let g:ale_fixers = {
 \    '*': ['remove_trailing_lines', 'trim_whitespace'],
-\    'javascript': ['eslint'],
-\    'python': ['yapf', 'isort'],
+\    'scss': ['prettier'],
+\    'javascript': ['prettier'],
+\    'python': ['black', 'isort'],
+\    'ruby': ['rubocop'],
 \  }
 let g:ale_linters = {
 \    'javascript': ['eslint'],
 \    'go': ['gofmt'],
-\    'python': ['black', 'yapf'],
+\    'python': ['flake8'],
 \    'ruby': ['rubocop'],
 \  }
 let g:airline#extensions#ale#enabled = 1

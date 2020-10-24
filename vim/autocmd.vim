@@ -32,8 +32,6 @@ au FileType ruby,eruby,yaml setlocal iskeyword+=?
 
 au BufRead,BufNewFile *.py let python_highlight_all=1
 au FileType python setlocal ai et si sw=4 sts=4
-au FileType python nnoremap <leader>y :0,$!yapf --style='{column_limit: 120}'<cr>
-au FileType python nnoremap <leader>b :Black<cr>
 
 au FileType markdown setlocal spell nolist wrap lbr textwidth=80
 
