@@ -38,3 +38,8 @@ au FileType markdown setlocal spell nolist wrap lbr textwidth=80
 au Filetype gitcommit setlocal spell textwidth=72
 
 au BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+augroup FiletypeGroup
+    autocmd!
+    au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+augroup END
