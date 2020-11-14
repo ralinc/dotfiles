@@ -34,11 +34,6 @@ prompt_spaced() { [[ -n "$1" ]] && print " $@" }
 
 prompt_shortened_path() { print "$(prompt_purple "%2~")" }
 
-prompt_ruby_version() {
-  local version=$(rbenv version-name)
-  prompt_magenta "$version"
-}
-
 autoload -Uz vcs_info
 
 zstyle ':vcs_info:*' enable git
@@ -111,14 +106,6 @@ function precmd {
   git status 2> /dev/null >! "/tmp/git-status-$$"
 }
 
-prompt_git_email(){
-  git_email=$(git config user.email)
-  global_git_email=$(git config --global user.email)
-  if [[ "$git_email" != "$global_git_email" ]]; then
-    prompt_red "$(prompt_spaced "[git email: $git_email]")"
-  fi
-}
-
 setopt prompt_subst
 
-PROMPT='$(prompt_ruby_version) $(prompt_shortened_path)$(prompt_git_email)$(prompt_full_git_status) $ '
+PROMPT='$(prompt_shortened_path)$(prompt_full_git_status) $ '
