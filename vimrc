@@ -47,15 +47,19 @@ let g:go_fmt_command = "goimports"
 
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
+let g:ale_linters_explicit = 1
 let g:ale_virtualenv_dir_names = []
 let g:ale_fixers = {
 \    '*': ['remove_trailing_lines', 'trim_whitespace'],
+\    'css': ['prettier'],
 \    'scss': ['prettier'],
 \    'javascript': ['prettier'],
 \    'python': ['black', 'isort'],
 \    'ruby': ['rubocop'],
 \  }
 let g:ale_linters = {
+\    'css': ['stylelint'],
+\    'scss': ['stylelint'],
 \    'javascript': ['eslint'],
 \    'jsx': ['eslint'],
 \    'go': ['gofmt'],
