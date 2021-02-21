@@ -26,7 +26,6 @@ nmap <Leader>i mmgg=G`m
 nmap <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<cr>
 nmap <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<cr>
 nmap <Leader>h :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<cr>
-nmap <Leader>te :tabe<cr>
 
 nmap <Leader>zv <C-w>\|
 nmap <Leader>zh <C-w>_
@@ -37,7 +36,6 @@ nmap <Leader>qc :ccl<cr>
 
 nmap <Leader>gb :Gblame<cr>
 nmap <Leader>gd :Gdiff<cr>
-nmap <Leader>gc :Gread<cr>
 
 nmap <Leader>] ]m
 nmap <Leader>[ [m
@@ -72,8 +70,7 @@ nmap <Leader>vv :Vview<space>
 nmap <Leader>vr :Vinit<cr>
 nmap <Leader>vs :Vschema<cr>
 
-nmap <Leader>op obinding.pry<esc>:w<cr>
-nmap <Leader>od odebugger;<esc>:w<cr>
+nmap <Leader>bp obinding.pry<esc>:w<cr>
 
 nmap <Leader>rn :Rename<Space>
 nmap <Leader>ct :!ctags -R .<cr>
@@ -89,3 +86,5 @@ nmap <Leader>sw :StripWhitespace<cr>
 nmap <Leader>fx :ALEFix<cr>
 
 nmap <Leader>pr :exec "VtrSendCommand! python " . expand('%')<cr>
+
+nmap <Leader>ed :e Dockerfile<cr>
