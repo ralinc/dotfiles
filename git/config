@@ -15,9 +15,6 @@
   flog = log --pretty=format:'%C(yellow)%h%C(reset) - %an [%C(green)%ar%C(reset)] %s' --
   mffo = merge --ff-only
   mnff = merge --no-ff
-  ms = merge --squash
-  sl = log --oneline --decorate
-  sla = log --oneline --decorate --graph --all
   unstage = reset
   uncommit = reset --soft HEAD^
 [core]
@@ -29,8 +26,3 @@
   default = current
 [rebase]
   autosquash = true
-[filter "lfs"]
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
-  required = true
