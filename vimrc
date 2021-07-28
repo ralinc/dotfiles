@@ -1,5 +1,5 @@
 "===============================================
-" Author: Ralin Chimev [http://ralin.io]
+" Author: Ralin Chimev [https://ralin.io]
 " Source: https://github.com/ralinc/dotfiles
 "-----------------------------------------------
 
