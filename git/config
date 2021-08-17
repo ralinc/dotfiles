@@ -13,8 +13,8 @@
   clog = log -S
   plog = log --pretty=format:'%C(yellow)%h%C(reset) - %an [%C(green)%ar%C(reset)] %s'
   flog = log --pretty=format:'%C(yellow)%h%C(reset) - %an [%C(green)%ar%C(reset)] %s' --
-  mffo = merge --ff-only
-  mnff = merge --no-ff
+  ff = merge --ff-only
+  noff = merge --no-ff
   unstage = reset
   uncommit = reset --soft HEAD^
 [core]

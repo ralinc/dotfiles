@@ -13,6 +13,7 @@ call minpac#add('jeetsukumaran/vim-pythonsense')
 call minpac#add('junegunn/fzf.vim')
 call minpac#add('isRuslan/vim-es6')
 call minpac#add('kana/vim-textobj-user')
+call minpac#add('leafgarland/typescript-vim')
 call minpac#add('mattn/emmet-vim')
 call minpac#add('mileszs/ack.vim')
 call minpac#add('nanotech/jellybeans.vim')
@@ -30,6 +31,7 @@ call minpac#add('tpope/vim-repeat')
 call minpac#add('tpope/vim-sleuth')
 call minpac#add('tpope/vim-surround')
 call minpac#add('vim-airline/vim-airline')
+call minpac#add('vim-ruby/vim-ruby')
 
 set rtp+=/usr/local/opt/fzf
 
