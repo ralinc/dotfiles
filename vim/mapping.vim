@@ -53,7 +53,7 @@ nmap <Leader>f :Ack!<space>
 nmap <Leader>fe :Ack! -w<space>
 nmap <Leader>fw *<C-O>:AckFromSearch!<cr>
 
-nmap <Leader>x :%s/
+nmap <Leader>ss :%s/
 nmap <Leader>n :noh<cr>
 
 nmap <Leader>a :A<cr>
@@ -83,7 +83,7 @@ nmap <Leader>pp :set paste<cr>
 nmap <Leader>nn :set nopaste<cr>
 
 nmap <Leader>sw :StripWhitespace<cr>
-nmap <Leader>fx :ALEFix<cr>
+nmap <Leader>x :ALEFix<cr>
 
 nmap <Leader>pr :exec "VtrSendCommand! python " . expand('%')<cr>
 nmap <Leader>pt :exec "VtrSendCommand! pytest " . expand('%')<cr>
