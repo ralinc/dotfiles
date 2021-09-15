@@ -49,12 +49,14 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 let g:ale_linters_explicit = 1
 let g:ale_virtualenv_dir_names = []
+let g:ale_php_cs_fixer_use_global = 1
 let g:ale_fixers = {
 \    '*': ['remove_trailing_lines', 'trim_whitespace'],
 \    'css': ['prettier'],
 \    'scss': ['prettier'],
 \    'html': ['prettier'],
 \    'javascript': ['prettier'],
+\    'php': ['php_cs_fixer'],
 \    'python': ['black', 'isort'],
 \    'ruby': ['rubocop'],
 \  }
@@ -64,6 +66,7 @@ let g:ale_linters = {
 \    'javascript': ['eslint'],
 \    'jsx': ['eslint'],
 \    'go': ['gofmt'],
+\    'php': ['php'],
 \    'python': ['flake8'],
 \    'ruby': ['rubocop'],
 \  }
