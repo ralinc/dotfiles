@@ -7,10 +7,25 @@ function check() {
   git commit -m "WIP $*"
 }
 
-function gres() {
+function res() {
+  case $1 in
+    m)
+      BRANCH="master"
+      ;;
+    p)
+      BRANCH="production"
+      ;;
+    s)
+      BRANCH="staging"
+      ;;
+    *)
+      BRANCH=$1
+      ;;
+  esac
+
   git fetch
-  git checkout $1
-  git reset --hard origin/$1
+  git checkout $BRANCH
+  git reset --hard origin/$BRANCH
   git checkout -
 }
 
