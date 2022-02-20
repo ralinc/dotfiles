@@ -10,7 +10,7 @@ call minpac#add('dense-analysis/ale')
 call minpac#add('ervandew/supertab')
 call minpac#add('fatih/vim-go')
 call minpac#add('jeetsukumaran/vim-pythonsense')
-call minpac#add('junegunn/fzf.vim')
+call minpac#add('junegunn/fzf')
 call minpac#add('isRuslan/vim-es6')
 call minpac#add('kana/vim-textobj-user')
 call minpac#add('leafgarland/typescript-vim')
@@ -33,7 +33,7 @@ call minpac#add('tpope/vim-surround')
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-ruby/vim-ruby')
 
-set rtp+=/usr/local/opt/fzf
+set rtp+=/opt/homebrew/opt/fzf
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
