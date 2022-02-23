@@ -34,8 +34,8 @@ nmap <Leader>z0 <C-w>=
 nmap <Leader>qo :copen<cr>
 nmap <Leader>qc :ccl<cr>
 
-nmap <Leader>gb :Git blame<cr>
-nmap <Leader>gd :Git diff<cr>
+nmap <Leader>gb :G blame<cr>
+nmap <Leader>gd :Gdiff :0<cr>
 
 nmap <Leader>] ]m
 nmap <Leader>[ [m
