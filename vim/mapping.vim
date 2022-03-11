@@ -77,6 +77,7 @@ nmap <Leader>ct :!ctags -R .<cr>
 nmap <Leader>so :source $MYVIMRC<cr>
 nmap <Leader>pj :%!python -m json.tool<cr>
 nmap <Leader>md :!mkdir -p %:h<cr>
+nmap <Leader>c vapgq
 
 set pastetoggle=<F2>
 nmap <Leader>pp :set paste<cr>
