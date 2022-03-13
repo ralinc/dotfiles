@@ -56,6 +56,7 @@ let g:ale_fixers = {
 \    'scss': ['prettier'],
 \    'html': ['prettier'],
 \    'javascript': ['prettier'],
+\    'json': ['prettier'],
 \    'php': ['php_cs_fixer'],
 \    'python': ['black', 'isort'],
 \    'ruby': ['rubocop'],

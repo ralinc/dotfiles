@@ -75,7 +75,6 @@ nmap <Leader>bp obinding.pry<esc>:w<cr>
 nmap <Leader>rn :Rename<Space>
 nmap <Leader>ct :!ctags -R .<cr>
 nmap <Leader>so :source $MYVIMRC<cr>
-nmap <Leader>pj :%!python -m json.tool<cr>
 nmap <Leader>md :!mkdir -p %:h<cr>
 nmap <Leader>c vapgq
 
