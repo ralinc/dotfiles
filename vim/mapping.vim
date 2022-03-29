@@ -8,84 +8,85 @@ map <C-k> <C-w>k
 map <C-h> <C-w>h
 map <C-l> <C-w>l
 
-map <C-n> :NERDTreeToggle<cr>
-map <C-n>f :NERDTreeFind<cr>
+map <C-n> :NERDTreeToggle<CR>
+map <C-n>f :NERDTreeFind<CR>
 
-map <C-p> :FZF -m<cr>
-map <C-p>r :BTags<cr>
-map <C-p>h :History<cr>
+map <C-p> :FZF -m<CR>
+map <C-p>r :BTags<CR>
+map <C-p>h :History<CR>
 
 imap hh <C-y>,
 
 let mapleader = "\<Space>"
 
-nmap <Leader>q :q<cr>
-nmap <Leader>w :w<cr>
+nmap <Leader>q :q<CR>
+nmap <Leader>w :w<CR>
 nmap <Leader>i mmgg=G`m
 
-nmap <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<cr>
-nmap <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<cr>
-nmap <Leader>h :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<cr>
+nmap <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
+nmap <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
+nmap <Leader>h :split <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 
 nmap <Leader>zv <C-w>\|
 nmap <Leader>zh <C-w>_
 nmap <Leader>z0 <C-w>=
 
-nmap <Leader>qo :copen<cr>
-nmap <Leader>qc :ccl<cr>
+nmap <Leader>qo :copen<CR>
+nmap <Leader>qc :ccl<CR>
 
-nmap <Leader>gb :G blame<cr>
-nmap <Leader>gd :Gdiff :0<cr>
+nmap <Leader>gb :G blame<CR>
+nmap <Leader>gd :Gdiff :0<CR>
 
 nmap <Leader>] ]m
 nmap <Leader>[ [m
 
-nmap <Leader>sp :call RunNearestSpec()<cr>
-nmap <Leader>sf :call RunCurrentSpecFile()<cr>
-nmap <Leader>sl :call RunLastSpec()<cr>
-nmap <Leader>sa :call RunAllSpecs()<cr>
+nmap <Leader>sp :call RunNearestSpec()<CR>
+nmap <Leader>sf :call RunCurrentSpecFile()<CR>
+nmap <Leader>sl :call RunLastSpec()<CR>
+nmap <Leader>sa :call RunAllSpecs()<CR>
 
-nmap <leader>to :VtrOpenRunner<cr>
-nmap <leader>tk :VtrKillRunner<cr>
-nmap <leader>tf :VtrFocusRunner<cr>
+nmap <leader>to :VtrOpenRunner<CR>
+nmap <leader>tk :VtrKillRunner<CR>
+nmap <leader>tf :VtrFocusRunner<CR>
 
 nmap <Leader>f :Ack!<space>
 nmap <Leader>fe :Ack! -w<space>
-nmap <Leader>fw *<C-O>:AckFromSearch!<cr>
+nmap <Leader>fw *<C-O>:AckFromSearch!<CR>
+nmap <Leader>fd :Ack! <C-r><C-w> <C-r>=expand('%:h')<CR><CR>
 
 nmap <Leader>ss :%s/
-nmap <Leader>n :noh<cr>
+nmap <Leader>n :noh<CR>
 
-nmap <Leader>a :A<cr>
-nmap <Leader>r :R<cr>
+nmap <Leader>a :A<CR>
+nmap <Leader>r :R<CR>
 nmap <Leader>ec :Econtroller<space>
 nmap <Leader>em :Emodel<space>
 nmap <Leader>ev :Eview<space>
-nmap <Leader>eg :Emigration<cr>
-nmap <Leader>er :Einitializer<cr>
-nmap <Leader>es :Eschema<cr>
+nmap <Leader>eg :Emigration<CR>
+nmap <Leader>er :Einitializer<CR>
+nmap <Leader>es :Eschema<CR>
 nmap <Leader>vc :Vcontroller<space>
 nmap <Leader>vm :Vmodel<space>
 nmap <Leader>vv :Vview<space>
-nmap <Leader>vr :Vinit<cr>
-nmap <Leader>vs :Vschema<cr>
+nmap <Leader>vr :Vinit<CR>
+nmap <Leader>vs :Vschema<CR>
 
-nmap <Leader>bp obinding.pry<esc>:w<cr>
+nmap <Leader>bp obinding.pry<esc>:w<CR>
 
 nmap <Leader>rn :Rename<Space>
-nmap <Leader>ct :!ctags -R .<cr>
-nmap <Leader>so :source $MYVIMRC<cr>
-nmap <Leader>md :!mkdir -p %:h<cr>
+nmap <Leader>ct :!ctags -R .<CR>
+nmap <Leader>so :source $MYVIMRC<CR>
+nmap <Leader>md :!mkdir -p %:h<CR>
 nmap <Leader>c vapgq
 
 set pastetoggle=<F2>
-nmap <Leader>pp :set paste<cr>
-nmap <Leader>nn :set nopaste<cr>
+nmap <Leader>pp :set paste<CR>
+nmap <Leader>nn :set nopaste<CR>
 
-nmap <Leader>sw :StripWhitespace<cr>
-nmap <Leader>x :ALEFix<cr>
+nmap <Leader>sw :StripWhitespace<CR>
+nmap <Leader>x :ALEFix<CR>
 
-nmap <Leader>pr :exec "VtrSendCommand! python " . expand('%')<cr>
-nmap <Leader>pt :exec "VtrSendCommand! pytest " . expand('%')<cr>
+nmap <Leader>pr :exec "VtrSendCommand! python " . expand('%')<CR>
+nmap <Leader>pt :exec "VtrSendCommand! pytest " . expand('%')<CR>
 
-nmap <Leader>ed :e Dockerfile<cr>
+nmap <Leader>ed :e Dockerfile<CR>
