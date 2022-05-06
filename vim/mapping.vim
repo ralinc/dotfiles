@@ -87,6 +87,7 @@ nmap <Leader>sw :StripWhitespace<CR>
 nmap <Leader>x :ALEFix<CR>
 
 nmap <Leader>pr :exec "VtrSendCommand! python " . expand('%')<CR>
-nmap <Leader>pt :exec "VtrSendCommand! pytest " . expand('%')<CR>
+nmap <Leader>pf :exec "VtrSendCommand! pytest " . expand('%')<CR>
+nmap <Leader>pt :exec "VtrSendCommand! pytest"<CR>
 
 nmap <Leader>ed :e Dockerfile<CR>
