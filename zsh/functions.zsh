@@ -2,7 +2,7 @@ function llc() {
   ls -1 "$@" | wc -l
 }
 
-function check() {
+function wip() {
   git add .
   git commit -m "WIP $*"
 }
