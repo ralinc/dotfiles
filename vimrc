@@ -45,6 +45,9 @@ let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
 let g:go_fmt_command = "goimports"
 
+let g:ale_javascript_eslint_executable = 'yarn'
+let g:ale_javascript_eslint_options = 'run eslint'
+
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 let g:ale_linters_explicit = 1
@@ -60,6 +63,7 @@ let g:ale_fixers = {
 \    'php': ['php_cs_fixer'],
 \    'python': ['black', 'isort'],
 \    'ruby': ['rubocop'],
+\    'typescript': ['prettier'],
 \  }
 let g:ale_linters = {
 \    'css': ['stylelint'],
@@ -70,6 +74,7 @@ let g:ale_linters = {
 \    'php': ['php'],
 \    'python': ['flake8'],
 \    'ruby': ['rubocop'],
+\    'typescript': ['eslint'],
 \  }
 let g:airline#extensions#ale#enabled = 1
 
