@@ -19,6 +19,8 @@ imap hh <C-y>,
 
 let mapleader = "\<Space>"
 
+nnoremap <Leader><Leader> <C-^>
+
 nmap <Leader>q :q<CR>
 nmap <Leader>w :w<CR>
 nmap <Leader>i mmgg=G`m
