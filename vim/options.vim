@@ -26,7 +26,6 @@ set number
 set numberwidth=5
 set re=1
 set relativenumber
-set rnu
 set ruler
 set scrolloff=10
 set secure

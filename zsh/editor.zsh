@@ -1,5 +1,4 @@
-export EDITOR=vim
-export VISUAL=vim
+export EDITOR=nvim
+export VISUAL=nvim
 alias vi="$VISUAL"
 alias v="$VISUAL"
-alias crontab="VISUAL=vim crontab"

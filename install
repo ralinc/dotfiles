@@ -18,4 +18,6 @@ ln -s $DOT_FILES_DIR/pryrc .pryrc
 ln -s $DOT_FILES_DIR/psqlrc .psqlrc
 ln -s $DOT_FILES_DIR/tmux.conf .tmux.conf
 
+ln -s $DOT_FILES_DIR/.config/nvim/init.vim init.vim
+
 touch .zshrc.local
