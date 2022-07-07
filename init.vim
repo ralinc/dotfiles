@@ -134,7 +134,9 @@ nnoremap <leader>p obinding.pry<esc>:w<cr>
 nnoremap <leader>c vapgq
 
 nnoremap <leader>li :LspInfo<cr>
-nnoremap <leader>nls :NullLsInfo<cr>
+nnoremap <leader>ni :NullLsInfo<cr>
+
+nnoremap <leader>so :source ~/.config/nvim/init.vim<cr>
 
 
 au BufNewFile,BufRead *.md setlocal filetype=markdown
@@ -154,106 +156,6 @@ let g:VtrClearEmptyLines = 0
 let g:VtrAppendNewline = 1
 
 lua << END
-
+require('plugins')
 require('lualine').setup()
-
-local lspconfig = require('lspconfig')
-
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-
-local on_attach = function(client)
-  local opts = { noremap=true, silent=true, buffer=0 }
-  vim.keymap.set('n', 'gl', vim.lsp.buf.declaration, opts)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-  vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
-  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-  vim.keymap.set('n', ',a', vim.lsp.buf.code_action, opts)
-  vim.keymap.set('n', ',d', '<cmd>Telescope diagnostics<cr>', opts)
-  vim.keymap.set('n', ',e', vim.diagnostic.open_float, opts)
-  vim.keymap.set('n', ',f', vim.lsp.buf.formatting, opts)
-  vim.keymap.set('n', ',h', vim.lsp.buf.hover, opts)
-  vim.keymap.set('n', ',n', vim.diagnostic.goto_next, opts)
-  vim.keymap.set('n', ',p', vim.diagnostic.goto_prev, opts)
-  vim.keymap.set('n', ',q', vim.diagnostic.setloclist, opts)
-  vim.keymap.set('n', ',rf', '<cmd>Telescope lsp_references<cr>', opts)
-  vim.keymap.set('n', ',rn', vim.lsp.buf.rename, opts)
-  vim.keymap.set('n', ',s', vim.lsp.buf.signature_help, opts)
-end
-
-lspconfig.gopls.setup{
-  capabilities = capabilities,
-  on_attach = function(client)
-    client.resolved_capabilities.document_formatting = false
-    on_attach(client)
-  end,
-}
-lspconfig.pyright.setup{
-  capabilities = capabilities,
-  on_attach = function(client)
-    client.resolved_capabilities.document_formatting = false
-    on_attach(client)
-  end,
-}
-lspconfig.solargraph.setup{
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-lspconfig.tsserver.setup{
-  capabilities = capabilities,
-  on_attach = function(client)
-    client.resolved_capabilities.document_formatting = false
-    on_attach(client)
-  end,
-}
-
-local cmp = require('cmp')
-
-cmp.setup({
-  mapping = cmp.mapping.preset.insert({
-    ['<tab>'] = cmp.mapping.confirm({ select = true }),
-  }),
-  sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-  }, {
-    { name = 'buffer' },
-  })
-})
-
-local null_ls = require('null-ls')
-
-null_ls.setup({
-  debug = false,
-  sources = {
-    null_ls.builtins.formatting.gofmt,
-    null_ls.builtins.formatting.goimports,
-
-    null_ls.builtins.diagnostics.flake8,
-    null_ls.builtins.formatting.black,
-    null_ls.builtins.formatting.isort,
-
-    null_ls.builtins.diagnostics.eslint,
-    null_ls.builtins.formatting.prettier.with({filetypes = {
-      "css",
-      "graphql",
-      "html",
-      "javascript",
-      "javascriptreact",
-      "json",
-      "markdown",
-      "scss",
-      "typescript",
-      "typescriptreact",
-      "yaml",
-    }}),
-
-    null_ls.builtins.formatting.stylua,
-  },
-  on_attach = function(client)
-    if client.resolved_capabilities.document_formatting then
-      vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
-    end
-  end,
-})
-
 END
