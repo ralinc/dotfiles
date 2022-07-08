@@ -9,45 +9,6 @@ filetype plugin indent on
 
 colorscheme jellybeans
 
-set autowrite
-set backspace=indent,eol,start
-set clipboard+=unnamedplus
-set colorcolumn=+1
-set completeopt=menu,menuone,noselect
-set diffopt+=vertical
-set encoding=utf-8 nobomb
-set expandtab
-set gdefault
-set grepprg=ag\ --nogroup\ --nocolor
-set ignorecase
-set history=50
-set list listchars=tab:»·,trail:·,nbsp:·
-set modelines=0
-set nobackup
-set nofoldenable
-set nomodeline
-set noswapfile
-set nowrap
-set nowritebackup
-set number
-set numberwidth=5
-set re=1
-set relativenumber
-set scrolloff=10
-set secure
-set shell=/bin/zsh
-set shiftround
-set shiftwidth=2
-set smartcase
-set splitbelow
-set splitright
-set tabstop=2
-set termguicolors
-set textwidth=120
-set timeoutlen=300
-set wildignore+=tmp/**,log/**
-set wildmode=list:longest,list:full
-
 
 packadd minpac
 call minpac#init()
@@ -156,6 +117,7 @@ let g:VtrClearEmptyLines = 0
 let g:VtrAppendNewline = 1
 
 lua << END
+require('options')
 require('plugins')
 require('lualine').setup()
 END
