@@ -18,7 +18,7 @@ ln -s $DOT_FILES_DIR/pryrc .pryrc
 ln -s $DOT_FILES_DIR/psqlrc .psqlrc
 ln -s $DOT_FILES_DIR/tmux.conf .tmux.conf
 
-ln -s $DOT_FILES_DIR/.config/nvim/init.vim init.vim
-ln -s $DOT_FILES_DIR/.config/nvim/lua lua
+ln -s $DOT_FILES_DIR/init.lua .config/nvim/init.lua
+ln -s $DOT_FILES_DIR/lua .config/nvim/lua
 
 touch .zshrc.local

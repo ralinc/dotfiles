@@ -1,10 +1,18 @@
-local function map(mode, lhs, rhs)
-  vim.api.nvim_set_keymap(mode, lhs, rhs, { noremap = true })
+local function map(mode, shortcut, command)
+  vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = true })
 end
 
-map("i", "jk", "<esc>")
-map("n", "j", "gj")
-map("n", "k", "gk")
+local function nmap(shortcut, command)
+  map("n", shortcut, command)
+end
+
+local function imap(shortcut, command)
+  map("i", shortcut, command)
+end
+
+imap("jk", "<esc>")
+nmap("j", "gj")
+nmap("k", "gk")
 
 map("", "C-j", "C-w>j")
 map("", "C-k", "C-w>k")
@@ -16,54 +24,54 @@ map("", "<C-n>f", ":NERDTreeFind<cr>")
 
 vim.g.mapleader = " "
 
-map("n", "<leader>q", ":q<cr>")
-map("n", "<leader>w", ":w<cr>")
+nmap("<leader>q", ":q<cr>")
+nmap("<leader>w", ":w<cr>")
 
-map("n", "<leader>c", '"+y')
-map("n", "<leader>sp", ":set paste<cr>")
-map("n", "<leader>np", ":set nopaste<cr>")
+nmap("<leader>c", '"+y')
+nmap("<leader>sp", ":set paste<cr>")
+nmap("<leader>np", ":set nopaste<cr>")
 
-map("n", "<leader>e", ":e <C-R>=escape(expand(\"%:p:h\"),' ') . '/'<cr>")
-map("n", "<leader>v", ":vnew <C-R>=escape(expand(\"%:p:h\"), ' ') . '/'<cr>")
-map("n", "<leader>x", ":split <C-R>=escape(expand(\"%:p:h\"), ' ') . '/'<cr>")
+nmap("<leader>e", ":e <C-R>=escape(expand(\"%:p:h\"),' ') . '/'<cr>")
+nmap("<leader>v", ":vnew <C-R>=escape(expand(\"%:p:h\"), ' ') . '/'<cr>")
+nmap("<leader>x", ":split <C-R>=escape(expand(\"%:p:h\"), ' ') . '/'<cr>")
 
-map("n", "<C-p>", "<cmd>lua require('telescope.builtin').find_files()<cr>")
-map("n", "<leader>f", "<cmd>lua require('telescope.builtin').live_grep()<cr>")
-map("n", "<leader>fw", "<cmd>lua require('telescope.builtin').grep_string()<cr>")
-map("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>")
+nmap("<C-p>", "<cmd>lua require('telescope.builtin').find_files()<cr>")
+nmap("<leader>f", "<cmd>lua require('telescope.builtin').live_grep()<cr>")
+nmap("<leader>fw", "<cmd>lua require('telescope.builtin').grep_string()<cr>")
+nmap("<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>")
 
-map("n", "<leader><leader>", "<C-^>")
-map("n", "<leader>nh", ":noh<cr>")
+nmap("<leader><leader>", "<C-^>")
+nmap("<leader>nh", ":noh<cr>")
 
-map("n", "<leader>zv", "<C-w>\\|")
-map("n", "<leader>z0", "<C-w>=")
+nmap("<leader>zv", "<C-w>\\|")
+nmap("<leader>z0", "<C-w>=")
 
-map("n", "<leader>qo", ":copen<cr>")
-map("n", "<leader>qc", ":ccl<cr>")
+nmap("<leader>qo", ":copen<cr>")
+nmap("<leader>qc", ":ccl<cr>")
 
-map("n", "<leader>to", ":VtrOpenRunner<cr>")
-map("n", "<leader>tk", ":VtrKillRunner<cr>")
-map("n", "<leader>tf", ":VtrFocusRunner<cr>")
+nmap("<leader>to", ":VtrOpenRunner<cr>")
+nmap("<leader>tk", ":VtrKillRunner<cr>")
+nmap("<leader>tf", ":VtrFocusRunner<cr>")
 
-map("n", "<leader>b", ":G blame<cr>")
-map("n", "<leader>d", ":Gdiff :0<cr>")
+nmap("<leader>b", ":G blame<cr>")
+nmap("<leader>d", ":Gdiff :0<cr>")
 
-map("n", "<leader>sn", ":call RunNearestSpec()<cr>")
-map("n", "<leader>sf", ":call RunCurrentSpecFile()<cr>")
-map("n", "<leader>sl", ":call RunLastSpec()<cr>")
-map("n", "<leader>sa", ":call RunAllSpecs()<cr>")
+nmap("<leader>sn", ":call RunNearestSpec()<cr>")
+nmap("<leader>sf", ":call RunCurrentSpecFile()<cr>")
+nmap("<leader>sl", ":call RunLastSpec()<cr>")
+nmap("<leader>sa", ":call RunAllSpecs()<cr>")
 
-map("n", "<leader>es", ":e db/structure.sql<cr>")
-map("n", "<leader>vs", ":vnew db/structure.sql<cr>")
-map("n", "<leader>ed", ":e Dockerfile<cr>")
+nmap("<leader>es", ":e db/structure.sql<cr>")
+nmap("<leader>vs", ":vnew db/structure.sql<cr>")
+nmap("<leader>ed", ":e Dockerfile<cr>")
 
-map("n", "<leader>md", ":!mkdir -p %:h<cr>")
+nmap("<leader>md", ":!mkdir -p %:h<cr>")
 
-map("n", "<leader>wp", "vapgq")
+nmap("<leader>wp", "vapgq")
 
-map("n", "<leader>li", ":LspInfo<cr>")
-map("n", "<leader>ni", ":NullLsInfo<cr>")
+nmap("<leader>li", ":LspInfo<cr>")
+nmap("<leader>ni", ":NullLsInfo<cr>")
 
-map("n", "<leader>so", ":source ~/.config/nvim/init.vim<cr>")
+nmap("<leader>so", ":source ~/.config/nvim/init.vim<cr>")
 
-map("n", "<leader>pry", "obinding.pry<esc>:w<cr>")
+nmap("<leader>pry", "obinding.pry<esc>:w<cr>")
