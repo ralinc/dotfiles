@@ -1,7 +1,6 @@
 local g = vim.o
 g.autowrite = true
 g.backup = false
-g.clipboard = "unnamedplus"
 g.completeopt = "menu,menuone,noselect"
 g.diffopt = "internal,filler,closeoff,vertical"
 g.encoding = "utf-8"
