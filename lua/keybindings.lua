@@ -73,6 +73,6 @@ nmap("<leader>wp", "vapgq")
 nmap("<leader>li", ":LspInfo<cr>")
 nmap("<leader>ni", ":NullLsInfo<cr>")
 
-nmap("<leader>so", ":source ~/.config/nvim/init.vim<cr>")
+nmap("<leader>so", ":source ~/.config/nvim/init.lua<cr>")
 
 nmap("<leader>pry", "obinding.pry<esc>:w<cr>")

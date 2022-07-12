@@ -21,6 +21,7 @@ call minpac#add('saadparwaiz1/cmp_luasnip')
 call minpac#add('scrooloose/nerdtree')
 call minpac#add('thoughtbot/vim-rspec')
 call minpac#add('tpope/vim-commentary')
+call minpac#add('tpope/vim-endwise')
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-surround')
 
