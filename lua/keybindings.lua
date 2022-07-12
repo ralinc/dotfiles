@@ -47,7 +47,8 @@ nmap("<leader>zv", "<C-w>\\|")
 nmap("<leader>z0", "<C-w>=")
 
 nmap("<leader>qo", ":copen<cr>")
-nmap("<leader>qc", ":ccl<cr>")
+nmap("<leader>qc", ":cclose<cr>")
+nmap("<leader>ql", ":colder<cr>")
 
 nmap("<leader>to", ":VtrOpenRunner<cr>")
 nmap("<leader>tk", ":VtrKillRunner<cr>")
