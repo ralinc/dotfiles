@@ -13,6 +13,7 @@ call minpac#add('hrsh7th/cmp-buffer')
 call minpac#add('hrsh7th/cmp-nvim-lsp')
 call minpac#add('hrsh7th/cmp-path')
 call minpac#add('hrsh7th/nvim-cmp')
+call minpac#add('mileszs/ack.vim')
 call minpac#add('nvim-lualine/lualine.nvim')
 call minpac#add('nvim-telescope/telescope.nvim')
 call minpac#add('nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'})
@@ -38,6 +39,8 @@ vim.cmd([[
 let g:NERDTreeWinSize = 50
 let g:NERDTreeMapOpenVSplit = 'v'
 let g:NERDTreeIgnore=['\.pyc$', '\~$', 'node_modules']
+
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 let g:rspec_command = "VtrSendCommandToRunner! bundle exec rspec {spec}"
 

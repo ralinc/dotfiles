@@ -40,6 +40,11 @@ nmap("<leader>f", "<cmd>lua require('telescope.builtin').live_grep()<cr>")
 nmap("<leader>fw", "<cmd>lua require('telescope.builtin').grep_string()<cr>")
 nmap("<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>")
 
+nmap("<leader>a", ":Ack!<space>")
+nmap("<leader>ae", ":Ack! -w<space>")
+nmap("<leader>aw", "*<C-O>:AckFromSearch!<cr>")
+nmap("<leader>ad", ":Ack! <C-r><C-w> <C-r>=expand('%:h')<cr><cr>")
+
 nmap("<leader><leader>", "<C-^>")
 nmap("<leader>nh", ":noh<cr>")
 
