@@ -35,16 +35,14 @@ require("plugins/cmp")
 require("plugins/lspconfig")
 require("plugins/null_ls")
 
-vim.cmd([[
-let g:NERDTreeWinSize = 50
-let g:NERDTreeMapOpenVSplit = 'v'
-let g:NERDTreeIgnore=['\.pyc$', '\~$', 'node_modules']
+vim.g["ackprg"] = "ag --nogroup --nocolor --column"
 
-let g:ackprg = 'ag --nogroup --nocolor --column'
+vim.g["NERDTreeWinSize"] = 50
+vim.g["NERDTreeMapOpenVSplit"] = "v"
+vim.g["NERDTreeIgnore"] = { ".pyc$", "~$", "node_modules" }
 
-let g:rspec_command = "VtrSendCommandToRunner! bundle exec rspec {spec}"
+vim.g["rspec_command"] = "VtrSendCommandToRunner! bundle exec rspec {spec}"
 
-let g:VtrStripLeadingWhitespace = 0
-let g:VtrClearEmptyLines = 0
-let g:VtrAppendNewline = 1
-]])
+vim.g["VtrStripLeadingWhitespace"] = 0
+vim.g["VtrClearEmptyLines"] = 0
+vim.g["VtrAppendNewline"] = 1

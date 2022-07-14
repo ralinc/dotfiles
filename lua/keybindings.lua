@@ -1,13 +1,17 @@
 local function map(mode, shortcut, command)
-  vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = true })
+  vim.keymap.set(mode, shortcut, command, { remap = false })
+end
+
+local function imap(shortcut, command)
+  map("i", shortcut, command)
 end
 
 local function nmap(shortcut, command)
   map("n", shortcut, command)
 end
 
-local function imap(shortcut, command)
-  map("i", shortcut, command)
+local function vmap(shortcut, command)
+  map("v", shortcut, command)
 end
 
 imap("jk", "<esc>")
@@ -19,15 +23,16 @@ map("", "C-k", "C-w>k")
 map("", "C-h", "C-w>h")
 map("", "C-l", "C-w>l")
 
-map("", "<C-n>", ":NERDTreeToggle<cr>")
-map("", "<C-n>f", ":NERDTreeFind<cr>")
+vmap("<C-c>", '"+y')
+
+nmap("<C-n>", ":NERDTreeToggle<cr>")
+nmap("<C-n>f", ":NERDTreeFind<cr>")
 
 vim.g.mapleader = " "
 
 nmap("<leader>q", ":q<cr>")
 nmap("<leader>w", ":w<cr>")
 
-nmap("<leader>c", '"+y')
 nmap("<leader>sp", ":set paste<cr>")
 nmap("<leader>np", ":set nopaste<cr>")
 
@@ -44,6 +49,8 @@ nmap("<leader>a", ":Ack!<space>")
 nmap("<leader>ae", ":Ack! -w<space>")
 nmap("<leader>aw", "*<C-O>:AckFromSearch!<cr>")
 nmap("<leader>ad", ":Ack! <C-r><C-w> <C-r>=expand('%:h')<cr><cr>")
+
+nmap("<leader>r", ":%s/<C-r><C-w>//gc<Left><Left><Left>")
 
 nmap("<leader><leader>", "<C-^>")
 nmap("<leader>nh", ":noh<cr>")
@@ -70,6 +77,7 @@ nmap("<leader>sa", ":call RunAllSpecs()<cr>")
 nmap("<leader>es", ":e db/structure.sql<cr>")
 nmap("<leader>vs", ":vnew db/structure.sql<cr>")
 nmap("<leader>ed", ":e Dockerfile<cr>")
+nmap("<leader>vd", ":vnew Dockerfile<cr>")
 
 nmap("<leader>md", ":!mkdir -p %:h<cr>")
 
