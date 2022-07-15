@@ -24,7 +24,6 @@ g.wildmode = "list:longest,list:full"
 g.writebackup = false
 
 local w = vim.wo
-w.colorcolumn = "+1"
 w.list = true
 w.foldenable = false
 w.number = true
