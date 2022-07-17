@@ -55,9 +55,6 @@ nmap("<leader>r", ":%s/<C-r><C-w>//gc<Left><Left><Left>")
 nmap("<leader><leader>", "<C-^>")
 nmap("<leader>nh", ":noh<cr>")
 
-nmap("<leader>zv", "<C-w>\\|")
-nmap("<leader>z0", "<C-w>=")
-
 nmap("<leader>qo", ":copen<cr>")
 nmap("<leader>qc", ":cclose<cr>")
 nmap("<leader>ql", ":colder<cr>")
