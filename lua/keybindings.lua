@@ -44,6 +44,7 @@ nmap("<C-p>", "<cmd>lua require('telescope.builtin').find_files()<cr>")
 nmap("<leader>f", "<cmd>lua require('telescope.builtin').live_grep()<cr>")
 nmap("<leader>fw", "<cmd>lua require('telescope.builtin').grep_string()<cr>")
 nmap("<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>")
+nmap("<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>")
 
 nmap("<leader>a", ":Ack!<space>")
 nmap("<leader>ae", ":Ack! -w<space>")
