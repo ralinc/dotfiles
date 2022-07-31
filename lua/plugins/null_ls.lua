@@ -10,7 +10,10 @@ null_ls.setup({
     null_ls.builtins.diagnostics.rubocop,
     null_ls.builtins.formatting.rubocop,
 
-    null_ls.builtins.diagnostics.eslint,
+    null_ls.builtins.diagnostics.eslint.with({
+      command = "yarn",
+      args = { "eslint", "-f", "json", "--stdin", "--stdin-filename", "$FILENAME" },
+    }),
     null_ls.builtins.diagnostics.stylelint,
     null_ls.builtins.formatting.prettier.with({
       filetypes = {
