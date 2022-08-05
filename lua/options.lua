@@ -9,7 +9,6 @@ g.grepprg = "ag --nogroup --nocolor"
 g.ignorecase = true
 g.history = 50
 g.modelines = 0
-g.re = 1
 g.scrolloff = 10
 g.secure = true
 g.shell = "/bin/zsh"
