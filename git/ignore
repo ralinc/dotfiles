@@ -10,6 +10,6 @@ tags
 tmp/**/*
 !tmp/cache/.keep
 *.pyc
-vim/view
-.vimrc.local
 node_modules
+.null-ls-root
+pyrightconfig.json
