@@ -12,4 +12,3 @@ vim.api.nvim_create_autocmd("FileType", { pattern = { "gitcommit" }, command = "
 require("keybindings")
 require("options")
 require("plugins")
-require("lualine").setup()

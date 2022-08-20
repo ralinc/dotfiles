@@ -15,15 +15,15 @@ call minpac#add('hrsh7th/cmp-nvim-lsp')
 call minpac#add('hrsh7th/cmp-path')
 call minpac#add('hrsh7th/nvim-cmp')
 call minpac#add('mileszs/ack.vim')
+call minpac#add('nanotech/jellybeans.vim')
 call minpac#add('nvim-lualine/lualine.nvim')
 call minpac#add('nvim-telescope/telescope.nvim')
 call minpac#add('nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'})
-call minpac#add('nanotech/jellybeans.vim')
+call minpac#add('numToStr/Comment.nvim')
 call minpac#add('saadparwaiz1/cmp_luasnip')
 call minpac#add('scrooloose/nerdtree')
 call minpac#add('slim-template/vim-slim')
 call minpac#add('thoughtbot/vim-rspec')
-call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-endwise')
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-surround')
@@ -31,6 +31,18 @@ call minpac#add('tpope/vim-surround')
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
 ]])
+
+require("Comment").setup({
+  mappings = {
+    basic = true,
+    extra = false,
+    extended = false,
+  },
+})
+
+require("lualine").setup({
+  options = { theme = "jellybeans" },
+})
 
 require("plugins/cmp")
 require("plugins/lspconfig")
