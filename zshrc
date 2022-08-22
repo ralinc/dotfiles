@@ -25,4 +25,7 @@ eval "$(pyenv virtualenv-init -)"
 
 export PYTHONDONTWRITEBYTECODE=1
 
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
 source ~/.zshrc.local
