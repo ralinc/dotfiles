@@ -33,6 +33,7 @@ vim.g.mapleader = " "
 nmap("<leader>q", ":q<cr>")
 nmap("<leader>w", ":w<cr>")
 
+nmap("<leader>y", '"*y')
 nmap("<leader>sp", ":set paste<cr>")
 nmap("<leader>np", ":set nopaste<cr>")
 
