@@ -26,6 +26,7 @@ call minpac#add('slim-template/vim-slim')
 call minpac#add('thoughtbot/vim-rspec')
 call minpac#add('tpope/vim-endwise')
 call minpac#add('tpope/vim-fugitive')
+call minpac#add('tpope/vim-sleuth')
 call minpac#add('tpope/vim-surround')
 
 command! PackUpdate call minpac#update()
