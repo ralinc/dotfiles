@@ -106,3 +106,7 @@ endfunction
 ]])
 
 nmap("<leader>rf", ":call RenameFile()<cr>")
+
+nmap("<leader>pe", ":exec \"VtrSendCommand! python \" . expand('%')<cr>")
+nmap("<leader>pf", ":exec \"VtrSendCommand! pytest \" . expand('%')<cr>")
+nmap("<leader>pa", ':exec "VtrSendCommand! pytest"<cr>')
