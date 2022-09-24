@@ -69,10 +69,15 @@ nmap("<leader>tf", ":VtrFocusRunner<cr>")
 nmap("<leader>b", ":G blame<cr>")
 nmap("<leader>d", ":Gdiff :0<cr>")
 
-nmap("<leader>sn", ":call RunNearestSpec()<cr>")
+nmap("<leader>sa", ":call RunAllSpecs()<cr>")
 nmap("<leader>sf", ":call RunCurrentSpecFile()<cr>")
 nmap("<leader>sl", ":call RunLastSpec()<cr>")
-nmap("<leader>sa", ":call RunAllSpecs()<cr>")
+nmap("<leader>sn", ":call RunNearestSpec()<cr>")
+
+nmap("<leader>pa", ':exec "VtrSendCommand! pytest"<cr>')
+nmap("<leader>pe", ":exec \"VtrSendCommand! python \" . expand('%')<cr>")
+nmap("<leader>pf", ":exec \"VtrSendCommand! pytest \" . expand('%')<cr>")
+nmap("<leader>pn", ":exec \"VtrSendCommand! pytest \" . expand('%') . \":\" . line('.')<cr>")
 
 nmap("<leader>es", ":e db/structure.sql<cr>")
 nmap("<leader>vs", ":vnew db/structure.sql<cr>")
@@ -106,7 +111,3 @@ endfunction
 ]])
 
 nmap("<leader>rf", ":call RenameFile()<cr>")
-
-nmap("<leader>pe", ":exec \"VtrSendCommand! python \" . expand('%')<cr>")
-nmap("<leader>pf", ":exec \"VtrSendCommand! pytest \" . expand('%')<cr>")
-nmap("<leader>pa", ':exec "VtrSendCommand! pytest"<cr>')
