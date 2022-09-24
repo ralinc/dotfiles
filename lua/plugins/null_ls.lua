@@ -14,7 +14,10 @@ null_ls.setup({
       command = "yarn",
       args = { "eslint", "-f", "json", "--stdin", "--stdin-filename", "$FILENAME" },
     }),
-    null_ls.builtins.diagnostics.stylelint,
+    null_ls.builtins.diagnostics.stylelint.with({
+      command = "yarn",
+      args = { "stylelint", "--formatter", "json", "--stdin-filename", "$FILENAME" },
+    }),
     null_ls.builtins.formatting.prettier.with({
       filetypes = {
         "css",
