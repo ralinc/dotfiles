@@ -19,7 +19,7 @@ local on_attach = function(client)
   vim.keymap.set("n", ",rn", vim.lsp.buf.rename, opts)
   vim.keymap.set("n", ",s", vim.lsp.buf.signature_help, opts)
 
-  client.resolved_capabilities.document_formatting = false
+  client.server_capabilities.documentFormattingProvider = false
 end
 
 lspconfig.gopls.setup({
