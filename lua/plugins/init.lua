@@ -14,6 +14,7 @@ call minpac#add('hrsh7th/cmp-nvim-lua')
 call minpac#add('hrsh7th/cmp-nvim-lsp')
 call minpac#add('hrsh7th/cmp-path')
 call minpac#add('hrsh7th/nvim-cmp')
+call minpac#add('kyazdani42/nvim-tree.lua')
 call minpac#add('mileszs/ack.vim')
 call minpac#add('nanotech/jellybeans.vim')
 call minpac#add('nvim-lualine/lualine.nvim')
@@ -21,7 +22,6 @@ call minpac#add('nvim-telescope/telescope.nvim')
 call minpac#add('nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'})
 call minpac#add('numToStr/Comment.nvim')
 call minpac#add('saadparwaiz1/cmp_luasnip')
-call minpac#add('scrooloose/nerdtree')
 call minpac#add('slim-template/vim-slim')
 call minpac#add('thoughtbot/vim-rspec')
 call minpac#add('tpope/vim-endwise')
@@ -45,15 +45,20 @@ require("lualine").setup({
   options = { theme = "jellybeans" },
 })
 
+require("nvim-tree").setup({
+  view = {
+    adaptive_size = true,
+  },
+  filters = {
+    dotfiles = true,
+  },
+})
+
 require("plugins/cmp")
 require("plugins/lspconfig")
 require("plugins/null_ls")
 
 vim.g["ackprg"] = "ag --nogroup --nocolor --column"
-
-vim.g["NERDTreeWinSize"] = 50
-vim.g["NERDTreeMapOpenVSplit"] = "v"
-vim.g["NERDTreeIgnore"] = { ".pyc$", "~$", "node_modules" }
 
 vim.g["rspec_command"] = "VtrSendCommandToRunner! bundle exec rspec {spec}"
 

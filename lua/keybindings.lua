@@ -25,9 +25,6 @@ map("", "C-l", "C-w>l")
 
 vmap("<C-c>", '"+y')
 
-nmap("<C-n>", ":NERDTreeToggle<cr>")
-nmap("<C-n>f", ":NERDTreeFind<cr>")
-
 vim.g.mapleader = " "
 
 nmap("<leader><leader>", "<C-^>")
@@ -46,7 +43,7 @@ nmap("<leader>v", ":vnew <C-R>=escape(expand(\"%:p:h\"), ' ') . '/'<cr>")
 nmap("<leader>x", ":split <C-R>=escape(expand(\"%:p:h\"), ' ') . '/'<cr>")
 
 nmap("<C-p>", "<cmd>lua require('telescope.builtin').find_files()<cr>")
-nmap("<leader>f", "<cmd>lua require('telescope.builtin').live_grep()<cr>")
+nmap("<C-f>", "<cmd>lua require('telescope.builtin').live_grep()<cr>")
 nmap("<leader>fw", "<cmd>lua require('telescope.builtin').grep_string()<cr>")
 nmap("<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>")
 nmap("<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>")
@@ -55,6 +52,9 @@ nmap("<leader>a", ":Ack!<space>")
 nmap("<leader>ae", ":Ack! -w<space>")
 nmap("<leader>aw", "*<C-O>:AckFromSearch!<cr>")
 nmap("<leader>ad", ":Ack! <C-r><C-w> <C-r>=expand('%:h')<cr><cr>")
+
+nmap("<C-n>", ":NvimTreeToggle<cr>")
+nmap("<leader>ff", ":NvimTreeFindFile<cr>")
 
 nmap("<leader>r", ":%s/<C-r><C-w>//gc<Left><Left><Left>")
 

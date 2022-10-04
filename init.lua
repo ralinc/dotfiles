@@ -1,3 +1,6 @@
+vim.g.loaded = 1
+vim.g.loaded_netrwPlugin = 1
+
 vim.cmd([[
   syntax on
   filetype plugin indent on
