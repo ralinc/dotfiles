@@ -20,6 +20,7 @@ call minpac#add('nanotech/jellybeans.vim')
 call minpac#add('nvim-lualine/lualine.nvim')
 call minpac#add('nvim-telescope/telescope.nvim')
 call minpac#add('nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'})
+call minpac#add('nvim-treesitter/nvim-treesitter-textobjects')
 call minpac#add('numToStr/Comment.nvim')
 call minpac#add('saadparwaiz1/cmp_luasnip')
 call minpac#add('slim-template/vim-slim')
@@ -57,6 +58,7 @@ require("nvim-tree").setup({
 require("plugins/cmp")
 require("plugins/lspconfig")
 require("plugins/null_ls")
+require("plugins/treesitter")
 
 vim.g["ackprg"] = "ag --nogroup --nocolor --column"
 
