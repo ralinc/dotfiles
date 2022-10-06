@@ -1,5 +1,7 @@
 local lspconfig = require("lspconfig")
+
 local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 local on_attach = function(client)
   local opts = { noremap = true, silent = true, buffer = 0 }
   vim.keymap.set("n", "gl", vim.lsp.buf.declaration, opts)
@@ -48,6 +50,20 @@ lspconfig.sumneko_lua.setup({
       },
       telemetry = {
         enable = false,
+      },
+    },
+  },
+})
+
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+lspconfig.emmet_ls.setup({
+  capabilities = capabilities,
+  filetypes = { "html", "typescriptreact", "javascriptreact", "css", "scss" },
+  init_options = {
+    html = {
+      options = {
+        ["jsx.enabled"] = true,
       },
     },
   },
