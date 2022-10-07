@@ -86,8 +86,6 @@ nmap("<leader>vd", ":vnew Dockerfile<cr>")
 
 nmap("<leader>md", ":!mkdir -p %:h<cr>")
 
-nmap("<leader>i", "vapgq")
-
 nmap("<leader>li", ":LspInfo<cr>")
 nmap("<leader>ni", ":NullLsInfo<cr>")
 
