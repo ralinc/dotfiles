@@ -109,3 +109,5 @@ endfunction
 ]])
 
 nmap("<leader>rf", ":call RenameFile()<cr>")
+
+nmap("<leader>o", ":lua vim.diagnostic.setqflist()<cr>")
