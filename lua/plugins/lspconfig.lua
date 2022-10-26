@@ -56,15 +56,3 @@ lspconfig.sumneko_lua.setup({
 })
 
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-lspconfig.emmet_ls.setup({
-  capabilities = capabilities,
-  filetypes = { "html", "typescriptreact", "javascriptreact", "css", "scss" },
-  init_options = {
-    html = {
-      options = {
-        ["jsx.enabled"] = true,
-      },
-    },
-  },
-})
