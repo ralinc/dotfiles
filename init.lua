@@ -3,8 +3,8 @@ vim.g.loaded_netrwPlugin = 1
 
 vim.cmd [[ syntax on ]]
 vim.cmd [[ filetype plugin indent on ]]
--- vim.cmd [[colorscheme jellybeans]]
-vim.cmd [[colorscheme onedark]]
+vim.cmd [[colorscheme jellybeans]]
+-- vim.cmd [[colorscheme onedark]]
 
 vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, { pattern = '*.md', command = 'setl filetype=markdown' })
 vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, { pattern = '*.slim', command = 'setl filetype=slim' })
