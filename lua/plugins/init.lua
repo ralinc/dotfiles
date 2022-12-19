@@ -1,4 +1,4 @@
-vim.cmd([[
+vim.cmd [[
 packadd minpac
 call minpac#init()
 
@@ -32,38 +32,38 @@ call minpac#add('tpope/vim-surround')
 
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
-]])
+]]
 
-require("Comment").setup({
+require('Comment').setup {
   mappings = {
     basic = true,
     extra = false,
     extended = false,
   },
-})
+}
 
-require("lualine").setup({
-  options = { theme = "jellybeans" },
-})
+require('lualine').setup {
+  options = { theme = 'jellybeans' },
+}
 
-require("nvim-tree").setup({
+require('nvim-tree').setup {
   view = {
     adaptive_size = true,
   },
   filters = {
     dotfiles = true,
   },
-})
+}
 
-require("plugins/cmp")
-require("plugins/lspconfig")
-require("plugins/null_ls")
-require("plugins/treesitter")
+require 'plugins/cmp'
+require 'plugins/lspconfig'
+require 'plugins/null_ls'
+require 'plugins/treesitter'
 
-vim.g["ackprg"] = "ag --nogroup --nocolor --column"
+vim.g['ackprg'] = 'ag --nogroup --nocolor --column'
 
-vim.g["rspec_command"] = "VtrSendCommandToRunner! bundle exec rspec {spec}"
+vim.g['rspec_command'] = 'VtrSendCommandToRunner! bundle exec rspec {spec}'
 
-vim.g["VtrStripLeadingWhitespace"] = 0
-vim.g["VtrClearEmptyLines"] = 0
-vim.g["VtrAppendNewline"] = 1
+vim.g['VtrStripLeadingWhitespace'] = 0
+vim.g['VtrClearEmptyLines'] = 0
+vim.g['VtrAppendNewline'] = 1

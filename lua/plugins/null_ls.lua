@@ -1,6 +1,6 @@
-local null_ls = require("null-ls")
+local null_ls = require 'null-ls'
 
-null_ls.setup({
+null_ls.setup {
   debug = false,
   sources = {
     null_ls.builtins.diagnostics.flake8,
@@ -16,21 +16,21 @@ null_ls.setup({
     --   args = { "eslint", "-f", "json", "--stdin", "--stdin-filename", "$FILENAME" },
     -- }),
 
-    null_ls.builtins.formatting.prettier.with({
+    null_ls.builtins.formatting.prettier.with {
       filetypes = {
-        "css",
-        "graphql",
-        "html",
-        "javascript",
-        "javascriptreact",
-        "json",
-        "markdown",
-        "scss",
-        "typescript",
-        "typescriptreact",
-        "yaml",
+        'css',
+        'graphql',
+        'html',
+        'javascript',
+        'javascriptreact',
+        'json',
+        'markdown',
+        'scss',
+        'typescript',
+        'typescriptreact',
+        'yaml',
       },
-    }),
+    },
 
     null_ls.builtins.diagnostics.stylelint,
     -- null_ls.builtins.diagnostics.stylelint.with({
@@ -41,18 +41,18 @@ null_ls.setup({
     null_ls.builtins.formatting.gofmt,
     null_ls.builtins.formatting.goimports,
 
-    null_ls.builtins.formatting.stylua.with({
-      args = { "--indent-width", "2", "--indent-type", "Spaces", "-" },
-    }),
+    null_ls.builtins.formatting.stylua.with {
+      args = { '--indent-width', '2', '--indent-type', 'Spaces', '-' },
+    },
   },
   on_attach = function(client, bufnr)
     if client.server_capabilities.documentFormattingProvider then
-      vim.api.nvim_create_autocmd("BufWritePre", {
+      vim.api.nvim_create_autocmd('BufWritePre', {
         buffer = bufnr,
         callback = function()
-          vim.lsp.buf.format({ async = true })
+          vim.lsp.buf.format { async = true }
         end,
       })
     end
   end,
-})
+}
