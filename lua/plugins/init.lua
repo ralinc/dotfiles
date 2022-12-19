@@ -9,7 +9,12 @@ require('Comment').setup {
 }
 
 require('lualine').setup {
-  options = { theme = 'jellybeans' },
+  options = {
+    icons_enabled = false,
+    theme = 'onedark',
+    component_separators = '|',
+    section_separators = '',
+  },
 }
 
 require('nvim-tree').setup {

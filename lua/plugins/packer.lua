@@ -48,6 +48,7 @@ require('packer').startup(function(use)
   use 'kyazdani42/nvim-tree.lua'
   use 'mileszs/ack.vim'
   use 'nanotech/jellybeans.vim'
+  use 'navarasu/onedark.nvim'
   use 'numToStr/Comment.nvim'
   use 'nvim-lualine/lualine.nvim'
   use 'slim-template/vim-slim'
