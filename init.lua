@@ -11,14 +11,6 @@ vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, { pattern = '*.slim', c
 vim.api.nvim_create_autocmd('FileType', { pattern = 'markdown', command = 'setl spell nolist wrap lbr textwidth=80' })
 vim.api.nvim_create_autocmd('FileType', { pattern = { 'gitcommit' }, command = 'setl spell textwidth=72' })
 
-vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = vim.api.nvim_create_augroup('YankHighlight', { clear = true }),
-  pattern = '*',
-})
-
 require 'keybindings'
 require 'options'
 require 'plugins'

@@ -31,6 +31,8 @@ require 'plugins/lspconfig'
 require 'plugins/null_ls'
 require 'plugins/treesitter'
 
+pcall(require('telescope').load_extension, 'fzf')
+
 vim.g['ackprg'] = 'ag --nogroup --nocolor --column'
 
 vim.g['rspec_command'] = 'VtrSendCommandToRunner! bundle exec rspec {spec}'

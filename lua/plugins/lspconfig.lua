@@ -1,7 +1,3 @@
-local lspconfig = require 'lspconfig'
-
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-
 local on_attach = function(client)
   local opts = { noremap = true, silent = true, buffer = 0 }
   vim.keymap.set('n', 'gl', vim.lsp.buf.declaration, opts)
@@ -24,35 +20,41 @@ local on_attach = function(client)
   client.server_capabilities.documentFormattingProvider = false
 end
 
-lspconfig.gopls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
+require('mason').setup()
+
+local servers = { 'tsserver', 'gopls' }
+
+require('mason-lspconfig').setup {
+  ensure_installed = servers,
 }
 
-lspconfig.tsserver.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+
+local lspconfig = require 'lspconfig'
+
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
+end
+
+require('fidget').setup()
+
+local runtime_path = vim.split(package.path, ';')
+table.insert(runtime_path, 'lua/?.lua')
+table.insert(runtime_path, 'lua/?/init.lua')
 
 lspconfig.sumneko_lua.setup {
-  capabilities = capabilities,
   on_attach = on_attach,
+  capabilities = capabilities,
   settings = {
     Lua = {
-      runtime = {
-        version = 'LuaJIT',
-      },
-      diagnostics = {
-        globals = { 'vim' },
-      },
-      workspace = {
-        library = vim.api.nvim_get_runtime_file('', true),
-      },
-      telemetry = {
-        enable = false,
-      },
+      runtime = { version = 'LuaJIT', path = runtime_path },
+      diagnostics = { globals = { 'vim' } },
+      workspace = { library = vim.api.nvim_get_runtime_file('', true) },
+      telemetry = { enable = false },
     },
   },
 }
-
-capabilities.textDocument.completion.completionItem.snippetSupport = true

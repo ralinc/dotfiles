@@ -96,6 +96,8 @@ nmap('<leader>so', ':source ~/.config/nvim/init.lua<cr>')
 
 nmap('<leader>pry', 'obinding.pry<esc>:w<cr>')
 
+nmap('<leader>u', 'gwap')
+
 vim.cmd [[
 function! RenameFile()
     let old_name = expand('%')
@@ -109,6 +111,3 @@ endfunction
 ]]
 
 nmap('<leader>rf', ':call RenameFile()<cr>')
-
-nmap('<leader>o', ':lua vim.diagnostic.setqflist()<cr>')
-nmap('<leader>u', 'gwap')

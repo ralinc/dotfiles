@@ -9,7 +9,6 @@ g.gdefault = true
 g.grepprg = 'ag --nogroup --nocolor'
 g.ignorecase = true
 g.history = 50
-g.hlsearch = false
 g.modelines = 0
 g.scrolloff = 10
 g.secure = true
