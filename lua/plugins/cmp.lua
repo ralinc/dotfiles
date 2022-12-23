@@ -8,7 +8,8 @@ cmp.setup {
     end,
   },
   mapping = cmp.mapping.preset.insert {
-    ['<Tab>'] = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = true },
+    ['<Tab>'] = cmp.mapping.confirm { select = true },
+    ['<S-Tab>'] = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = true },
   },
   sources = {
     { name = 'nvim_lsp', keyword_length = 3 },
