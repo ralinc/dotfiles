@@ -10,36 +10,20 @@ null_ls.setup {
     null_ls.builtins.diagnostics.rubocop,
     null_ls.builtins.formatting.rubocop,
 
-    -- null_ls.builtins.diagnostics.eslint,
-    null_ls.builtins.diagnostics.eslint.with {
-      command = 'yarn',
-      args = { 'eslint', '-f', 'json', '--stdin', '--stdin-filename', '$FILENAME' },
-    },
+    null_ls.builtins.diagnostics.eslint,
+    -- null_ls.builtins.diagnostics.eslint.with {
+    --   command = 'yarn',
+    --   args = { 'eslint', '-f', 'json', '--stdin', '--stdin-filename', '$FILENAME' },
+    -- },
 
-    null_ls.builtins.formatting.prettier.with {
-      filetypes = {
-        'css',
-        'graphql',
-        'html',
-        'javascript',
-        'javascriptreact',
-        'json',
-        'markdown',
-        'scss',
-        'typescript',
-        'typescriptreact',
-        'yaml',
-      },
-    },
+    null_ls.builtins.formatting.prettier,
+    -- null_ls.builtins.formatting.prettierd,
 
-    -- null_ls.builtins.diagnostics.stylelint,
-    null_ls.builtins.diagnostics.stylelint.with {
-      command = 'yarn',
-      args = { 'stylelint', '--formatter', 'json', '--stdin-filename', '$FILENAME' },
-    },
-
-    null_ls.builtins.formatting.gofmt,
-    null_ls.builtins.formatting.goimports,
+    null_ls.builtins.diagnostics.stylelint,
+    -- null_ls.builtins.diagnostics.stylelint.with {
+    --   command = 'yarn',
+    --   args = { 'stylelint', '--formatter', 'json', '--stdin-filename', '$FILENAME' },
+    -- },
 
     null_ls.builtins.formatting.stylua.with {
       args = { '--indent-width', '2', '--indent-type', 'Spaces', '-' },
@@ -50,7 +34,7 @@ null_ls.setup {
       vim.api.nvim_create_autocmd('BufWritePre', {
         buffer = bufnr,
         callback = function()
-          vim.lsp.buf.format { async = true }
+          vim.lsp.buf.format { async = false }
         end,
       })
     end

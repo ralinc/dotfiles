@@ -22,7 +22,7 @@ end
 
 require('mason').setup()
 
-local servers = { 'tsserver', 'gopls' }
+local servers = { 'tsserver' }
 
 require('mason-lspconfig').setup {
   ensure_installed = servers,
