@@ -18,12 +18,12 @@ require('lualine').setup {
 }
 
 require('nvim-tree').setup {
-  view = {
-    adaptive_size = true,
-  },
-  filters = {
-    dotfiles = true,
-  },
+  view = { adaptive_size = true },
+  filters = { dotfiles = true },
+}
+
+require('nvim-treesitter.configs').setup {
+  endwise = { enable = true },
 }
 
 require 'plugins/cmp'
