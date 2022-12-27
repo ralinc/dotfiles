@@ -42,19 +42,25 @@ nmap('<leader>e', ":e <C-R>=escape(expand(\"%:p:h\"),' ') . '/'<cr>")
 nmap('<leader>v', ":vnew <C-R>=escape(expand(\"%:p:h\"), ' ') . '/'<cr>")
 nmap('<leader>x', ":split <C-R>=escape(expand(\"%:p:h\"), ' ') . '/'<cr>")
 
-nmap('<C-p>', "<cmd>lua require('telescope.builtin').find_files()<cr>")
-nmap('<C-f>', "<cmd>lua require('telescope.builtin').live_grep()<cr>")
-nmap('<leader>fw', "<cmd>lua require('telescope.builtin').grep_string()<cr>")
-nmap('<leader>fb', "<cmd>lua require('telescope.builtin').buffers()<cr>")
-nmap('<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<cr>")
+local telescope_builtin = require 'telescope.builtin'
+nmap('<C-p>', telescope_builtin.find_files)
+nmap('<leader>ff', telescope_builtin.live_grep)
+nmap('<leader>fw', telescope_builtin.grep_string)
+nmap('<leader>fb', telescope_builtin.buffers)
+nmap('<leader>fh', telescope_builtin.help_tags)
+nmap('<leader>fd', telescope_builtin.diagnostics)
+nmap('<leader>fr', telescope_builtin.lsp_references)
+nmap('<leader>fk', telescope_builtin.keymaps)
+nmap('<leader>fo', telescope_builtin.vim_options)
+nmap('<leader>fg', telescope_builtin.git_commits)
 
 nmap('<leader>a', ':Ack!<space>')
 nmap('<leader>ae', ':Ack! -w<space>')
 nmap('<leader>aw', '*<C-O>:AckFromSearch!<cr>')
 nmap('<leader>ad', ":Ack! <C-r><C-w> <C-r>=expand('%:h')<cr><cr>")
 
-nmap('<C-n>', ':NvimTreeToggle<cr>')
-nmap('<leader>ff', ':NvimTreeFindFile<cr>')
+nmap('<leader>nt', ':NvimTreeToggle<cr>')
+nmap('<leader>nf', ':NvimTreeFindFile<cr>')
 
 nmap('<leader>r', ':%s/<C-r><C-w>//gc<Left><Left><Left>')
 
@@ -66,8 +72,8 @@ nmap('<leader>to', ':VtrOpenRunner<cr>')
 nmap('<leader>tk', ':VtrKillRunner<cr>')
 nmap('<leader>tf', ':VtrFocusRunner<cr>')
 
-nmap('<leader>b', ':G blame<cr>')
-nmap('<leader>d', ':Gdiff :0<cr>')
+nmap('<leader>gb', ':G blame<cr>')
+nmap('<leader>gd', ':Gdiff :0<cr>')
 
 nmap('<leader>sa', ':call RunAllSpecs()<cr>')
 nmap('<leader>sf', ':call RunCurrentSpecFile()<cr>')
@@ -86,8 +92,10 @@ nmap('<leader>vd', ':vnew Dockerfile<cr>')
 
 nmap('<leader>md', ':!mkdir -p %:h<cr>')
 
-nmap('<leader>li', ':LspInfo<cr>')
 nmap('<leader>ni', ':NullLsInfo<cr>')
+nmap('<leader>li', ':LspInfo<cr>')
+nmap('<leader>le', ':LspStart<cr>')
+nmap('<leader>ld', ':LspStop<cr>')
 
 nmap('<leader>nr', ':set norelativenumber<cr>')
 nmap('<leader>rn', ':set relativenumber<cr>')
