@@ -1,0 +1,70 @@
+syntax on
+
+filetype plugin indent on
+
+runtime macros/matchit.vim
+
+set autoindent
+set autoread
+set autowrite
+set backspace=indent,eol,start
+set diffopt+=vertical
+set encoding=utf-8 nobomb
+set expandtab
+set grepprg=ag\ --nogroup\ --nocolor
+set ignorecase
+set incsearch
+set history=50
+set hlsearch
+set laststatus=2
+set lazyredraw
+set list listchars=tab:»·,trail:·,nbsp:·
+set nobackup
+set nocompatible
+set nocursorline
+set nofoldenable
+set noswapfile
+set nowrap
+set nowritebackup
+set number
+set re=1
+set relativenumber
+set ruler
+set scrolloff=10
+set secure
+set sidescrolloff=20
+set shiftwidth=2
+set smartcase
+set smarttab
+set splitbelow
+set splitright
+set tabstop=2
+set timeoutlen=500
+set ttyfast
+set wildmenu
+set wildmode=list:longest,list:full
+set wmh=0
+
+imap jk <esc>
+nmap j gj
+nmap k gk
+nmap 0 ^
+
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-h> <C-w>h
+map <C-l> <C-w>l
+
+let mapleader = " "
+
+nnoremap <Leader><Leader> <C-^>
+nnoremap <Leader><CR> :noh<CR>
+
+nmap <Leader>q :q<CR>
+nmap <Leader>w :w<CR>
+
+nmap <Leader>e :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
+nmap <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
+
+nmap <leader>qo :copen<CR>
+nmap <leader>qc :cclose<CR>

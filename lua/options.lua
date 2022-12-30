@@ -19,7 +19,6 @@ g.splitbelow = true
 g.splitright = true
 g.termguicolors = true
 g.timeoutlen = 500
-g.updatetime = 250
 g.wildignore = 'tmp/**,log/**'
 g.wildmode = 'list:longest,list:full'
 g.writebackup = false

@@ -28,7 +28,6 @@ vmap('<C-c>', '"+y')
 vim.g.mapleader = ' '
 
 nmap('<leader><leader>', '<C-^>')
-
 nmap('<leader><cr>', ':noh<cr>')
 
 nmap('<leader>q', ':q<cr>')
