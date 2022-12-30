@@ -59,8 +59,8 @@ nmap('<leader>ae', ':Ack! -w<space>')
 nmap('<leader>aw', '*<C-O>:AckFromSearch!<cr>')
 nmap('<leader>ad', ":Ack! <C-r><C-w> <C-r>=expand('%:h')<cr><cr>")
 
-nmap('<leader>nt', ':NvimTreeToggle<cr>')
-nmap('<leader>nf', ':NvimTreeFindFile<cr>')
+nmap('<leader>to', ':NvimTreeToggle<cr>')
+nmap('<leader>tf', ':NvimTreeFindFile<cr>')
 
 nmap('<leader>r', ':%s/<C-r><C-w>//gc<Left><Left><Left>')
 
@@ -68,9 +68,9 @@ nmap('<leader>qo', ':copen<cr>')
 nmap('<leader>qc', ':cclose<cr>')
 nmap('<leader>ql', ':colder<cr>')
 
-nmap('<leader>to', ':VtrOpenRunner<cr>')
-nmap('<leader>tk', ':VtrKillRunner<cr>')
-nmap('<leader>tf', ':VtrFocusRunner<cr>')
+nmap('<leader>o', ':VtrOpenRunner<cr>')
+nmap('<leader>k', ':VtrKillRunner<cr>')
+nmap('<leader>z', ':VtrFocusRunner<cr>')
 
 nmap('<leader>gb', ':G blame<cr>')
 nmap('<leader>gd', ':Gdiff :0<cr>')
