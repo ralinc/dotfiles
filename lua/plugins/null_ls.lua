@@ -3,6 +3,8 @@ local null_ls = require 'null-ls'
 null_ls.setup {
   debug = false,
   sources = {
+    null_ls.builtins.formatting.prettier,
+
     null_ls.builtins.diagnostics.flake8,
     null_ls.builtins.formatting.black,
     null_ls.builtins.formatting.isort,
@@ -10,20 +12,33 @@ null_ls.setup {
     null_ls.builtins.diagnostics.rubocop,
     null_ls.builtins.formatting.rubocop,
 
-    -- null_ls.builtins.diagnostics.eslint,
+    -- Classic Yarn
+    null_ls.builtins.diagnostics.eslint.with {
+      condition = function(utils)
+        return not utils.has_file '.pnp.cjs'
+      end,
+    },
+    null_ls.builtins.diagnostics.stylelint.with {
+      condition = function(utils)
+        return not utils.has_file '.pnp.cjs'
+      end,
+    },
+
+    -- Yarn PnP
     null_ls.builtins.diagnostics.eslint.with {
       command = 'yarn',
       args = { 'eslint', '-f', 'json', '--stdin', '--stdin-filename', '$FILENAME' },
+      condition = function(utils)
+        return utils.has_file '.pnp.cjs'
+      end,
     },
-
-    null_ls.builtins.formatting.prettier,
-    -- null_ls.builtins.formatting.prettierd,
-
-    null_ls.builtins.diagnostics.stylelint,
-    -- null_ls.builtins.diagnostics.stylelint.with {
-    --   command = 'yarn',
-    --   args = { 'stylelint', '--formatter', 'json', '--stdin-filename', '$FILENAME' },
-    -- },
+    null_ls.builtins.diagnostics.stylelint.with {
+      command = 'yarn',
+      args = { 'stylelint', '--formatter', 'json', '--stdin-filename', '$FILENAME' },
+      condition = function(utils)
+        return utils.has_file '.pnp.cjs'
+      end,
+    },
 
     null_ls.builtins.formatting.stylua.with {
       args = { '--indent-width', '2', '--indent-type', 'Spaces', '-' },
