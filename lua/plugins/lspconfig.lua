@@ -23,6 +23,7 @@ end
 require('mason').setup()
 
 local servers = {
+  'gopls',
   'pyright',
   'tsserver',
 }
@@ -36,8 +37,8 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 local lspconfig = require 'lspconfig'
 
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
+for _, server in ipairs(servers) do
+  lspconfig[server].setup {
     on_attach = on_attach,
     capabilities = capabilities,
   }

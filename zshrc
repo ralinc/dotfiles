@@ -12,6 +12,9 @@ done
 export FZF_DEFAULT_COMMAND='ag -g ""'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
 eval "$(rbenv init -)"
 
 export PYENV_ROOT="$HOME/.pyenv"
