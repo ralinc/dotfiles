@@ -20,8 +20,13 @@ require('nvim-treesitter.configs').setup {
   },
   sync_install = false,
   auto_install = true,
-  highlight = { enable = true },
-  indent = { enable = true },
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+  indent = {
+    enable = true,
+  },
   textobjects = {
     select = {
       enable = true,
@@ -29,8 +34,6 @@ require('nvim-treesitter.configs').setup {
       keymaps = {
         ['af'] = '@function.outer',
         ['if'] = '@function.inner',
-        ['ac'] = '@class.outer',
-        ['ic'] = '@class.inner',
       },
       include_surrounding_whitespace = false,
     },
@@ -39,14 +42,13 @@ require('nvim-treesitter.configs').setup {
       set_jumps = true,
       goto_next_start = {
         [' ]'] = '@function.outer',
-        [']]'] = '@class.outer',
+        [' \\'] = '@parameter.outer',
       },
       goto_next_end = {
         [' }'] = '@function.outer',
       },
       goto_previous_start = {
         [' ['] = '@function.outer',
-        ['[['] = '@class.outer',
       },
       goto_previous_end = {
         [' {'] = '@function.outer',
