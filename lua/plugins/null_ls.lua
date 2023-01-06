@@ -1,5 +1,13 @@
 local null_ls = require 'null-ls'
 
+local is_yarn_pnp = function(utils)
+  return utils.has_file '.pnp.cjs' or utils.root_has_file '.pnp.cjs'
+end
+
+local is_yarn_classic = function(utils)
+  return not is_yarn_pnp(utils)
+end
+
 null_ls.setup {
   debug = false,
   sources = {
@@ -15,32 +23,22 @@ null_ls.setup {
     null_ls.builtins.diagnostics.rubocop,
     null_ls.builtins.formatting.rubocop,
 
-    -- Classic Yarn
     null_ls.builtins.diagnostics.eslint.with {
-      condition = function(utils)
-        return not utils.has_file '.pnp.cjs'
-      end,
+      condition = is_yarn_classic,
     },
-    null_ls.builtins.diagnostics.stylelint.with {
-      condition = function(utils)
-        return not utils.has_file '.pnp.cjs'
-      end,
-    },
-
-    -- Yarn PnP
     null_ls.builtins.diagnostics.eslint.with {
+      condition = is_yarn_pnp,
       command = 'yarn',
       args = { 'eslint', '-f', 'json', '--stdin', '--stdin-filename', '$FILENAME' },
-      condition = function(utils)
-        return utils.has_file '.pnp.cjs'
-      end,
+    },
+
+    null_ls.builtins.diagnostics.stylelint.with {
+      condition = is_yarn_classic,
     },
     null_ls.builtins.diagnostics.stylelint.with {
+      condition = is_yarn_pnp,
       command = 'yarn',
       args = { 'stylelint', '--formatter', 'json', '--stdin-filename', '$FILENAME' },
-      condition = function(utils)
-        return utils.has_file '.pnp.cjs'
-      end,
     },
 
     null_ls.builtins.formatting.stylua.with {
