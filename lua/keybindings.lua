@@ -43,7 +43,7 @@ nmap('<leader>x', ":split <C-R>=escape(expand(\"%:p:h\"), ' ') . '/'<cr>")
 
 local telescope_builtin = require 'telescope.builtin'
 nmap('<C-p>', telescope_builtin.find_files)
-nmap('<leader>ff', telescope_builtin.live_grep)
+nmap('<C-f>', telescope_builtin.live_grep)
 nmap('<leader>fw', telescope_builtin.grep_string)
 nmap('<leader>fb', telescope_builtin.buffers)
 nmap('<leader>fh', telescope_builtin.help_tags)

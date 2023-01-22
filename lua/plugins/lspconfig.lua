@@ -7,14 +7,14 @@ local on_attach = function(client)
   vim.keymap.set('n', ',n', vim.diagnostic.goto_next, opts)
   vim.keymap.set('n', ',p', vim.diagnostic.goto_prev, opts)
   vim.keymap.set('n', ',q', vim.diagnostic.setloclist, opts)
+  vim.keymap.set('n', ',h', vim.lsp.buf.hover, opts)
 
+  -- vim.keymap.set('n', ',s', vim.lsp.buf.signature_help, opts)
   -- vim.keymap.set('n', ',e', vim.diagnostic.open_float, opts)
-  -- vim.keymap.set('n', ',h', vim.lsp.buf.hover, opts)
   -- vim.keymap.set('n', ',a', vim.lsp.buf.code_action, opts)
   -- vim.keymap.set('n', ',l', vim.lsp.buf.declaration, opts)
   -- vim.keymap.set('n', ',t', vim.lsp.buf.type_definition, opts)
   -- vim.keymap.set('n', ',i', vim.lsp.buf.implementation, opts)
-  -- vim.keymap.set('n', ',s', vim.lsp.buf.signature_help, opts)
   -- vim.keymap.set('n', ',f', vim.lsp.buf.formatting, opts)
 
   client.server_capabilities.documentFormattingProvider = false
