@@ -11,7 +11,14 @@ end
 null_ls.setup {
   debug = false,
   sources = {
-    null_ls.builtins.formatting.prettier,
+    null_ls.builtins.formatting.prettier.with {
+      condition = is_yarn_classic,
+    },
+    null_ls.builtins.formatting.prettier.with {
+      condition = is_yarn_pnp,
+      command = 'yarn',
+      args = { 'prettier', '--stdin-filepath', '$FILENAME' },
+    },
 
     null_ls.builtins.formatting.gofmt,
     null_ls.builtins.formatting.goimports,
