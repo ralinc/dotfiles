@@ -25,6 +25,7 @@ require('mason').setup()
 local servers = {
   'gopls',
   'pyright',
+  'tailwindcss',
   'tsserver',
 }
 

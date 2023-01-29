@@ -39,15 +39,6 @@ null_ls.setup {
       args = { 'eslint', '-f', 'json', '--stdin', '--stdin-filename', '$FILENAME' },
     },
 
-    null_ls.builtins.diagnostics.stylelint.with {
-      condition = is_yarn_classic,
-    },
-    null_ls.builtins.diagnostics.stylelint.with {
-      condition = is_yarn_pnp,
-      command = 'yarn',
-      args = { 'stylelint', '--formatter', 'json', '--stdin-filename', '$FILENAME' },
-    },
-
     null_ls.builtins.formatting.stylua.with {
       args = { '--indent-width', '2', '--indent-type', 'Spaces', '-' },
     },
