@@ -39,6 +39,8 @@ null_ls.setup {
       args = { 'eslint', '-f', 'json', '--stdin', '--stdin-filename', '$FILENAME' },
     },
 
+    null_ls.builtins.formatting.pg_format,
+
     null_ls.builtins.formatting.stylua.with {
       args = { '--indent-width', '2', '--indent-type', 'Spaces', '-' },
     },
