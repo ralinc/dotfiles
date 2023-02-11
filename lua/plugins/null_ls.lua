@@ -20,6 +20,10 @@ null_ls.setup {
       args = { 'prettier', '--stdin-filepath', '$FILENAME' },
     },
 
+    null_ls.builtins.formatting.nginx_beautifier.with {
+      args = { '-s', '2', '-i', '-o', '$FILENAME' },
+    },
+
     null_ls.builtins.formatting.gofmt,
     null_ls.builtins.formatting.goimports,
 
