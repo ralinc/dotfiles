@@ -37,7 +37,12 @@ require('packer').startup(function(use)
     end,
   }
 
-  use { 'nvim-treesitter/nvim-treesitter-textobjects', after = 'nvim-treesitter' }
+  use {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    after = 'nvim-treesitter',
+    requires = 'nvim-treesitter/nvim-treesitter',
+  }
+
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
 
@@ -45,9 +50,7 @@ require('packer').startup(function(use)
   use 'christoomey/vim-tmux-runner'
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'kyazdani42/nvim-tree.lua'
-  use 'mileszs/ack.vim'
   use 'nanotech/jellybeans.vim'
-  -- use 'navarasu/onedark.nvim'
   use 'numToStr/Comment.nvim'
   use 'nvim-lualine/lualine.nvim'
   use 'RRethy/nvim-treesitter-endwise'

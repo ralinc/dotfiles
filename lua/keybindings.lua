@@ -25,8 +25,6 @@ map('', 'C-l', 'C-w>l')
 
 vmap('<C-c>', '"+y')
 
-vim.g.mapleader = ' '
-
 nmap('<leader><leader>', '<C-^>')
 nmap('<leader><cr>', ':noh<cr>')
 
@@ -43,7 +41,7 @@ nmap('<leader>x', ":split <C-R>=escape(expand(\"%:p:h\"), ' ') . '/'<cr>")
 
 local telescope_builtin = require 'telescope.builtin'
 nmap('<C-p>', telescope_builtin.find_files)
-nmap('<C-f>', telescope_builtin.live_grep)
+nmap('<leader>ff', telescope_builtin.live_grep)
 nmap('<leader>fw', telescope_builtin.grep_string)
 nmap('<leader>fb', telescope_builtin.buffers)
 nmap('<leader>fh', telescope_builtin.help_tags)
@@ -52,11 +50,6 @@ nmap('<leader>fr', telescope_builtin.lsp_references)
 nmap('<leader>fk', telescope_builtin.keymaps)
 nmap('<leader>fo', telescope_builtin.vim_options)
 nmap('<leader>fg', telescope_builtin.git_commits)
-
-nmap('<leader>a', ':Ack!<space>')
-nmap('<leader>ae', ':Ack! -w<space>')
-nmap('<leader>aw', '*<C-O>:AckFromSearch!<cr>')
-nmap('<leader>ad', ":Ack! <C-r><C-w> <C-r>=expand('%:h')<cr><cr>")
 
 nmap('<leader>tt', ':NvimTreeToggle<cr>')
 nmap('<leader>tf', ':NvimTreeFindFile<cr>')
