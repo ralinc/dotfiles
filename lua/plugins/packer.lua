@@ -49,7 +49,7 @@ require('packer').startup(function(use)
   use 'christoomey/vim-tmux-navigator'
   use 'christoomey/vim-tmux-runner'
   use 'jose-elias-alvarez/null-ls.nvim'
-  use 'kyazdani42/nvim-tree.lua'
+  use 'nvim-tree/nvim-tree.lua'
   use 'nanotech/jellybeans.vim'
   use 'numToStr/Comment.nvim'
   use 'nvim-lualine/lualine.nvim'
