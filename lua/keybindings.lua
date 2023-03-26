@@ -69,13 +69,16 @@ nmap('<leader>z', ':VtrFocusRunner<cr>')
 nmap('<leader>gb', ':G blame<cr>')
 nmap('<leader>gd', ':Gdiff :0<cr>')
 
+nmap('<leader>re', ':exec "VtrSendCommand! ruby " . expand(\'%\')<cr>')
+nmap('<leader>pe', ':exec "VtrSendCommand! python " . expand(\'%\')<cr>')
+nmap('<leader>ge', ':exec "VtrSendCommand! go run " . expand(\'%\')<cr>')
+
 nmap('<leader>sa', ':call RunAllSpecs()<cr>')
 nmap('<leader>sf', ':call RunCurrentSpecFile()<cr>')
 nmap('<leader>sl', ':call RunLastSpec()<cr>')
 nmap('<leader>sn', ':call RunNearestSpec()<cr>')
 
 nmap('<leader>pa', ':exec "VtrSendCommand! pytest"<cr>')
-nmap('<leader>pe', ':exec "VtrSendCommand! python " . expand(\'%\')<cr>')
 nmap('<leader>pf', ':exec "VtrSendCommand! pytest " . expand(\'%\')<cr>')
 nmap('<leader>pn', ':exec "VtrSendCommand! pytest " . expand(\'%\') . ":" . line(\'.\')<cr>')
 
@@ -113,3 +116,18 @@ endfunction
 ]]
 
 nmap('<leader>rf', ':call RenameFile()<cr>')
+
+nmap('<leader>vv', function()
+  vim.fn.jobstart({ 'go', 'run', vim.api.nvim_buf_get_name(0) }, {
+    stdout_buffered = true,
+    on_stdout = function(_, data)
+      if data then
+        vim.cmd 'vsplit'
+        local win = vim.api.nvim_get_current_win()
+        local buf = vim.api.nvim_create_buf(false, true)
+        vim.api.nvim_buf_set_lines(buf, 0, -1, false, data)
+        vim.api.nvim_win_set_buf(win, buf)
+      end
+    end,
+  })
+end)
