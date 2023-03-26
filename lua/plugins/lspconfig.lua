@@ -1,21 +1,20 @@
 local on_attach = function(client)
-  local opts = { noremap = true, silent = true, buffer = 0 }
+  local o = { noremap = true, silent = true, buffer = 0 }
 
-  vim.keymap.set('n', ',d', vim.lsp.buf.definition, opts)
-  vim.keymap.set('n', ',r', vim.lsp.buf.references, opts)
-  vim.keymap.set('n', ',e', vim.lsp.buf.rename, opts)
-  vim.keymap.set('n', ',n', vim.diagnostic.goto_next, opts)
-  vim.keymap.set('n', ',p', vim.diagnostic.goto_prev, opts)
-  vim.keymap.set('n', ',q', vim.diagnostic.setloclist, opts)
-  vim.keymap.set('n', ',h', vim.lsp.buf.hover, opts)
+  vim.keymap.set('n', ',l', vim.lsp.buf.declaration, o)
+  vim.keymap.set('n', ',d', vim.lsp.buf.definition, o)
+  vim.keymap.set('n', ',r', vim.lsp.buf.references, o)
+  vim.keymap.set('n', ',e', vim.lsp.buf.rename, o)
+  vim.keymap.set('n', ',n', vim.diagnostic.goto_next, o)
+  vim.keymap.set('n', ',p', vim.diagnostic.goto_prev, o)
+  vim.keymap.set('n', ',q', vim.diagnostic.setloclist, o)
+  vim.keymap.set('n', ',f', vim.diagnostic.open_float, o)
+  vim.keymap.set('n', ',h', vim.lsp.buf.hover, o)
+  vim.keymap.set('n', ',a', vim.lsp.buf.code_action, o)
 
-  -- vim.keymap.set('n', ',s', vim.lsp.buf.signature_help, opts)
-  -- vim.keymap.set('n', ',e', vim.diagnostic.open_float, opts)
-  -- vim.keymap.set('n', ',a', vim.lsp.buf.code_action, opts)
-  -- vim.keymap.set('n', ',l', vim.lsp.buf.declaration, opts)
-  -- vim.keymap.set('n', ',t', vim.lsp.buf.type_definition, opts)
-  -- vim.keymap.set('n', ',i', vim.lsp.buf.implementation, opts)
-  -- vim.keymap.set('n', ',f', vim.lsp.buf.formatting, opts)
+  -- vim.keymap.set('n', ',s', vim.lsp.buf.signature_help, o)
+  -- vim.keymap.set('n', ',t', vim.lsp.buf.type_definition, o)
+  -- vim.keymap.set('n', ',i', vim.lsp.buf.implementation, o)
 
   client.server_capabilities.documentFormattingProvider = false
 end
