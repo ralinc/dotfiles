@@ -42,8 +42,10 @@ nmap('<leader>x', ":split <C-R>=escape(expand(\"%:p:h\"), ' ') . '/'<cr>")
 local tb = require 'telescope.builtin'
 nmap('<C-p>', tb.find_files)
 nmap('<leader>f', tb.live_grep)
-nmap('<leader>fd', ':Telescope live_grep search_dirs=')
 nmap('<leader>fw', tb.grep_string)
+vim.keymap.set('n', '<leader>fd', function()
+  tb.live_grep { search_dirs = { vim.fn.input '> ' } }
+end)
 nmap('<leader>fb', tb.buffers)
 nmap('<leader>fr', tb.lsp_references)
 nmap('<leader>fs', tb.treesitter)
