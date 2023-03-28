@@ -50,7 +50,11 @@ require('packer').startup(function(use)
   use 'christoomey/vim-tmux-runner'
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'nvim-tree/nvim-tree.lua'
+
   use 'nanotech/jellybeans.vim'
+  use 'folke/tokyonight.nvim'
+  use { 'rose-pine/neovim', as = 'rose-pine' }
+
   use 'numToStr/Comment.nvim'
   use 'nvim-lualine/lualine.nvim'
   use 'RRethy/nvim-treesitter-endwise'
