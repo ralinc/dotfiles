@@ -55,8 +55,10 @@ nmap('<leader>fk', tb.keymaps)
 nmap('<leader>fo', tb.vim_options)
 nmap('<leader>fg', tb.git_commits)
 
-nmap('<leader>tt', ':NvimTreeToggle<cr>')
-nmap('<leader>tf', ':NvimTreeFindFile<cr>')
+local ta = require 'nvim-tree.api'
+nmap('<leader>o', function()
+  ta.tree.toggle { find_file = true }
+end)
 
 nmap('<leader>r', ':%s/<C-r><C-w>//gc<Left><Left><Left>')
 
@@ -64,7 +66,7 @@ nmap('<leader>qo', ':copen<cr>')
 nmap('<leader>qc', ':cclose<cr>')
 nmap('<leader>ql', ':colder<cr>')
 
-nmap('<leader>o', ':VtrOpenRunner<cr>')
+nmap('<leader>t', ':VtrOpenRunner<cr>')
 nmap('<leader>k', ':VtrKillRunner<cr>')
 nmap('<leader>z', ':VtrFocusRunner<cr>')
 
