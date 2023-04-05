@@ -24,6 +24,7 @@ require('mason').setup()
 local servers = {
   'gopls',
   'pyright',
+  -- 'ruby_ls',
   'tailwindcss',
   'tsserver',
 }
@@ -38,10 +39,29 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 local lspconfig = require 'lspconfig'
 
 for _, server in ipairs(servers) do
+  -- if server == 'ruby_ls' then
+  --   lspconfig[server].setup {
+  --     cmd = { 'bundle', 'exec', 'ruby-lsp' },
+  --     init_options = {
+  --       enabledFeatures = {
+  --         'codeActions',
+  --         -- 'diagnostics',
+  --         'documentHighlights',
+  --         'documentSymbols',
+  --         -- 'formatting',
+  --         'inlayHint',
+  --         'selectionRanges',
+  --       },
+  --     },
+  --     on_attach = on_attach,
+  --     capabilities = capabilities,
+  --   }
+  -- else
   lspconfig[server].setup {
     on_attach = on_attach,
     capabilities = capabilities,
   }
+  -- end
 end
 
 local runtime_path = vim.split(package.path, ';')
