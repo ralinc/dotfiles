@@ -105,7 +105,7 @@ nmap('<leader>so', ':source ~/.config/nvim/init.lua<cr>')
 
 nmap('<leader>pry', 'obinding.pry<esc>:w<cr>')
 
-nmap('<leader>u', 'gwap')
+nmap('<leader>3', 'gwap')
 
 vim.cmd [[
 function! RenameFile()
