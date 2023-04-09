@@ -1,7 +1,7 @@
 local null_ls = require 'null-ls'
 
 local is_yarn_pnp = function(utils)
-  return utils.has_file '.pnp.cjs' -- or utils.root_has_file '.pnp.cjs'
+  return utils.has_file '.pnp.cjs'
 end
 
 local is_yarn_classic = function(utils)

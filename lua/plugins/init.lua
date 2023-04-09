@@ -39,10 +39,6 @@ require('nvim-tree').setup {
   },
 }
 
-require('nvim-treesitter.configs').setup {
-  endwise = { enable = true },
-}
-
 require 'plugins/cmp'
 require 'plugins/lspconfig'
 require 'plugins/null_ls'

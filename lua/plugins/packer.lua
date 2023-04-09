@@ -57,7 +57,6 @@ require('packer').startup(function(use)
 
   use 'numToStr/Comment.nvim'
   use 'nvim-lualine/lualine.nvim'
-  use 'RRethy/nvim-treesitter-endwise'
   use 'slim-template/vim-slim'
   use 'thoughtbot/vim-rspec'
   use 'tpope/vim-fugitive'
