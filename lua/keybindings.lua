@@ -43,6 +43,9 @@ local tb = require 'telescope.builtin'
 nmap('<C-p>', tb.find_files)
 nmap('<leader>f', tb.live_grep)
 nmap('<leader>fw', tb.grep_string)
+vim.keymap.set('n', '<leader>fc', function()
+  tb.live_grep { search_dirs = { vim.fn.expand '%:p:h' } }
+end)
 vim.keymap.set('n', '<leader>fd', function()
   tb.live_grep { search_dirs = { vim.fn.input '> ' } }
 end)
