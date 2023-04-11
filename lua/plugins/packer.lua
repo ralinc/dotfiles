@@ -43,6 +43,12 @@ require('packer').startup(function(use)
     requires = 'nvim-treesitter/nvim-treesitter',
   }
 
+  use {
+    'RRethy/nvim-treesitter-endwise',
+    after = 'nvim-treesitter',
+    requires = 'nvim-treesitter/nvim-treesitter',
+  }
+
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
 
