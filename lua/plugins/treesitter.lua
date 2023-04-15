@@ -45,7 +45,7 @@ require('nvim-treesitter.configs').setup {
       set_jumps = true,
       goto_next_start = {
         [' ]'] = '@function.outer',
-        [' \\'] = '@parameter.outer',
+        [' p'] = '@parameter.outer',
       },
       goto_next_end = {
         [' }'] = '@function.outer',

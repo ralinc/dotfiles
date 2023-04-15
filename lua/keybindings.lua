@@ -39,6 +39,9 @@ nmap('<leader>e', ":e <C-R>=escape(expand(\"%:p:h\"),' ') . '/'<cr>")
 nmap('<leader>v', ":vnew <C-R>=escape(expand(\"%:p:h\"), ' ') . '/'<cr>")
 nmap('<leader>x', ":split <C-R>=escape(expand(\"%:p:h\"), ' ') . '/'<cr>")
 
+nmap('<leader>\\', '<C-w>|')
+nmap('<leader>=', '<C-w>=')
+
 local tb = require 'telescope.builtin'
 nmap('<C-p>', tb.find_files)
 nmap('<leader>f', tb.live_grep)
@@ -77,17 +80,18 @@ nmap('<leader>gb', ':G blame<cr>')
 nmap('<leader>gd', ':Gdiff :0<cr>')
 
 nmap('<leader>re', ':exec "VtrSendCommand! ruby " . expand(\'%\')<cr>')
-nmap('<leader>pe', ':exec "VtrSendCommand! python " . expand(\'%\')<cr>')
-nmap('<leader>ge', ':exec "VtrSendCommand! go run " . expand(\'%\')<cr>')
-
 nmap('<leader>sa', ':call RunAllSpecs()<cr>')
 nmap('<leader>sf', ':call RunCurrentSpecFile()<cr>')
 nmap('<leader>sl', ':call RunLastSpec()<cr>')
 nmap('<leader>sn', ':call RunNearestSpec()<cr>')
 
+nmap('<leader>pe', ':exec "VtrSendCommand! python " . expand(\'%\')<cr>')
 nmap('<leader>pa', ':exec "VtrSendCommand! pytest"<cr>')
 nmap('<leader>pf', ':exec "VtrSendCommand! pytest " . expand(\'%\')<cr>')
 nmap('<leader>pn', ':exec "VtrSendCommand! pytest " . expand(\'%\') . ":" . line(\'.\')<cr>')
+
+nmap('<leader>ge', ':exec "VtrSendCommand! go run " . expand(\'%\')<cr>')
+nmap('<leader>ga', ':exec "VtrSendCommand! go test ./..."<cr>')
 
 nmap('<leader>es', ':e db/structure.sql<cr>')
 nmap('<leader>vs', ':vnew db/structure.sql<cr>')
@@ -108,7 +112,7 @@ nmap('<leader>so', ':source ~/.config/nvim/init.lua<cr>')
 
 nmap('<leader>pry', 'obinding.pry<esc>:w<cr>')
 
-nmap('<leader>3', 'gwap')
+nmap('<leader>gw', 'gwap')
 
 vim.cmd [[
 function! RenameFile()
