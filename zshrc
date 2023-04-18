@@ -12,9 +12,6 @@ done
 export FZF_DEFAULT_COMMAND='ag -g ""'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-
 eval "$(rbenv init -)"
 
 export PYENV_ROOT="$HOME/.pyenv"
@@ -28,7 +25,7 @@ eval "$(pyenv virtualenv-init -)"
 
 export PYTHONDONTWRITEBYTECODE=1
 
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/bin"
 
 source ~/.zshrc.local
