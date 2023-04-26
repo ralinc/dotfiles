@@ -14,18 +14,21 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 
 eval "$(rbenv init -)"
 
-export PYENV_ROOT="$HOME/.pyenv"
+export PYENV_ROOT=$HOME/.pyenv
+export PATH=$PYENV_ROOT/bin:$PATH
 
-export PATH="$PYENV_ROOT/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/bin:$PATH"
+export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/bin:$PATH
 
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 export PYTHONDONTWRITEBYTECODE=1
 
-export GOPATH="$HOME/go"
-export PATH="$PATH:$GOPATH/bin"
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
+export VOLTA_HOME=$HOME/.volta
+export PATH=$VOLTA_HOME/bin:$PATH
 
 source ~/.zshrc.local
