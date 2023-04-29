@@ -3,3 +3,4 @@ vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, { pattern = '*.slim', c
 vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, { pattern = '*.go', command = 'setl noet ts=2 sw=2 sts=2' })
 vim.api.nvim_create_autocmd('FileType', { pattern = 'markdown', command = 'setl spell nolist wrap lbr textwidth=80' })
 vim.api.nvim_create_autocmd('FileType', { pattern = 'gitcommit', command = 'setl spell textwidth=72' })
+-- vim.api.nvim_create_autocmd('BufEnter', { pattern = '*', command = 'normal zx' })
