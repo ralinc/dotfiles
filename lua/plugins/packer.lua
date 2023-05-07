@@ -9,6 +9,8 @@ end
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
+  use 'github/copilot.vim'
+
   use {
     'neovim/nvim-lspconfig',
     requires = {
@@ -20,13 +22,13 @@ require('packer').startup(function(use)
   use {
     'hrsh7th/nvim-cmp',
     requires = {
-      'hrsh7th/cmp-nvim-lsp',
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-nvim-lua',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
+
+      'L3MON4D3/LuaSnip',
+      'saadparwaiz1/cmp_luasnip',
     },
   }
 

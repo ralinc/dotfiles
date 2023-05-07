@@ -7,9 +7,11 @@ cmp.setup {
       luasnip.lsp_expand(args.body)
     end,
   },
+  -- completion = {
+  --   autocomplete = false,
+  -- },
   mapping = cmp.mapping.preset.insert {
-    ['<C-y>'] = cmp.mapping.complete(),
-    ['<Tab>'] = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Insert, select = true },
+    ['<C-o>'] = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Insert, select = true },
   },
   sources = {
     { name = 'nvim_lsp', keyword_length = 3 },

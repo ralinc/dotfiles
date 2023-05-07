@@ -19,6 +19,9 @@ local on_attach = function(client)
   client.server_capabilities.documentFormattingProvider = false
 end
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+
 require('mason').setup()
 
 local servers = {
@@ -31,9 +34,6 @@ local servers = {
 require('mason-lspconfig').setup {
   ensure_installed = servers,
 }
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 local lspconfig = require 'lspconfig'
 

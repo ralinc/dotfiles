@@ -1,4 +1,5 @@
 require 'plugins/packer'
+require 'plugins/copilot'
 require 'plugins/cmp'
 require 'plugins/lspconfig'
 require 'plugins/nvim-tree'
