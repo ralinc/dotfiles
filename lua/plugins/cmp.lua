@@ -11,7 +11,7 @@ cmp.setup {
   --   autocomplete = false,
   -- },
   mapping = cmp.mapping.preset.insert {
-    ['<C-o>'] = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Insert, select = true },
+    ['<C-i>'] = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Insert, select = true },
   },
   sources = {
     { name = 'nvim_lsp', keyword_length = 3 },
