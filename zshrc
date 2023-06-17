@@ -9,6 +9,7 @@ for file in $BASE/*.zsh; do
   source "$file"
 done
 
+export FZF_DEFAULT_OPTS='--height=33% --layout=reverse'
 export FZF_DEFAULT_COMMAND='ag -g ""'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
