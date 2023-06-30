@@ -57,7 +57,7 @@ nmap('<leader>fr', tb.lsp_references)
 nmap('<leader>fs', tb.treesitter)
 nmap('<leader>fe', tb.diagnostics)
 nmap('<leader>fh', tb.help_tags)
-nmap('<leader>fk', tb.keymaps)
+nmap('<leader>fm', tb.keymaps)
 nmap('<leader>fo', tb.vim_options)
 nmap('<leader>fg', tb.git_commits)
 
