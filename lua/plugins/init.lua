@@ -8,7 +8,7 @@ require 'plugins/treesitter'
 
 require('telescope').setup {
   defaults = {
-    file_ignore_patterns = { 'go.sum', 'go.mod', 'yarn.lock', '^public/' },
+    file_ignore_patterns = { 'go.sum', 'go.mod', 'poetry.lock', 'yarn.lock', '^public/' },
   },
 }
 
