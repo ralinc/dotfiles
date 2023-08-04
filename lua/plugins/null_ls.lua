@@ -31,8 +31,14 @@ null_ls.setup {
     null_ls.builtins.formatting.black,
     null_ls.builtins.formatting.isort,
 
-    null_ls.builtins.diagnostics.rubocop,
-    null_ls.builtins.formatting.rubocop,
+    -- null_ls.builtins.diagnostics.rubocop.with {
+    --   command = 'bundle',
+    --   args = { 'exec', 'rubocop', '-f', 'json', '--force-exclusion', '--stdin', '$FILENAME' },
+    -- },
+    -- null_ls.builtins.formatting.rubocop.with {
+    --   command = 'bundle',
+    --   args = { 'exec', 'rubocop', '-a', '-f', 'quiet', '--stderr', '--stdin', '$FILENAME' },
+    -- },
 
     null_ls.builtins.diagnostics.eslint.with {
       condition = is_yarn_classic,

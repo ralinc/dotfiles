@@ -1,14 +1,13 @@
 vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
 
-vim.g.loaded = 1
+vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 vim.cmd 'filetype plugin indent on'
 vim.cmd 'syntax on'
 
 require 'autocmd'
-require 'keybindings'
+require 'mappings'
 require 'options'
 require 'plugins'
 

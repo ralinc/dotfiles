@@ -3,20 +3,25 @@ local on_attach = function(client)
 
   vim.keymap.set('n', ',l', vim.lsp.buf.declaration, o)
   vim.keymap.set('n', ',d', vim.lsp.buf.definition, o)
+  vim.keymap.set('n', ',t', vim.lsp.buf.type_definition, o)
+  vim.keymap.set('n', ',i', vim.lsp.buf.implementation, o)
+  vim.keymap.set('n', ',s', vim.lsp.buf.signature_help, o)
   vim.keymap.set('n', ',r', vim.lsp.buf.references, o)
   vim.keymap.set('n', ',e', vim.lsp.buf.rename, o)
-  vim.keymap.set('n', ',n', vim.diagnostic.goto_next, o)
-  vim.keymap.set('n', ',p', vim.diagnostic.goto_prev, o)
-  vim.keymap.set('n', ',q', vim.diagnostic.setloclist, o)
-  vim.keymap.set('n', ',f', vim.diagnostic.open_float, o)
   vim.keymap.set('n', ',h', vim.lsp.buf.hover, o)
   vim.keymap.set('n', ',a', vim.lsp.buf.code_action, o)
 
-  -- vim.keymap.set('n', ',s', vim.lsp.buf.signature_help, o)
-  -- vim.keymap.set('n', ',t', vim.lsp.buf.type_definition, o)
-  -- vim.keymap.set('n', ',i', vim.lsp.buf.implementation, o)
+  vim.keymap.set('n', ',n', vim.diagnostic.goto_next, o)
+  vim.keymap.set('n', ',p', vim.diagnostic.goto_prev, o)
+  vim.keymap.set('n', ',q', vim.diagnostic.setloclist, o)
+  vim.keymap.set('n', ',o', vim.diagnostic.open_float, o)
 
-  client.server_capabilities.documentFormattingProvider = false
+  if client.name == 'rubocop' then
+    vim.keymap.set('n', ',f', vim.lsp.buf.format, o)
+    vim.cmd 'autocmd BufWritePre <buffer> lua vim.lsp.buf.format { async = true }'
+  else
+    client.server_capabilities.documentFormattingProvider = false
+  end
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -59,4 +64,9 @@ lspconfig.lua_ls.setup {
       telemetry = { enable = false },
     },
   },
+}
+
+lspconfig.rubocop.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
 }

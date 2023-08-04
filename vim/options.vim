@@ -16,7 +16,6 @@ set laststatus=2
 set lazyredraw
 set list listchars=tab:»·,trail:·,nbsp:·
 set nobackup
-set nocompatible
 set nocursorline
 set nofoldenable
 set noswapfile

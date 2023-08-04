@@ -7,9 +7,6 @@ cmp.setup {
       luasnip.lsp_expand(args.body)
     end,
   },
-  -- completion = {
-  --   autocomplete = false,
-  -- },
   mapping = cmp.mapping.preset.insert {
     ['<C-i>'] = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Insert, select = true },
   },

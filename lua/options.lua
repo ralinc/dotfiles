@@ -1,6 +1,5 @@
 local o = vim.o
 o.autowrite = true
-o.backup = false
 o.breakindent = true
 o.completeopt = 'menuone,noselect'
 o.diffopt = 'internal,filler,closeoff,vertical'
@@ -22,6 +21,7 @@ o.splitbelow = true
 o.splitright = true
 o.termguicolors = true
 o.timeoutlen = 500
+o.ttimeoutlen = 100
 o.wildignore = 'tmp/**,log/**'
 o.wildmode = 'list:longest,list:full'
 o.writebackup = false
