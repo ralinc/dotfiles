@@ -66,7 +66,7 @@ require('packer').startup(function(use)
   use 'slim-template/vim-slim'
   use 'thoughtbot/vim-rspec'
   use 'tpope/vim-fugitive'
-  use 'tpope/vim-rails'
+  -- use 'tpope/vim-rails'
   use 'tpope/vim-sleuth'
   use 'tpope/vim-surround'
 

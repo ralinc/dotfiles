@@ -37,6 +37,9 @@ require('nvim-treesitter.configs').setup {
       keymaps = {
         ['af'] = '@function.outer',
         ['if'] = '@function.inner',
+        ['ac'] = '@class.outer',
+        ['ic'] = '@class.inner',
+        ['as'] = { query = '@scope', query_group = 'locals' },
       },
       include_surrounding_whitespace = false,
     },
@@ -44,17 +47,17 @@ require('nvim-treesitter.configs').setup {
       enable = true,
       set_jumps = true,
       goto_next_start = {
-        [' ]'] = '@function.outer',
-        [' p'] = '@parameter.outer',
+        [']f'] = '@function.outer',
+        [']c'] = '@class.outer',
       },
       goto_next_end = {
-        [' }'] = '@function.outer',
+        ['}f'] = '@function.outer',
+        ['}c'] = '@class.outer',
       },
       goto_previous_start = {
-        [' ['] = '@function.outer',
-      },
-      goto_previous_end = {
-        [' {'] = '@function.outer',
+        ['[f'] = '@function.outer',
+        ['[c'] = '@class.outer',
+        ['[s'] = { query = '@scope', query_group = 'locals' },
       },
     },
   },
