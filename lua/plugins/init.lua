@@ -28,6 +28,7 @@ require('lualine').setup {
   },
 }
 
+vim.g['ackprg'] = 'ag --nogroup --nocolor --column'
 vim.g['rspec_command'] = 'VtrSendCommandToRunner! bundle exec rspec {spec}'
 vim.g['VtrStripLeadingWhitespace'] = 0
 vim.g['VtrClearEmptyLines'] = 0

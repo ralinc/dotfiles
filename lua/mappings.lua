@@ -63,6 +63,11 @@ nmap('<leader>fm', tb.keymaps)
 nmap('<leader>fo', tb.vim_options)
 nmap('<leader>fg', tb.git_commits)
 
+nmap('<leader>a', ':Ack!<space>')
+nmap('<leader>ae', ':Ack! -w<space>')
+nmap('<leader>aw', '*<C-O>:AckFromSearch!<cr>')
+nmap('<leader>ad', ":Ack! <C-r><C-w> <C-r>=expand('%:h')<cr><cr>")
+
 local ta = require 'nvim-tree.api'
 nmap('<leader>o', function()
   ta.tree.toggle { find_file = true }
