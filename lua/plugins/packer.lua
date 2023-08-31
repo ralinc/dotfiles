@@ -7,18 +7,9 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 end
 
 require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
-
+  use 'christoomey/vim-tmux-navigator'
+  use 'christoomey/vim-tmux-runner'
   use 'github/copilot.vim'
-
-  use {
-    'neovim/nvim-lspconfig',
-    requires = {
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
-    },
-  }
-
   use {
     'hrsh7th/nvim-cmp',
     requires = {
@@ -26,50 +17,47 @@ require('packer').startup(function(use)
       'hrsh7th/cmp-nvim-lua',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
-
       'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
     },
   }
-
+  use 'jose-elias-alvarez/null-ls.nvim'
+  use 'mileszs/ack.vim'
+  use 'nanotech/jellybeans.vim'
+  use {
+    'neovim/nvim-lspconfig',
+    requires = {
+      'williamboman/mason.nvim',
+      'williamboman/mason-lspconfig.nvim',
+    },
+  }
+  use 'numToStr/Comment.nvim'
+  use 'nvim-lualine/lualine.nvim'
+  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
+  use 'nvim-tree/nvim-tree.lua'
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
   }
-
-  use {
-    'nvim-treesitter/nvim-treesitter-textobjects',
-    after = 'nvim-treesitter',
-    requires = 'nvim-treesitter/nvim-treesitter',
-  }
-
   use {
     'RRethy/nvim-treesitter-endwise',
     after = 'nvim-treesitter',
     requires = 'nvim-treesitter/nvim-treesitter',
   }
-
-  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
-
-  use 'christoomey/vim-tmux-navigator'
-  use 'christoomey/vim-tmux-runner'
-
-  use 'nanotech/jellybeans.vim'
-  use 'folke/tokyonight.nvim'
+  use {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    after = 'nvim-treesitter',
+    requires = 'nvim-treesitter/nvim-treesitter',
+  }
   use { 'rose-pine/neovim', as = 'rose-pine' }
-
-  use 'mileszs/ack.vim'
-  use 'jose-elias-alvarez/null-ls.nvim'
-  use 'nvim-tree/nvim-tree.lua'
-  use 'numToStr/Comment.nvim'
-  use 'nvim-lualine/lualine.nvim'
   use 'slim-template/vim-slim'
   use 'thoughtbot/vim-rspec'
   use 'tpope/vim-fugitive'
-  -- use 'tpope/vim-rails'
+  use 'tpope/vim-rails'
   use 'tpope/vim-sleuth'
   use 'tpope/vim-surround'
+  use 'wbthomason/packer.nvim'
 
   if is_bootstrap then
     require('packer').sync()

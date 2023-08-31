@@ -13,5 +13,3 @@ require 'plugins'
 
 -- vim.cmd.colorscheme 'jellybeans'
 vim.cmd.colorscheme 'rose-pine'
--- vim.cmd.colorscheme 'tokyonight'
--- vim.cmd.colorscheme 'tokyonight-night'
