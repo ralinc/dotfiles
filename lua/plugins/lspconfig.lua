@@ -23,6 +23,7 @@ local on_attach = function(client)
 end
 
 local servers = {
+  eslint = {},
   gopls = {},
   pyright = {},
   tailwindcss = {},
