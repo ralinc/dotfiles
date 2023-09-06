@@ -1,4 +1,4 @@
-require 'plugins/packer'
+require 'plugins/lazy'
 require 'plugins/copilot'
 require 'plugins/cmp'
 require 'plugins/lspconfig'
@@ -10,6 +10,7 @@ require('telescope').setup {
     file_ignore_patterns = { 'go.sum', 'go.mod', 'poetry.lock', 'yarn.lock', '^public/', '^morgue/' },
   },
 }
+pcall(require('telescope').load_extension, 'fzf')
 
 require('Comment').setup {
   mappings = {
@@ -28,7 +29,13 @@ require('lualine').setup {
 }
 
 vim.g['ackprg'] = 'ag --nogroup --nocolor --column'
+
 vim.g['rspec_command'] = 'VtrSendCommandToRunner! bundle exec rspec {spec}'
+
 vim.g['VtrStripLeadingWhitespace'] = 0
 vim.g['VtrClearEmptyLines'] = 0
 vim.g['VtrAppendNewline'] = 1
+
+vim.g['neoformat_run_all_formatters'] = 1
+vim.g['neoformat_enabled_go'] = { 'gofmt', 'goimports' }
+vim.g['neoformat_enabled_python'] = { 'black', 'isort' }

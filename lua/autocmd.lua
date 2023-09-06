@@ -1,5 +1,14 @@
 vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, { pattern = '*.md', command = 'setl filetype=markdown' })
 vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, { pattern = '*.slim', command = 'setl filetype=slim' })
 vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, { pattern = '*.go', command = 'setl noet ts=2 sw=2 sts=2' })
+
 vim.api.nvim_create_autocmd('FileType', { pattern = 'markdown', command = 'setl spell nolist wrap lbr textwidth=80' })
 vim.api.nvim_create_autocmd('FileType', { pattern = 'gitcommit', command = 'setl spell textwidth=72' })
+vim.api.nvim_create_autocmd('FileType', { pattern = 'slim', command = 'setl noet ts=2 sw=2 sts=2' })
+
+
+vim.api.nvim_create_autocmd('BufWritePre', {
+  group = vim.api.nvim_create_augroup('fmt', { clear = true }),
+  pattern = { '*.go', '*.py' },
+  command = 'undojoin | Neoformat',
+})

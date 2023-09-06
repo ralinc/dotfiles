@@ -1,12 +1,11 @@
 local on_attach = function(client)
   local o = { noremap = true, silent = true, buffer = 0 }
 
-  vim.keymap.set('n', ',l', vim.lsp.buf.declaration, o)
   vim.keymap.set('n', ',d', vim.lsp.buf.definition, o)
   vim.keymap.set('n', ',t', vim.lsp.buf.type_definition, o)
   vim.keymap.set('n', ',i', vim.lsp.buf.implementation, o)
   vim.keymap.set('n', ',s', vim.lsp.buf.signature_help, o)
-  vim.keymap.set('n', ',r', vim.lsp.buf.references, o)
+  vim.keymap.set('n', ',r', require('telescope.builtin').lsp_references, o)
   vim.keymap.set('n', ',e', vim.lsp.buf.rename, o)
   vim.keymap.set('n', ',h', vim.lsp.buf.hover, o)
   vim.keymap.set('n', ',a', vim.lsp.buf.code_action, o)
@@ -16,54 +15,51 @@ local on_attach = function(client)
   vim.keymap.set('n', ',q', vim.diagnostic.setloclist, o)
   vim.keymap.set('n', ',o', vim.diagnostic.open_float, o)
 
-  if client.name == 'rubocop' then
-    vim.keymap.set('n', ',f', vim.lsp.buf.format, o)
-    vim.cmd 'autocmd BufWritePre <buffer> lua vim.lsp.buf.format { async = true }'
-  else
-    client.server_capabilities.documentFormattingProvider = false
+  vim.keymap.set('n', ',f', vim.lsp.buf.format, o)
+
+  if client.name == 'rubocop' or client.name == 'lua_ls' then
+    vim.cmd 'autocmd BufWritePre <buffer> lua vim.lsp.buf.format { async = false }'
   end
+
+  vim.keymap.set('n', ',l', vim.lsp.buf.declaration, o)
 end
+
+local servers = {
+  gopls = {},
+  pyright = {},
+  tailwindcss = {},
+  tsserver = {},
+
+  lua_ls = {
+    Lua = {
+      workspace = { checkThirdParty = false },
+      telemetry = { enable = false },
+    },
+  },
+}
+
+require('neodev').setup()
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-require('mason').setup()
+local mason_lspconfig = require 'mason-lspconfig'
 
-local servers = {
-  'gopls',
-  'pyright',
-  'tailwindcss',
-  'tsserver',
-}
-
-require('mason-lspconfig').setup {
-  ensure_installed = servers,
+mason_lspconfig.setup {
+  ensure_installed = vim.tbl_keys(servers),
 }
 
 local lspconfig = require 'lspconfig'
 
-for _, server in ipairs(servers) do
-  lspconfig[server].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
-end
-
-local runtime_path = vim.split(package.path, ';')
-table.insert(runtime_path, 'lua/?.lua')
-table.insert(runtime_path, 'lua/?/init.lua')
-
-lspconfig.lua_ls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  settings = {
-    Lua = {
-      runtime = { version = 'LuaJIT', path = runtime_path },
-      diagnostics = { globals = { 'vim' } },
-      workspace = { library = vim.api.nvim_get_runtime_file('', true) },
-      telemetry = { enable = false },
-    },
-  },
+mason_lspconfig.setup_handlers {
+  function(server_name)
+    lspconfig[server_name].setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      settings = servers[server_name],
+      filetypes = (servers[server_name] or {}).filetypes,
+    }
+  end
 }
 
 lspconfig.rubocop.setup {
