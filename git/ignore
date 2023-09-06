@@ -11,5 +11,4 @@ tmp/**/*
 !tmp/cache/.keep
 *.pyc
 node_modules
-.null-ls-root
 pyrightconfig.json

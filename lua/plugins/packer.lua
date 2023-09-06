@@ -21,7 +21,6 @@ require('packer').startup(function(use)
       'saadparwaiz1/cmp_luasnip',
     },
   }
-  use 'jose-elias-alvarez/null-ls.nvim'
   use 'mileszs/ack.vim'
   use 'nanotech/jellybeans.vim'
   use {

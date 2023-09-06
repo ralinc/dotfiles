@@ -3,12 +3,11 @@ require 'plugins/copilot'
 require 'plugins/cmp'
 require 'plugins/lspconfig'
 require 'plugins/nvim-tree'
-require 'plugins/null_ls'
 require 'plugins/treesitter'
 
 require('telescope').setup {
   defaults = {
-    file_ignore_patterns = { 'go.sum', 'go.mod', 'poetry.lock', 'yarn.lock', '^public/' },
+    file_ignore_patterns = { 'go.sum', 'go.mod', 'poetry.lock', 'yarn.lock', '^public/', '^morgue/' },
   },
 }
 
