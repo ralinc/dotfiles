@@ -34,7 +34,6 @@ require("lazy").setup({
     dependencies = {
       { 'williamboman/mason.nvim', config = true },
       'williamboman/mason-lspconfig.nvim',
-      'folke/neodev.nvim',
     },
   },
 
