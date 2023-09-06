@@ -20,8 +20,6 @@ local on_attach = function(client)
   if client.name == 'rubocop' or client.name == 'lua_ls' then
     vim.cmd 'autocmd BufWritePre <buffer> lua vim.lsp.buf.format { async = false }'
   end
-
-  vim.keymap.set('n', ',l', vim.lsp.buf.declaration, o)
 end
 
 local servers = {
