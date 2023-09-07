@@ -28,6 +28,9 @@ require('formatter').setup {
     lua = {
       require('formatter.filetypes.lua').stylua,
     },
+    markdown = {
+      require('formatter.filetypes.markdown').prettier,
+    },
     python = {
       require('formatter.filetypes.python').black,
       require('formatter.filetypes.python').isort,
