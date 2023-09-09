@@ -1,14 +1,14 @@
 local cmp = require 'cmp'
-local luasnip = require 'luasnip'
 
 cmp.setup {
   snippet = {
     expand = function(args)
-      luasnip.lsp_expand(args.body)
+      require('luasnip').lsp_expand(args.body)
     end,
   },
   mapping = cmp.mapping.preset.insert {
-    ['<C-i>'] = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Insert, select = true },
+    ['<C-k>'] = cmp.mapping.confirm { select = true },
+    ['<C-l>'] = cmp.mapping.abort(),
   },
   sources = {
     { name = 'nvim_lsp', keyword_length = 3 },

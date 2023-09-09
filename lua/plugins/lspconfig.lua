@@ -54,7 +54,7 @@ mason_lspconfig.setup_handlers {
       on_attach = on_attach,
       settings = servers[server_name],
     }
-  end
+  end,
 }
 
 lspconfig.rubocop.setup {
