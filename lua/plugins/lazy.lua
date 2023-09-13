@@ -27,7 +27,6 @@ require('lazy').setup {
   'tpope/vim-rails',
   'tpope/vim-sleuth',
   'tpope/vim-surround',
-  'wbthomason/packer.nvim',
 
   {
     'neovim/nvim-lspconfig',
