@@ -1,10 +1,10 @@
 local util = require 'formatter.util'
 
-local format_yarn_pnp = function()
+local format_ts = function()
   return {
     exe = 'yarn',
     args = {
-      'pnpify',
+      -- 'pnpify',
       'prettier',
       '--stdin-filepath',
       util.escape_path(util.get_current_buffer_file_path()),
@@ -35,7 +35,11 @@ require('formatter').setup {
       require('formatter.filetypes.python').black,
       require('formatter.filetypes.python').isort,
     },
-    typescript = { format_yarn_pnp },
-    typescriptreact = { format_yarn_pnp },
+    typescript = {
+      format_ts,
+    },
+    typescriptreact = {
+      format_ts,
+    },
   },
 }

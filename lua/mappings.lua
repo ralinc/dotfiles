@@ -100,8 +100,12 @@ nmap('<leader>pn', ':exec "VtrSendCommand! pytest " . expand(\'%\') . ":" . line
 nmap('<leader>ge', ':exec "VtrSendCommand! go run " . expand(\'%\')<cr>')
 nmap('<leader>ga', ':exec "VtrSendCommand! go test ./..."<cr>')
 
-nmap('<leader>es', ':e db/structure.sql<cr>')
-nmap('<leader>vs', ':vnew db/structure.sql<cr>')
+nmap('<Leader>ra', ':A<CR>')
+nmap('<Leader>rr', ':R<CR>')
+nmap('<Leader>eg', ':Emigration<CR>')
+nmap('<Leader>es', ':Eschema<CR>')
+nmap('<Leader>vs', ':Vschema<CR>')
+
 nmap('<leader>ed', ':e Dockerfile<cr>')
 nmap('<leader>vd', ':vnew Dockerfile<cr>')
 
