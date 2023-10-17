@@ -19,6 +19,9 @@ require('formatter').setup {
       require('formatter.filetypes.go').gofmt,
       require('formatter.filetypes.go').goimports,
     },
+    css = {
+      require('formatter.filetypes.css').prettier,
+    },
     javascript = {
       require('formatter.filetypes.javascript').prettier,
     },
