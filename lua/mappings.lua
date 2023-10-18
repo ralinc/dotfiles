@@ -102,8 +102,10 @@ nmap('<leader>ga', ':exec "VtrSendCommand! go test ./..."<cr>')
 
 nmap('<Leader>ra', ':A<CR>')
 nmap('<Leader>rr', ':R<CR>')
+nmap('<Leader>em', ':Emodel ')
 nmap('<Leader>eg', ':Emigration<CR>')
 nmap('<Leader>es', ':Eschema<CR>')
+nmap('<Leader>vm', ':Vmodel ')
 nmap('<Leader>vs', ':Vschema<CR>')
 
 nmap('<leader>ed', ':e Dockerfile<cr>')
