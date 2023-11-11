@@ -12,6 +12,17 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup {
+  {
+    'rose-pine/neovim',
+    name = 'rose-pine',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd [[colorscheme rose-pine]]
+      -- vim.cmd [[colorscheme jellybeans]]
+    end,
+  },
+
   'christoomey/vim-tmux-navigator',
   'christoomey/vim-tmux-runner',
   'github/copilot.vim',
@@ -63,6 +74,4 @@ require('lazy').setup {
     },
     build = ':TSUpdate',
   },
-
-  { 'rose-pine/neovim', name = 'rose-pine' },
 }
