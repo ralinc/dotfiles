@@ -1,4 +1,4 @@
-local on_attach = function(client)
+local on_attach = function()
   local o = { noremap = true, silent = true, buffer = 0 }
 
   vim.keymap.set('n', ',d', vim.lsp.buf.definition, o)
@@ -16,10 +16,6 @@ local on_attach = function(client)
   vim.keymap.set('n', ',o', vim.diagnostic.open_float, o)
 
   vim.keymap.set('n', ',f', vim.lsp.buf.format, o)
-
-  if client.name == 'rubocop' then
-    vim.cmd 'autocmd BufWritePre <buffer> lua vim.lsp.buf.format { async = false }'
-  end
 end
 
 local servers = {
@@ -57,7 +53,30 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
-lspconfig.rubocop.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
+-- Ruby LSP
+vim.opt.signcolumn = 'yes'
+
+vim.api.nvim_create_autocmd('FileType', {
+  group = vim.api.nvim_create_augroup('LspStart', {}),
+  pattern = 'ruby',
+  callback = function()
+    vim.lsp.start {
+      name = 'rubocop',
+      cmd = { 'bundle', 'exec', 'rubocop', '--lsp' },
+    }
+  end,
+})
+
+vim.api.nvim_create_autocmd('BufWritePre', {
+  group = vim.api.nvim_create_augroup('LspConfig', {}),
+  pattern = '*.rb',
+  callback = function()
+    vim.lsp.buf.format { async = false }
+  end,
+})
+
+-- vim.api.nvim_create_autocmd('LspAttach', {
+--   pattern = '*.rb',
+--   callback = on_attach,
+-- })
+-- End Ruby LSP
