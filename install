@@ -5,8 +5,8 @@ DOT_FILES_DIR=$(dirname $(realpath -s $0))
 ln -s $DOT_FILES_DIR/zshrc .zshrc
 ln -s $DOT_FILES_DIR/zsh .zsh
 
-ln -s $DOT_FILES_DIR/git/config .gitconfig
-ln -s $DOT_FILES_DIR/git/ignore .gitignore
+ln -s $DOT_FILES_DIR/gitconfig .gitconfig
+ln -s $DOT_FILES_DIR/gitignore .gitignore
 
 ln -s $DOT_FILES_DIR/agignore .agignore
 ln -s $DOT_FILES_DIR/gemrc .gemrc
