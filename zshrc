@@ -13,23 +13,21 @@ export FZF_DEFAULT_OPTS='--height=33% --layout=reverse'
 export FZF_DEFAULT_COMMAND='ag -g ""'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-eval "$(rbenv init -)"
-
-export PYENV_ROOT=$HOME/.pyenv
-export PATH=$PYENV_ROOT/bin:$PATH
-
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/bin:$PATH
 
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
-export PYTHONDONTWRITEBYTECODE=1
+export VOLTA_HOME=$HOME/.volta
+export PATH=$VOLTA_HOME/bin:$PATH
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
-export VOLTA_HOME=$HOME/.volta
-export PATH=$VOLTA_HOME/bin:$PATH
+export PYENV_ROOT=$HOME/.pyenv
+export PATH=$PYENV_ROOT/bin:$PATH
+
+export PYTHONDONTWRITEBYTECODE=1
+
+eval "$(rbenv init -)"
+eval "$(pyenv init -)"
 
 source ~/.zshrc.local

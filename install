@@ -2,13 +2,10 @@
 
 set -e
 
-brew install tmux neovim ack the_silver_searcher rbenv ruby-build pyenv ripgrep fd tree hivemind
-
-brew install fzf
-$(brew --prefix)/opt/fzf/install
-
+brew install tmux neovim ack the_silver_searcher rbenv ruby-build pyenv ripgrep fd tree hivemind fzf
 brew install --cask wezterm
 
+$(brew --prefix)/opt/fzf/install
 
 DOT_FILES_DIR=$(dirname $(realpath -s $0))
 
