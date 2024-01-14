@@ -1,10 +1,9 @@
 local util = require 'formatter.util'
 
-local format_ts = function()
+local format_y = function()
   return {
     exe = 'yarn',
     args = {
-      -- 'pnpify',
       'prettier',
       '--stdin-filepath',
       util.escape_path(util.get_current_buffer_file_path()),
@@ -20,7 +19,7 @@ require('formatter').setup {
       require('formatter.filetypes.go').goimports,
     },
     css = {
-      require('formatter.filetypes.css').prettier,
+      format_y,
     },
     javascript = {
       require('formatter.filetypes.javascript').prettier,
@@ -39,10 +38,10 @@ require('formatter').setup {
       require('formatter.filetypes.python').isort,
     },
     typescript = {
-      format_ts,
+      format_y,
     },
     typescriptreact = {
-      format_ts,
+      format_y,
     },
   },
 }
