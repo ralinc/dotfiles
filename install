@@ -2,7 +2,7 @@
 
 set -e
 
-brew install tmux neovim ack the_silver_searcher rbenv ruby-build pyenv ripgrep fd tree hivemind fzf
+brew install tmux neovim ack the_silver_searcher rbenv ruby-build pyenv ripgrep fd tree hivemind fzf stylua
 brew install --cask wezterm
 
 $(brew --prefix)/opt/fzf/install
