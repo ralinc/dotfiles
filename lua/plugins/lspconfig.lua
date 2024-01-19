@@ -26,6 +26,7 @@ local servers = {
   tsserver = {},
   lua_ls = {
     Lua = {
+      diagnostics = { globals = { 'vim' } },
       workspace = { checkThirdParty = false },
       telemetry = { enable = false },
     },
