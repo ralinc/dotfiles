@@ -122,16 +122,18 @@ require('lazy').setup {
             yarn_prettier,
           },
           javascript = {
-            require('formatter.filetypes.javascript').prettier,
+            yarn_prettier,
           },
           json = {
-            require('formatter.filetypes.json').prettier,
+            -- require('formatter.filetypes.json').prettier,
+            yarn_prettier,
           },
           lua = {
             require('formatter.filetypes.lua').stylua,
           },
           markdown = {
-            require('formatter.filetypes.markdown').prettier,
+            -- require('formatter.filetypes.markdown').prettier,
+            yarn_prettier,
           },
           python = {
             require('formatter.filetypes.python').black,
@@ -235,7 +237,7 @@ require('lazy').setup {
     },
     opts = {
       defaults = {
-        file_ignore_patterns = { 'go.sum', 'go.mod', 'poetry.lock', 'yarn.lock', '^public/', '^vendor/' },
+        file_ignore_patterns = { 'go.sum', 'go.mod', 'poetry.lock', 'yarn.lock', '^public/', '^vendor/', '^dist/' },
       },
     },
   },
