@@ -114,36 +114,40 @@ require('lazy').setup {
 
       require('formatter').setup {
         filetype = {
+          css = {
+            yarn_prettier,
+          },
           go = {
             require('formatter.filetypes.go').gofmt,
             require('formatter.filetypes.go').goimports,
-          },
-          css = {
-            yarn_prettier,
           },
           javascript = {
             yarn_prettier,
           },
           json = {
-            -- require('formatter.filetypes.json').prettier,
             yarn_prettier,
           },
           lua = {
             require('formatter.filetypes.lua').stylua,
           },
           markdown = {
-            -- require('formatter.filetypes.markdown').prettier,
-            yarn_prettier,
+            require('formatter.filetypes.markdown').prettier,
           },
           python = {
             require('formatter.filetypes.python').black,
             require('formatter.filetypes.python').isort,
+          },
+          sql = {
+            require('formatter.filetypes.sql').sqlfluff,
           },
           typescript = {
             yarn_prettier,
           },
           typescriptreact = {
             yarn_prettier,
+          },
+          zsh = {
+            require('formatter.filetypes.zsh').beautysh,
           },
         },
       }
