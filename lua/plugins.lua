@@ -100,56 +100,37 @@ require('lazy').setup {
   },
 
   {
-    'mhartington/formatter.nvim',
-    config = function()
-      local util = require 'formatter.util'
-
-      local yarn_prettier = function()
-        return {
-          exe = 'yarn',
-          args = { 'prettier', '--stdin-filepath', util.escape_path(util.get_current_buffer_file_path()) },
-          stdin = true,
-        }
-      end
-
-      require('formatter').setup {
-        filetype = {
-          css = {
-            yarn_prettier,
-          },
-          go = {
-            require('formatter.filetypes.go').gofmt,
-            require('formatter.filetypes.go').goimports,
-          },
-          javascript = {
-            yarn_prettier,
-          },
-          json = {
-            yarn_prettier,
-          },
-          lua = {
-            require('formatter.filetypes.lua').stylua,
-          },
-          markdown = {
-            require('formatter.filetypes.markdown').prettier,
-          },
-          python = {
-            require('formatter.filetypes.python').black,
-            require('formatter.filetypes.python').isort,
-          },
-          sql = {
-            require('formatter.filetypes.sql').sqlfluff,
-          },
-          typescript = {
-            yarn_prettier,
-          },
-          typescriptreact = {
-            yarn_prettier,
-          },
-          zsh = {
-            require('formatter.filetypes.zsh').beautysh,
-          },
+    'stevearc/conform.nvim',
+    opts = {
+      formatters_by_ft = {
+        css = { 'prettier' },
+        go = { 'gofmt', 'goimports' },
+        javascript = { 'prettier' },
+        json = { 'prettier' },
+        lua = { 'stylua' },
+        markdown = { 'prettier' },
+        python = { 'black', 'isort' },
+        slq = { 'sqlfluff' },
+        typescript = { 'prettier' },
+        -- typescriptreact = { 'prettier' },
+        zsh = { 'beautysh' },
+      },
+      formatters = {
+        typescriptreact = {
+          inherit = false,
+          command = 'yarn',
+          args = { 'prettier', '--stdin-filepath', '$FILENAME' },
         },
+      },
+      format_on_save = {
+        timeout_ms = 500,
+      },
+    },
+    config = function()
+      require('conform').formatters.typescriptreact = {
+        inherit = false,
+        command = 'yarn',
+        args = { 'prettier', '--stdin-filepath', '$FILENAME' },
       }
     end,
   },
@@ -183,13 +164,108 @@ require('lazy').setup {
   {
     'neovim/nvim-lspconfig',
     dependencies = {
-      { 'williamboman/mason.nvim', config = true },
+      'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
+      'WhoIsSethDaniel/mason-tool-installer.nvim',
+      { 'j-hui/fidget.nvim', opts = {} },
     },
+    config = function()
+      vim.api.nvim_create_autocmd('LspAttach', {
+        group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
+        callback = function(event)
+          local map = function(keys, func)
+            vim.keymap.set('n', keys, func, { buffer = event.buf })
+          end
+
+          map(',d', vim.lsp.buf.definition)
+          map(',t', vim.lsp.buf.type_definition)
+          map(',i', vim.lsp.buf.implementation)
+          map(',s', vim.lsp.buf.signature_help)
+          map(',r', require('telescope.builtin').lsp_references)
+          map(',e', vim.lsp.buf.rename)
+          map(',h', vim.lsp.buf.hover)
+          map(',a', vim.lsp.buf.code_action)
+          map(',n', vim.diagnostic.goto_next)
+          map(',p', vim.diagnostic.goto_prev)
+          map(',q', vim.diagnostic.setloclist)
+          map(',o', vim.diagnostic.open_float)
+          map(',f', vim.lsp.buf.format)
+
+          map('gd', require('telescope.builtin').lsp_definitions)
+          map('gr', require('telescope.builtin').lsp_references)
+          map('gI', require('telescope.builtin').lsp_implementations)
+          map('<leader>D', require('telescope.builtin').lsp_type_definitions)
+          map('<leader>ds', require('telescope.builtin').lsp_document_symbols)
+          map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols)
+          map('<leader>rn', vim.lsp.buf.rename)
+          map('<leader>ca', vim.lsp.buf.code_action)
+          map('K', vim.lsp.buf.hover)
+          map('gD', vim.lsp.buf.declaration)
+        end,
+      })
+
+      vim.api.nvim_create_autocmd('FileType', {
+        group = vim.api.nvim_create_augroup('lsp-start', { clear = true }),
+        pattern = 'ruby',
+        callback = function()
+          vim.lsp.start {
+            name = 'rubocop',
+            cmd = { 'bundle', 'exec', 'rubocop', '--lsp' },
+          }
+        end,
+      })
+
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        group = vim.api.nvim_create_augroup('lsp-format', { clear = true }),
+        pattern = '*.rb',
+        callback = function()
+          vim.lsp.buf.format { async = false }
+        end,
+      })
+
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+
+      local servers = {
+        eslint = {},
+        gopls = {},
+        pyright = {},
+        tailwindcss = {},
+        tsserver = {},
+        lua_ls = {
+          settings = {
+            Lua = {
+              runtime = { version = 'LuaJIT' },
+              workspace = { checkThirdParty = false },
+              diagnostics = { disable = { 'missing-fields' }, globals = { 'vim' } },
+            },
+          },
+        },
+      }
+
+      require('mason').setup()
+
+      local ensure_installed = vim.tbl_keys(servers or {})
+      vim.list_extend(ensure_installed, {
+        'stylua',
+      })
+      require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+
+      require('mason-lspconfig').setup {
+        handlers = {
+          function(server_name)
+            local server = servers[server_name] or {}
+            server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+            require('lspconfig')[server_name].setup(server)
+          end,
+        },
+      }
+    end,
   },
 
   {
     'hrsh7th/nvim-cmp',
+    event = 'InsertEnter',
     dependencies = {
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-nvim-lsp',
@@ -229,6 +305,7 @@ require('lazy').setup {
 
   {
     'nvim-telescope/telescope.nvim',
+    event = 'VimEnter',
     dependencies = {
       'nvim-lua/plenary.nvim',
       {
@@ -238,12 +315,22 @@ require('lazy').setup {
           return vim.fn.executable 'make' == 1
         end,
       },
+      { 'nvim-telescope/telescope-ui-select.nvim' },
     },
-    opts = {
-      defaults = {
-        file_ignore_patterns = { 'go.sum', 'go.mod', 'poetry.lock', 'yarn.lock', '^public/', '^vendor/', '^dist/' },
-      },
-    },
+    config = function()
+      require('telescope').setup {
+        defaults = {
+          file_ignore_patterns = { 'go.sum', 'go.mod', 'poetry.lock', 'yarn.lock', '^public/', '^vendor/', '^dist/' },
+        },
+        extensions = {
+          ['ui-select'] = {
+            require('telescope.themes').get_dropdown(),
+          },
+        },
+      }
+      pcall(require('telescope').load_extension, 'fzf')
+      pcall(require('telescope').load_extension, 'ui-select')
+    end,
   },
 
   {
@@ -320,91 +407,3 @@ require('lazy').setup {
     },
   },
 }
-
--- LSP
-
-local on_attach = function()
-  local o = { noremap = true, silent = true, buffer = 0 }
-
-  vim.keymap.set('n', ',d', vim.lsp.buf.definition, o)
-  vim.keymap.set('n', ',t', vim.lsp.buf.type_definition, o)
-  vim.keymap.set('n', ',i', vim.lsp.buf.implementation, o)
-  vim.keymap.set('n', ',s', vim.lsp.buf.signature_help, o)
-  vim.keymap.set('n', ',r', require('telescope.builtin').lsp_references, o)
-  vim.keymap.set('n', ',e', vim.lsp.buf.rename, o)
-  vim.keymap.set('n', ',h', vim.lsp.buf.hover, o)
-  vim.keymap.set('n', ',a', vim.lsp.buf.code_action, o)
-
-  vim.keymap.set('n', ',n', vim.diagnostic.goto_next, o)
-  vim.keymap.set('n', ',p', vim.diagnostic.goto_prev, o)
-  vim.keymap.set('n', ',q', vim.diagnostic.setloclist, o)
-  vim.keymap.set('n', ',o', vim.diagnostic.open_float, o)
-
-  vim.keymap.set('n', ',f', vim.lsp.buf.format, o)
-end
-
-local servers = {
-  eslint = {},
-  gopls = {},
-  pyright = {},
-  tailwindcss = {},
-  tsserver = {},
-  lua_ls = {
-    Lua = {
-      diagnostics = { globals = { 'vim' } },
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-    },
-  },
-}
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
-local mason_lspconfig = require 'mason-lspconfig'
-
-mason_lspconfig.setup {
-  ensure_installed = vim.tbl_keys(servers),
-}
-
-local lspconfig = require 'lspconfig'
-
-mason_lspconfig.setup_handlers {
-  function(server_name)
-    lspconfig[server_name].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = servers[server_name],
-    }
-  end,
-}
-
--- Ruby LSP
-
-vim.opt.signcolumn = 'yes'
-
-vim.api.nvim_create_autocmd('FileType', {
-  group = vim.api.nvim_create_augroup('LspStart', {}),
-  pattern = 'ruby',
-  callback = function()
-    vim.lsp.start {
-      name = 'rubocop',
-      cmd = { 'bundle', 'exec', 'rubocop', '--lsp' },
-    }
-  end,
-})
-
-vim.api.nvim_create_autocmd('BufWritePre', {
-  group = vim.api.nvim_create_augroup('LspConfig', {}),
-  pattern = '*.rb',
-  callback = function()
-    vim.lsp.buf.format { async = false }
-  end,
-})
-
--- vim.api.nvim_create_autocmd('LspAttach', {
---   pattern = '*.rb',
---   callback = on_attach,
--- })
-
--- Ruby LSP

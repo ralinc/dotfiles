@@ -18,11 +18,6 @@ imap('jk', '<esc>')
 nmap('j', 'gj')
 nmap('k', 'gk')
 
-nmap('C-j', 'C-w>j')
-nmap('C-k', 'C-w>k')
-nmap('C-h', 'C-w>h')
-nmap('C-l', 'C-w>l')
-
 vmap('<C-c>', '"+y')
 nmap('<leader>j', 'yyp')
 nmap('<leader>k', 'yyP')
@@ -62,6 +57,9 @@ nmap('<leader>fh', tb.help_tags)
 nmap('<leader>fm', tb.keymaps)
 nmap('<leader>fo', tb.vim_options)
 nmap('<leader>fg', tb.git_commits)
+vim.keymap.set('n', '<leader>fn', function()
+  require('telescope.builtin').find_files { cwd = vim.fn.stdpath 'config' }
+end)
 
 nmap('<leader>a', ':Ack!<space>')
 nmap('<leader>ae', ':Ack! -w<space>')
@@ -122,7 +120,7 @@ nmap('<leader>ld', ':LspStop<cr>')
 nmap('<leader>nr', ':set norelativenumber<cr>')
 nmap('<leader>rn', ':set relativenumber<cr>')
 
-nmap('<leader>so', ':source ~/.config/nvim/init.lua<cr>')
+nmap('<leader>so', ':source $MYVIMRC<cr>')
 
 nmap('<leader>pry', 'obinding.pry<esc>:w<cr>')
 
