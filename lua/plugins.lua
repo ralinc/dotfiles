@@ -100,6 +100,38 @@ require('lazy').setup {
   },
 
   {
+    'mhartington/formatter.nvim',
+    config = function()
+      local util = require 'formatter.util'
+
+      local yarn_prettier = function()
+        return {
+          exe = 'yarn',
+          args = { 'prettier', '--stdin-filepath', util.escape_path(util.get_current_buffer_file_path()) },
+          stdin = true,
+        }
+      end
+
+      require('formatter').setup {
+        filetype = {
+          typescript = {
+            yarn_prettier,
+          },
+          typescriptreact = {
+            yarn_prettier,
+          },
+        },
+      }
+
+      vim.api.nvim_create_autocmd('BufWritePost', {
+        group = vim.api.nvim_create_augroup('fmt', { clear = true }),
+        pattern = { '*.ts', '*.tsx' },
+        command = 'FormatWrite',
+      })
+    end,
+  },
+
+  {
     'stevearc/conform.nvim',
     opts = {
       formatters_by_ft = {
@@ -111,28 +143,14 @@ require('lazy').setup {
         markdown = { 'prettier' },
         python = { 'black', 'isort' },
         slq = { 'sqlfluff' },
-        typescript = { 'prettier' },
+        -- typescript = { 'prettier' },
         -- typescriptreact = { 'prettier' },
         zsh = { 'beautysh' },
-      },
-      formatters = {
-        typescriptreact = {
-          inherit = false,
-          command = 'yarn',
-          args = { 'prettier', '--stdin-filepath', '$FILENAME' },
-        },
       },
       format_on_save = {
         timeout_ms = 500,
       },
     },
-    config = function()
-      require('conform').formatters.typescriptreact = {
-        inherit = false,
-        command = 'yarn',
-        args = { 'prettier', '--stdin-filepath', '$FILENAME' },
-      }
-    end,
   },
 
   {
@@ -177,11 +195,13 @@ require('lazy').setup {
             vim.keymap.set('n', keys, func, { buffer = event.buf })
           end
 
-          map(',d', vim.lsp.buf.definition)
-          map(',t', vim.lsp.buf.type_definition)
-          map(',i', vim.lsp.buf.implementation)
+          local builtin = require 'telescope.builtin'
+
+          map(',d', builtin.lsp_definitions)
+          map(',t', builtin.lsp_type_definitions)
+          map(',i', builtin.lsp_implementations)
           map(',s', vim.lsp.buf.signature_help)
-          map(',r', require('telescope.builtin').lsp_references)
+          map(',r', builtin.lsp_references)
           map(',e', vim.lsp.buf.rename)
           map(',h', vim.lsp.buf.hover)
           map(',a', vim.lsp.buf.code_action)
@@ -190,17 +210,6 @@ require('lazy').setup {
           map(',q', vim.diagnostic.setloclist)
           map(',o', vim.diagnostic.open_float)
           map(',f', vim.lsp.buf.format)
-
-          map('gd', require('telescope.builtin').lsp_definitions)
-          map('gr', require('telescope.builtin').lsp_references)
-          map('gI', require('telescope.builtin').lsp_implementations)
-          map('<leader>D', require('telescope.builtin').lsp_type_definitions)
-          map('<leader>ds', require('telescope.builtin').lsp_document_symbols)
-          map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols)
-          map('<leader>rn', vim.lsp.buf.rename)
-          map('<leader>ca', vim.lsp.buf.code_action)
-          map('K', vim.lsp.buf.hover)
-          map('gD', vim.lsp.buf.declaration)
         end,
       })
 
