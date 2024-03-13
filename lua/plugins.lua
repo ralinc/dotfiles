@@ -57,13 +57,6 @@ require('lazy').setup {
   },
 
   {
-    'thoughtbot/vim-rspec',
-    config = function()
-      vim.g.rspec_command = 'VtrSendCommandToRunner! bundle exec rspec {spec}'
-    end,
-  },
-
-  {
     'christoomey/vim-tmux-navigator',
     cmd = {
       'TmuxNavigateLeft',
@@ -79,15 +72,6 @@ require('lazy').setup {
       { '<c-l>', '<cmd><C-U>TmuxNavigateRight<cr>' },
       { '<c-\\>', '<cmd><C-U>TmuxNavigatePrevious<cr>' },
     },
-  },
-
-  {
-    'christoomey/vim-tmux-runner',
-    config = function()
-      vim.g.VtrStripLeadingWhitespace = 0
-      vim.g.VtrClearEmptyLines = 0
-      vim.g.VtrAppendNewline = 1
-    end,
   },
 
   {

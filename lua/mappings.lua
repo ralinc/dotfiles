@@ -10,6 +10,10 @@ local function nmap(shortcut, command)
   map('n', shortcut, command)
 end
 
+local function tmap(shortcut, command)
+  map('t', shortcut, command)
+end
+
 local function vmap(shortcut, command)
   map('v', shortcut, command)
 end
@@ -17,6 +21,12 @@ end
 imap('jk', '<esc>')
 nmap('j', 'gj')
 nmap('k', 'gk')
+
+tmap('jk', '<C-\\><C-n>')
+tmap('<C-h>', '<C-\\><C-N><C-w>h')
+tmap('<C-j>', '<C-\\><C-N><C-w>j')
+tmap('<C-k>', '<C-\\><C-N><C-w>k')
+tmap('<C-l>', '<C-\\><C-N><C-w>l')
 
 vmap('<C-c>', '"+y')
 nmap('<leader>j', 'yyp')
@@ -77,26 +87,8 @@ nmap('<leader>qo', ':copen<cr>')
 nmap('<leader>qc', ':cclose<cr>')
 nmap('<leader>ql', ':colder<cr>')
 
-nmap('<leader>to', ':VtrOpenRunner<cr>')
-nmap('<leader>tk', ':VtrKillRunner<cr>')
-nmap('<leader>tf', ':VtrFocusRunner<cr>')
-
 nmap('<leader>gb', ':G blame<cr>')
 nmap('<leader>gd', ':Gdiff :0<cr>')
-
-nmap('<leader>re', ':exec "VtrSendCommand! ruby " . expand(\'%\')<cr>')
-nmap('<leader>sa', ':call RunAllSpecs()<cr>')
-nmap('<leader>sf', ':call RunCurrentSpecFile()<cr>')
-nmap('<leader>sl', ':call RunLastSpec()<cr>')
-nmap('<leader>sn', ':call RunNearestSpec()<cr>')
-
-nmap('<leader>pe', ':exec "VtrSendCommand! python " . expand(\'%\')<cr>')
-nmap('<leader>pa', ':exec "VtrSendCommand! pytest"<cr>')
-nmap('<leader>pf', ':exec "VtrSendCommand! pytest " . expand(\'%\')<cr>')
-nmap('<leader>pn', ':exec "VtrSendCommand! pytest " . expand(\'%\') . ":" . line(\'.\')<cr>')
-
-nmap('<leader>ge', ':exec "VtrSendCommand! go run " . expand(\'%\')<cr>')
-nmap('<leader>ga', ':exec "VtrSendCommand! go test ./..."<cr>')
 
 nmap('<Leader>ra', ':A<CR>')
 nmap('<Leader>rr', ':R<CR>')
@@ -126,16 +118,40 @@ nmap('<leader>pry', 'obinding.pry<esc>:w<cr>')
 
 nmap('<leader>gw', 'gwap')
 
-vim.cmd [[
-function! RenameFile()
-    let old_name = expand('%')
-    let new_name = input('New file name: ', expand('%'), 'file')
-    if new_name != '' && new_name != old_name
-        exec ':saveas ' . new_name
-        exec ':silent !rm ' . old_name
-        redraw!
-    endif
-endfunction
-]]
+function _G.rename_file()
+  local old_name = vim.fn.expand '%'
+  local new_name = vim.fn.input('Name: ', vim.fn.expand '%', 'file')
 
-nmap('<leader>rf', ':call RenameFile()<cr>')
+  if new_name ~= '' and new_name ~= old_name then
+    vim.cmd('saveas ' .. new_name)
+    vim.fn.system('rm ' .. vim.fn.shellescape(old_name))
+    vim.cmd 'redraw!'
+  end
+end
+
+nmap('<leader>rf', ':lua rename_file()<cr>')
+
+function _G.rspec(run)
+  local path = vim.fn.expand '%:p'
+  local line = vim.api.nvim_win_get_cursor(0)[1]
+  local command
+
+  if run == 'last' then
+    command = vim.g.rspec_last_command
+  elseif run == 'nearest' then
+    command = string.format('bin/rspec %s:%d', path, line)
+  elseif run == 'file' then
+    command = string.format('bin/rspec %s', path)
+  else
+    command = 'bin/rspec'
+  end
+
+  vim.fn.system(string.format('tmux send-keys -t %s %s C-m', 1, vim.fn.shellescape(command)))
+
+  vim.g.rspec_last_command = command
+end
+
+nmap('<leader>sa', ':lua rspec("all")<cr>')
+nmap('<leader>sf', ':lua rspec("file")<cr>')
+nmap('<leader>sn', ':lua rspec("nearest")<cr>')
+nmap('<leader>sl', ':lua rspec("last")<cr>')
