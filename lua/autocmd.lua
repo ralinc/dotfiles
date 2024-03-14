@@ -5,3 +5,19 @@ vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, { pattern = '*.go', com
 vim.api.nvim_create_autocmd('FileType', { pattern = 'markdown', command = 'setl spell nolist wrap lbr textwidth=80' })
 vim.api.nvim_create_autocmd('FileType', { pattern = 'gitcommit', command = 'setl spell textwidth=72' })
 vim.api.nvim_create_autocmd('FileType', { pattern = 'slim', command = 'setl noet ts=2 sw=2 sts=2' })
+
+vim.api.nvim_create_autocmd('BufWritePost', {
+  group = vim.api.nvim_create_augroup('build-messages', { clear = true }),
+  pattern = { 'messages/en.yml', 'messages/de.yml', 'messages/bg.yml' },
+  callback = function()
+    vim.fn.jobstart('yarn build:messages', {
+      on_exit = function(_, exit_code)
+        if exit_code == 0 then
+          print 'build:messages:ok'
+        else
+          print 'build:messages:failed'
+        end
+      end,
+    })
+  end,
+})
