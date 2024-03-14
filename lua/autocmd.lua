@@ -21,3 +21,19 @@ vim.api.nvim_create_autocmd('BufWritePost', {
     })
   end,
 })
+
+vim.api.nvim_create_autocmd('BufWritePost', {
+  group = vim.api.nvim_create_augroup('codegen-translations', { clear = true }),
+  pattern = { 'config/locales/gamma.en.yml' },
+  callback = function()
+    vim.fn.jobstart('bin/rake codegen:translations', {
+      on_exit = function(_, exit_code)
+        if exit_code == 0 then
+          print 'codegen:translations:ok'
+        else
+          print 'codegen:translations:failed'
+        end
+      end,
+    })
+  end,
+})
