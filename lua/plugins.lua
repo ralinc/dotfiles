@@ -84,55 +84,27 @@ require('lazy').setup {
   },
 
   {
-    'mhartington/formatter.nvim',
-    config = function()
-      local util = require 'formatter.util'
-
-      local yarn_prettier = function()
-        return {
-          exe = 'yarn',
-          args = { 'prettier', '--stdin-filepath', util.escape_path(util.get_current_buffer_file_path()) },
-          stdin = true,
-        }
-      end
-
-      require('formatter').setup {
-        filetype = {
-          typescript = {
-            yarn_prettier,
-          },
-          typescriptreact = {
-            yarn_prettier,
-          },
-        },
-      }
-
-      vim.api.nvim_create_autocmd('BufWritePost', {
-        group = vim.api.nvim_create_augroup('fmt', { clear = true }),
-        pattern = { '*.ts', '*.tsx' },
-        command = 'FormatWrite',
-      })
-    end,
-  },
-
-  {
     'stevearc/conform.nvim',
     opts = {
       formatters_by_ft = {
         css = { 'prettier' },
         go = { 'gofmt', 'goimports' },
+        graphql = { 'prettier' },
         javascript = { 'prettier' },
         json = { 'prettier' },
         lua = { 'stylua' },
         markdown = { 'prettier' },
         python = { 'black', 'isort' },
-        slq = { 'sqlfluff' },
-        -- typescript = { 'prettier' },
-        -- typescriptreact = { 'prettier' },
+        sql = { 'sqlfluff' },
+        scss = { 'prettier' },
+        toml = { 'prettier' },
+        typescript = { 'prettier' },
+        typescriptreact = { 'prettier' },
+        yaml = { 'prettier' },
         zsh = { 'beautysh' },
       },
       format_on_save = {
-        timeout_ms = 500,
+        timeout_ms = 1000,
       },
     },
   },
