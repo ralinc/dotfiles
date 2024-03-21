@@ -33,18 +33,18 @@ nmap('<leader>j', 'yyp')
 nmap('<leader>k', 'yyP')
 
 nmap('<leader><leader>', '<C-^>')
-nmap('<leader><cr>', ':noh<cr>')
+nmap('<leader><CR>', ':noh<CR>')
 
-nmap('<leader>q', ':q<cr>')
-nmap('<leader>w', ':w<cr>')
+nmap('<leader>q', ':q<CR>')
+nmap('<leader>w', ':w<CR>')
 
 nmap('<leader>y', '"*y')
-nmap('<leader>sp', ':set paste<cr>')
-nmap('<leader>np', ':set nopaste<cr>')
+nmap('<leader>sp', ':set paste<CR>')
+nmap('<leader>np', ':set nopaste<CR>')
 
-nmap('<leader>e', ":e <C-R>=escape(expand(\"%:p:h\"),' ') . '/'<cr>")
-nmap('<leader>v', ":vnew <C-R>=escape(expand(\"%:p:h\"), ' ') . '/'<cr>")
-nmap('<leader>x', ":split <C-R>=escape(expand(\"%:p:h\"), ' ') . '/'<cr>")
+nmap('<leader>e', ":e <C-R>=escape(expand(\"%:p:h\"),' ') . '/'<CR>")
+nmap('<leader>v', ":vnew <C-R>=escape(expand(\"%:p:h\"), ' ') . '/'<CR>")
+nmap('<leader>x', ":split <C-R>=escape(expand(\"%:p:h\"), ' ') . '/'<CR>")
 
 nmap('<leader>\\', '<C-w>|')
 nmap('<leader>=', '<C-w>=')
@@ -73,8 +73,8 @@ end)
 
 nmap('<leader>a', ':Ack!<space>')
 nmap('<leader>ae', ':Ack! -w<space>')
-nmap('<leader>aw', '*<C-O>:AckFromSearch!<cr>')
-nmap('<leader>ad', ":Ack! <C-r><C-w> <C-r>=expand('%:h')<cr><cr>")
+nmap('<leader>aw', '*<C-O>:AckFromSearch!<CR>')
+nmap('<leader>ad', ":Ack! <C-r><C-w> <C-r>=expand('%:h')<CR><CR>")
 
 local ta = require 'nvim-tree.api'
 nmap('<leader>o', function()
@@ -83,12 +83,12 @@ end)
 
 nmap('<leader>r', ':%s/<C-r><C-w>//gc<Left><Left><Left>')
 
-nmap('<leader>qo', ':copen<cr>')
-nmap('<leader>qc', ':cclose<cr>')
-nmap('<leader>ql', ':colder<cr>')
+nmap('<leader>qo', ':copen<CR>')
+nmap('<leader>qc', ':cclose<CR>')
+nmap('<leader>ql', ':colder<CR>')
 
-nmap('<leader>gb', ':G blame<cr>')
-nmap('<leader>gd', ':Gdiff :0<cr>')
+nmap('<leader>gb', ':G blame<CR>')
+nmap('<leader>gd', ':Gdiff :0<CR>')
 
 nmap('<Leader>ra', ':A<CR>')
 nmap('<Leader>rr', ':R<CR>')
@@ -100,21 +100,21 @@ nmap('<Leader>vm', ':Vmodel ')
 nmap('<Leader>vs', ':Vschema<CR>')
 nmap('<Leader>vr', ':Vinitializer<CR>')
 
-nmap('<leader>ed', ':e Dockerfile<cr>')
-nmap('<leader>vd', ':vnew Dockerfile<cr>')
+nmap('<leader>ed', ':e Dockerfile<CR>')
+nmap('<leader>vd', ':vnew Dockerfile<CR>')
 
-nmap('<leader>md', ':!mkdir -p %:h<cr>')
+nmap('<leader>md', ':!mkdir -p %:h<CR>')
 
-nmap('<leader>li', ':LspInfo<cr>')
-nmap('<leader>le', ':LspStart<cr>')
-nmap('<leader>ld', ':LspStop<cr>')
+nmap('<leader>li', ':LspInfo<CR>')
+nmap('<leader>le', ':LspStart<CR>')
+nmap('<leader>ld', ':LspStop<CR>')
 
-nmap('<leader>nr', ':set norelativenumber<cr>')
-nmap('<leader>rn', ':set relativenumber<cr>')
+nmap('<leader>nr', ':set norelativenumber<CR>')
+nmap('<leader>rn', ':set relativenumber<CR>')
 
-nmap('<leader>so', ':source $MYVIMRC<cr>')
+nmap('<leader>so', ':source $MYVIMRC<CR>')
 
-nmap('<leader>pry', 'obinding.pry<esc>:w<cr>')
+nmap('<leader>pry', 'obinding.pry<esc>:w<CR>')
 
 nmap('<leader>gw', 'gwap')
 
@@ -129,7 +129,7 @@ function _G.rename_file()
   end
 end
 
-nmap('<leader>rf', ':lua rename_file()<cr>')
+nmap('<leader>rf', ':lua rename_file()<CR>')
 
 function _G.rspec(run)
   local path = vim.fn.expand '%:p'
@@ -151,7 +151,7 @@ function _G.rspec(run)
   vim.g.rspec_last_command = command
 end
 
-nmap('<leader>sa', ':lua rspec("all")<cr>')
-nmap('<leader>sf', ':lua rspec("file")<cr>')
-nmap('<leader>sn', ':lua rspec("nearest")<cr>')
-nmap('<leader>sl', ':lua rspec("last")<cr>')
+nmap('<leader>sa', ':lua rspec("all")<CR>')
+nmap('<leader>sf', ':lua rspec("file")<CR>')
+nmap('<leader>sn', ':lua rspec("nearest")<CR>')
+nmap('<leader>sl', ':lua rspec("last")<CR>')
