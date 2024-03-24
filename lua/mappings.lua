@@ -37,6 +37,7 @@ nmap('<leader><CR>', ':noh<CR>')
 
 nmap('<leader>q', ':q<CR>')
 nmap('<leader>w', ':w<CR>')
+nmap('<leader>t', ':tabnew<CR>')
 
 nmap('<leader>y', '"*y')
 nmap('<leader>sp', ':set paste<CR>')
