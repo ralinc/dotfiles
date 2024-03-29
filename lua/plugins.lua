@@ -102,7 +102,7 @@ require('lazy').setup {
           end
         end,
         sql = { 'sqlfluff' },
-        scss = { 'prettier' },
+        -- scss = { 'prettier' },
         toml = { 'prettier' },
         typescript = { 'prettier' },
         typescriptreact = { 'prettier' },
