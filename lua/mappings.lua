@@ -140,11 +140,11 @@ function _G.rspec(run)
   if run == 'last' then
     command = vim.g.rspec_last_command
   elseif run == 'nearest' then
-    command = string.format('bin/rspec %s:%d', path, line)
+    command = string.format('bundle exec rspec %s:%d', path, line)
   elseif run == 'file' then
-    command = string.format('bin/rspec %s', path)
+    command = string.format('bundle exec rspec %s', path)
   else
-    command = 'bin/rspec'
+    command = 'bundle exec rspec'
   end
 
   vim.fn.system(string.format('tmux send-keys -t %s %s C-m', 1, vim.fn.shellescape(command)))
