@@ -92,6 +92,7 @@ require('lazy').setup {
         graphql = { 'prettier' },
         javascript = { 'prettier' },
         json = { 'prettier' },
+        jsonc = { 'prettier' },
         lua = { 'stylua' },
         markdown = { 'prettier' },
         python = function(bufnr)
@@ -102,11 +103,11 @@ require('lazy').setup {
           end
         end,
         sql = { 'sqlfluff' },
-        -- scss = { 'prettier' },
         toml = { 'prettier' },
         typescript = { 'prettier' },
         typescriptreact = { 'prettier' },
-        -- yaml = { 'prettier' },
+        xml = { 'xmlformat' },
+        yaml = { 'prettier' },
         zsh = { 'beautysh' },
       },
       format_on_save = {
