@@ -90,6 +90,7 @@ require('lazy').setup {
         css = { 'prettier' },
         go = { 'gofmt', 'goimports' },
         graphql = { 'prettier' },
+        html = { 'prettier' },
         javascript = { 'prettier' },
         json = { 'prettier' },
         jsonc = { 'prettier' },
@@ -198,11 +199,10 @@ require('lazy').setup {
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
       local servers = {
-        eslint = {},
+        eslint = {
+          format = false,
+        },
         gopls = {},
-        pyright = {},
-        tailwindcss = {},
-        tsserver = {},
         lua_ls = {
           settings = {
             Lua = {
@@ -212,6 +212,9 @@ require('lazy').setup {
             },
           },
         },
+        pyright = {},
+        tailwindcss = {},
+        tsserver = {},
       }
 
       require('mason').setup()
