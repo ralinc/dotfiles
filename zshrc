@@ -6,12 +6,11 @@ plugins=(git bundler rails tmux)
 source $ZSH/oh-my-zsh.sh
 
 for file in $BASE/*.zsh; do
-  source "$file"
+    source "$file"
 done
 
 export FZF_DEFAULT_OPTS='--height=33% --layout=reverse'
 export FZF_DEFAULT_COMMAND='ag -g ""'
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/bin:$PATH
@@ -27,7 +26,8 @@ export PATH=$PYENV_ROOT/bin:$PATH
 
 export PYTHONDONTWRITEBYTECODE=1
 
-eval "$(rbenv init -)"
+eval "$(fzf --zsh)"
 eval "$(pyenv init -)"
+eval "$(rbenv init -)"
 
 source ~/.zshrc.local
