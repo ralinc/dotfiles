@@ -156,3 +156,6 @@ nmap('<leader>sa', ':lua rspec("all")<CR>')
 nmap('<leader>sf', ':lua rspec("file")<CR>')
 nmap('<leader>sn', ':lua rspec("nearest")<CR>')
 nmap('<leader>sl', ':lua rspec("last")<CR>')
+
+nmap('<leader>cd', ':colorscheme rose-pine-main<CR>')
+nmap('<leader>cl', ':colorscheme rose-pine-dawn<CR>')
