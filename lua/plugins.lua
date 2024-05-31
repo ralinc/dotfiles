@@ -28,6 +28,11 @@ require('lazy').setup {
   },
 
   {
+    'tjdevries/colorbuddy.nvim',
+    priority = 1000,
+  },
+
+  {
     'nanotech/jellybeans.vim',
     priority = 1000,
   },
