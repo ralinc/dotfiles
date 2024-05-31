@@ -20,11 +20,16 @@ require('lazy').setup {
 
   {
     'rose-pine/neovim',
+    lazy = false,
     priority = 1000,
     config = function()
       vim.cmd.colorscheme 'rose-pine'
-      -- vim.cmd.colorscheme 'rose-pine-dawn'
     end,
+  },
+
+  {
+    'nanotech/jellybeans.vim',
+    priority = 1000,
   },
 
   {

@@ -54,7 +54,7 @@ local tb = require 'telescope.builtin'
 nmap('<C-p>', tb.find_files)
 nmap('<leader>f', tb.live_grep)
 nmap('<leader>fw', tb.grep_string)
-vim.keymap.set('n', '<leader>fc', function()
+vim.keymap.set('n', '<leader>ff', function()
   tb.live_grep { search_dirs = { vim.fn.expand '%:p:h' } }
 end)
 vim.keymap.set('n', '<leader>fd', function()
@@ -68,6 +68,7 @@ nmap('<leader>fh', tb.help_tags)
 nmap('<leader>fm', tb.keymaps)
 nmap('<leader>fo', tb.vim_options)
 nmap('<leader>fg', tb.git_commits)
+nmap('<leader>fc', tb.colorscheme)
 vim.keymap.set('n', '<leader>fn', function()
   require('telescope.builtin').find_files { cwd = vim.fn.stdpath 'config' }
 end)
@@ -156,6 +157,3 @@ nmap('<leader>sa', ':lua rspec("all")<CR>')
 nmap('<leader>sf', ':lua rspec("file")<CR>')
 nmap('<leader>sn', ':lua rspec("nearest")<CR>')
 nmap('<leader>sl', ':lua rspec("last")<CR>')
-
-nmap('<leader>cd', ':colorscheme rose-pine-main<CR>')
-nmap('<leader>cl', ':colorscheme rose-pine-dawn<CR>')
