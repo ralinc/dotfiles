@@ -225,7 +225,7 @@ require('lazy').setup {
         },
         pyright = {},
         tailwindcss = {},
-        tsserver = {},
+        ts_ls = {},
       }
 
       require('mason').setup()
