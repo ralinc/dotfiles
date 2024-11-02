@@ -22,6 +22,11 @@ require('lazy').setup {
   'tpope/vim-surround',
 
   {
+    'davidmh/mdx.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+  },
+
+  {
     'rose-pine/neovim',
     lazy = false,
     priority = 1000,
@@ -335,6 +340,7 @@ require('lazy').setup {
         'json',
         'lua',
         'markdown',
+        'markdown_inline',
         'python',
         'ruby',
         'scss',
