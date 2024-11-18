@@ -219,9 +219,7 @@ require('lazy').setup {
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
       local servers = {
-        eslint = {
-          format = false,
-        },
+        eslint = { format = false },
         gopls = {},
         lua_ls = {
           settings = {
@@ -232,7 +230,7 @@ require('lazy').setup {
             },
           },
         },
-        pyright = {},
+        ruff = {},
         tailwindcss = {},
         ts_ls = {},
       }
