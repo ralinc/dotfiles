@@ -52,14 +52,17 @@ nmap('<leader>=', '<C-w>=')
 
 local tb = require 'telescope.builtin'
 nmap('<C-p>', tb.find_files)
+vim.keymap.set('n', '<leader>fa', function()
+  tb.find_files { cwd = vim.fn.getcwd() .. '/' .. vim.fn.input('> ', '', 'dir') }
+end, { noremap = true, silent = true })
 nmap('<leader>f', tb.live_grep)
-nmap('<leader>fw', tb.grep_string)
 vim.keymap.set('n', '<leader>ff', function()
   tb.live_grep { search_dirs = { vim.fn.expand '%:p:h' } }
-end)
+end, { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>fd', function()
-  tb.live_grep { search_dirs = { vim.fn.input '> ' } }
-end)
+  tb.live_grep { search_dirs = { vim.fn.input('> ', '', 'dir') } }
+end, { noremap = true, silent = true })
+nmap('<leader>fw', tb.grep_string)
 nmap('<leader>fb', tb.buffers)
 nmap('<leader>fr', tb.lsp_references)
 nmap('<leader>fs', tb.treesitter)
@@ -69,9 +72,6 @@ nmap('<leader>fm', tb.keymaps)
 nmap('<leader>fo', tb.vim_options)
 nmap('<leader>fg', tb.git_commits)
 nmap('<leader>fc', tb.colorscheme)
-vim.keymap.set('n', '<leader>fn', function()
-  require('telescope.builtin').find_files { cwd = vim.fn.stdpath 'config' }
-end)
 
 nmap('<leader>a', ':Ack!<space>')
 nmap('<leader>ae', ':Ack! -w<space>')
