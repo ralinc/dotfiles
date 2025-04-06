@@ -20,6 +20,7 @@ ln -s $DOT_FILES_DIR/gitignore .gitignore
 ln -s $DOT_FILES_DIR/tmux.conf .tmux.conf
 
 ln -s $DOT_FILES_DIR/init.lua .config/nvim/init.lua
+ln -s $DOT_FILES_DIR/lsp .config/nvim/lsp
 ln -s $DOT_FILES_DIR/lua .config/nvim/lua
 
 ln -s $DOT_FILES_DIR/gemrc .gemrc
