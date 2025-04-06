@@ -107,10 +107,6 @@ nmap('<leader>vd', ':vnew Dockerfile<CR>')
 
 nmap('<leader>md', ':!mkdir -p %:h<CR>')
 
-nmap('<leader>li', ':LspInfo<CR>')
-nmap('<leader>le', ':LspStart<CR>')
-nmap('<leader>ld', ':LspStop<CR>')
-
 nmap('<leader>nr', ':set norelativenumber<CR>')
 nmap('<leader>rn', ':set relativenumber<CR>')
 

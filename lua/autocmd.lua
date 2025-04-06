@@ -37,3 +37,48 @@ vim.api.nvim_create_autocmd('BufWritePost', {
     })
   end,
 })
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('my.lsp', {}),
+  callback = function(event)
+    local map = function(keys, func)
+      vim.keymap.set('n', keys, func, { buffer = event.buf })
+    end
+
+    local builtin = require 'telescope.builtin'
+
+    map(',d', builtin.lsp_definitions)
+    map(',t', builtin.lsp_type_definitions)
+    map(',i', builtin.lsp_implementations)
+    map(',s', vim.lsp.buf.signature_help)
+    map(',r', builtin.lsp_references)
+    map(',e', vim.lsp.buf.rename)
+    map(',h', vim.lsp.buf.hover)
+    map(',a', vim.lsp.buf.code_action)
+    map(',n', vim.diagnostic.goto_next)
+    map(',p', vim.diagnostic.goto_prev)
+    map(',q', vim.diagnostic.setloclist)
+    map(',o', vim.diagnostic.open_float)
+    map(',f', vim.lsp.buf.format)
+
+    local client = assert(vim.lsp.get_client_by_id(event.data.client_id))
+
+    if client:supports_method 'textDocument/completion' then
+      vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
+    end
+
+    if
+      client.name ~= 'ts_ls'
+      and client:supports_method 'textDocument/formatting'
+      and not client:supports_method 'textDocument/willSaveWaitUntil'
+    then
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        group = vim.api.nvim_create_augroup('my.lsp', { clear = false }),
+        buffer = event.buf,
+        callback = function()
+          vim.lsp.buf.format { bufnr = event.buf, id = client.id, timeout_ms = 1000 }
+        end,
+      })
+    end
+  end,
+})

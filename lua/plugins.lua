@@ -5,7 +5,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { 'Failed to clone lazy.nvim:\n', 'ErrorMsg' },
-      { out, 'WarningMsg' },
+      { out,                            'WarningMsg' },
       { '\nPress any key to exit...' },
     }, true, {})
     vim.fn.getchar()
@@ -85,10 +85,10 @@ require('lazy').setup {
       'TmuxNavigatePrevious',
     },
     keys = {
-      { '<c-h>', '<cmd><C-U>TmuxNavigateLeft<cr>' },
-      { '<c-j>', '<cmd><C-U>TmuxNavigateDown<cr>' },
-      { '<c-k>', '<cmd><C-U>TmuxNavigateUp<cr>' },
-      { '<c-l>', '<cmd><C-U>TmuxNavigateRight<cr>' },
+      { '<c-h>',  '<cmd><C-U>TmuxNavigateLeft<cr>' },
+      { '<c-j>',  '<cmd><C-U>TmuxNavigateDown<cr>' },
+      { '<c-k>',  '<cmd><C-U>TmuxNavigateUp<cr>' },
+      { '<c-l>',  '<cmd><C-U>TmuxNavigateRight<cr>' },
       { '<c-\\>', '<cmd><C-U>TmuxNavigatePrevious<cr>' },
     },
   },
@@ -161,92 +161,6 @@ require('lazy').setup {
         },
       },
     },
-  },
-
-  {
-    'neovim/nvim-lspconfig',
-    dependencies = {
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
-      'WhoIsSethDaniel/mason-tool-installer.nvim',
-    },
-    config = function()
-      vim.api.nvim_create_autocmd('LspAttach', {
-        group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
-        callback = function(event)
-          local map = function(keys, func)
-            vim.keymap.set('n', keys, func, { buffer = event.buf })
-          end
-
-          local builtin = require 'telescope.builtin'
-
-          map(',d', builtin.lsp_definitions)
-          map(',t', builtin.lsp_type_definitions)
-          map(',i', builtin.lsp_implementations)
-          map(',s', vim.lsp.buf.signature_help)
-          map(',r', builtin.lsp_references)
-          map(',e', vim.lsp.buf.rename)
-          map(',h', vim.lsp.buf.hover)
-          map(',a', vim.lsp.buf.code_action)
-          map(',n', vim.diagnostic.goto_next)
-          map(',p', vim.diagnostic.goto_prev)
-          map(',q', vim.diagnostic.setloclist)
-          map(',o', vim.diagnostic.open_float)
-          map(',f', vim.lsp.buf.format)
-        end,
-      })
-
-      vim.api.nvim_create_autocmd('FileType', {
-        group = vim.api.nvim_create_augroup('lsp-start', { clear = true }),
-        pattern = 'ruby',
-        callback = function()
-          vim.lsp.start {
-            name = 'rubocop',
-            cmd = { 'bundle', 'exec', 'rubocop', '--lsp' },
-          }
-        end,
-      })
-
-      vim.api.nvim_create_autocmd('BufWritePre', {
-        group = vim.api.nvim_create_augroup('lsp-format', { clear = true }),
-        pattern = '*.rb',
-        callback = function()
-          vim.lsp.buf.format { async = false }
-        end,
-      })
-
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
-
-      local servers = {
-        eslint = { format = false },
-        gopls = {},
-        lua_ls = {
-          settings = {
-            Lua = {
-              runtime = { version = 'LuaJIT' },
-              workspace = { checkThirdParty = false },
-              diagnostics = { disable = { 'missing-fields' }, globals = { 'vim' } },
-            },
-          },
-        },
-        ruff = {},
-        tailwindcss = {},
-        ts_ls = {},
-      }
-
-      require('mason').setup()
-      require('mason-tool-installer').setup { ensure_installed = vim.tbl_keys(servers) }
-      require('mason-lspconfig').setup {
-        handlers = {
-          function(server_name)
-            local server = servers[server_name] or {}
-            server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            require('lspconfig')[server_name].setup(server)
-          end,
-        },
-      }
-    end,
   },
 
   {
