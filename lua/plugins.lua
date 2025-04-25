@@ -5,7 +5,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { 'Failed to clone lazy.nvim:\n', 'ErrorMsg' },
-      { out,                            'WarningMsg' },
+      { out, 'WarningMsg' },
       { '\nPress any key to exit...' },
     }, true, {})
     vim.fn.getchar()
@@ -85,10 +85,10 @@ require('lazy').setup {
       'TmuxNavigatePrevious',
     },
     keys = {
-      { '<c-h>',  '<cmd><C-U>TmuxNavigateLeft<cr>' },
-      { '<c-j>',  '<cmd><C-U>TmuxNavigateDown<cr>' },
-      { '<c-k>',  '<cmd><C-U>TmuxNavigateUp<cr>' },
-      { '<c-l>',  '<cmd><C-U>TmuxNavigateRight<cr>' },
+      { '<c-h>', '<cmd><C-U>TmuxNavigateLeft<cr>' },
+      { '<c-j>', '<cmd><C-U>TmuxNavigateDown<cr>' },
+      { '<c-k>', '<cmd><C-U>TmuxNavigateUp<cr>' },
+      { '<c-l>', '<cmd><C-U>TmuxNavigateRight<cr>' },
       { '<c-\\>', '<cmd><C-U>TmuxNavigatePrevious<cr>' },
     },
   },
@@ -164,43 +164,16 @@ require('lazy').setup {
   },
 
   {
-    'hrsh7th/nvim-cmp',
-    event = 'InsertEnter',
-    dependencies = {
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-path',
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip',
+    'saghen/blink.cmp',
+    version = '1.*',
+    opts = {
+      keymap = { preset = 'default' },
+      appearance = { nerd_font_variant = 'mono' },
+      completion = { documentation = { auto_show = false } },
+      sources = { default = { 'lsp', 'path', 'buffer' } },
+      fuzzy = { implementation = 'prefer_rust_with_warning' },
     },
-    config = function()
-      local cmp = require 'cmp'
-      cmp.setup {
-        snippet = {
-          expand = function(args)
-            require('luasnip').lsp_expand(args.body)
-          end,
-        },
-        mapping = cmp.mapping.preset.insert {
-          ['<C-k>'] = cmp.mapping.confirm { select = true },
-          ['<C-l>'] = cmp.mapping.abort(),
-        },
-        sources = {
-          { name = 'nvim_lsp', keyword_length = 3 },
-          { name = 'luasnip' },
-          { name = 'path' },
-          {
-            name = 'buffer',
-            keyword_length = 2,
-            option = {
-              get_bufnrs = function()
-                return vim.api.nvim_list_bufs()
-              end,
-            },
-          },
-        },
-      }
-    end,
+    opts_extend = { 'sources.default' },
   },
 
   {
