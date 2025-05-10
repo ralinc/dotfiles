@@ -14,3 +14,6 @@ require 'plugins'
 require 'options'
 require 'mappings'
 require 'autocmd'
+
+require 'rename'
+require 'rspec'
