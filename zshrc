@@ -2,7 +2,7 @@ BASE="$HOME/.zsh"
 ZSH_THEME=""
 
 export ZSH=$HOME/.oh-my-zsh
-plugins=(git bundler rails tmux)
+plugins=(git bundler rails)
 source $ZSH/oh-my-zsh.sh
 
 for file in $BASE/*.zsh; do
