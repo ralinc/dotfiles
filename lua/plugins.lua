@@ -193,7 +193,16 @@ require('lazy').setup {
     config = function()
       require('telescope').setup {
         defaults = {
-          file_ignore_patterns = { 'go.sum', 'go.mod', 'poetry.lock', 'yarn.lock', '^public/', '^vendor/', '^dist/' },
+          file_ignore_patterns = {
+            'go.sum',
+            'go.mod',
+            'poetry.lock',
+            'yarn.lock',
+            '^public/',
+            '^vendor/',
+            '^dist/',
+            '^design/',
+          },
         },
         extensions = {
           ['ui-select'] = {
