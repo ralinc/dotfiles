@@ -23,12 +23,13 @@ nmap('j', 'gj')
 nmap('k', 'gk')
 
 tmap('jk', '<C-\\><C-n>')
-tmap('<C-h>', '<C-\\><C-N><C-w>h')
-tmap('<C-j>', '<C-\\><C-N><C-w>j')
-tmap('<C-k>', '<C-\\><C-N><C-w>k')
-tmap('<C-l>', '<C-\\><C-N><C-w>l')
+-- tmap('<C-h>', '<C-\\><C-N><C-w>h')
+-- tmap('<C-j>', '<C-\\><C-N><C-w>j')
+-- tmap('<C-k>', '<C-\\><C-N><C-w>k')
+-- tmap('<C-l>', '<C-\\><C-N><C-w>l')
 
 vmap('<C-c>', '"+y')
+nmap('<leader>y', '"*y')
 nmap('<leader>j', 'yyp')
 nmap('<leader>k', 'yyP')
 
@@ -38,10 +39,6 @@ nmap('<leader><CR>', ':noh<CR>')
 nmap('<leader>q', ':q<CR>')
 nmap('<leader>w', ':w<CR>')
 nmap('<leader>t', ':tabnew<CR>')
-
-nmap('<leader>y', '"*y')
-nmap('<leader>sp', ':set paste<CR>')
-nmap('<leader>np', ':set nopaste<CR>')
 
 nmap('<leader>e', ":e <C-R>=escape(expand(\"%:p:h\"),' ') . '/'<CR>")
 nmap('<leader>v', ":vnew <C-R>=escape(expand(\"%:p:h\"), ' ') . '/'<CR>")

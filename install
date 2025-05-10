@@ -2,30 +2,25 @@
 
 set -e
 
-brew install tmux neovim ack the_silver_searcher rbenv ruby-build pyenv ripgrep fd tree hivemind fzf stylua
-brew install --cask wezterm
+DIR=$(dirname $(realpath -s $0))
 
-$(brew --prefix)/opt/fzf/install
+ln -s $DIR/zsh .zsh
+ln -s $DIR/zshrc .zshrc
 
-pip install beautysh sqlfluff
+ln -s $DIR/wezterm.lua .wezterm.lua
 
-DOT_FILES_DIR=$(dirname $(realpath -s $0))
+ln -s $DIR/tmux.conf .tmux.conf
 
-ln -s $DOT_FILES_DIR/zshrc .zshrc
-ln -s $DOT_FILES_DIR/zsh .zsh
+ln -s $DIR/gitconfig .gitconfig
+ln -s $DIR/gitignore .gitignore
 
-ln -s $DOT_FILES_DIR/gitconfig .gitconfig
-ln -s $DOT_FILES_DIR/gitignore .gitignore
+ln -s $DIR/lsp .config/nvim/lsp
+ln -s $DIR/lua .config/nvim/lua
+ln -s $DIR/init.lua .config/nvim/init.lua
 
-ln -s $DOT_FILES_DIR/tmux.conf .tmux.conf
-
-ln -s $DOT_FILES_DIR/init.lua .config/nvim/init.lua
-ln -s $DOT_FILES_DIR/lsp .config/nvim/lsp
-ln -s $DOT_FILES_DIR/lua .config/nvim/lua
-
-ln -s $DOT_FILES_DIR/gemrc .gemrc
-ln -s $DOT_FILES_DIR/pryrc .pryrc
-ln -s $DOT_FILES_DIR/psqlrc .psqlrc
-ln -s $DOT_FILES_DIR/agignore .agignore
+ln -s $DIR/gemrc .gemrc
+ln -s $DIR/pryrc .pryrc
+ln -s $DIR/psqlrc .psqlrc
+ln -s $DIR/agignore .agignore
 
 touch .zshrc.local
