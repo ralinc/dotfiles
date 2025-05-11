@@ -7,6 +7,13 @@ config.color_scheme = 'OLEDppuccin'
 
 config.keys = {
   {
+    key = 'O',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.SpawnCommandInNewTab {
+      args = { '/bin/zsh', '-l', '-c', 'nvim /Users/ralin/Documents/todo' },
+    },
+  },
+  {
     key = 'k',
     mods = 'CMD',
     action = wezterm.action.ClearScrollback 'ScrollbackAndViewport',
