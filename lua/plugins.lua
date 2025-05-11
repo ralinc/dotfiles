@@ -15,7 +15,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup {
-  'slim-template/vim-slim',
   'tpope/vim-fugitive',
   'tpope/vim-rails',
   'tpope/vim-sleuth',
