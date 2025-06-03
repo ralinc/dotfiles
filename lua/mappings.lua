@@ -80,6 +80,7 @@ nmap('<leader>o', function()
   ta.tree.toggle { find_file = true }
 end)
 
+nmap('<leader>/', '/\\<\\><Left><Left>')
 nmap('<leader>r', ':%s/<C-r><C-w>//gc<Left><Left><Left>')
 
 nmap('<leader>qo', ':copen<CR>')
