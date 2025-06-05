@@ -23,9 +23,19 @@
 [core]
   autocrlf = input
   excludesfile = ~/.gitignore
+	pager = delta
 [fetch]
   prune = true
 [push]
   default = current
 [rebase]
   autosquash = true
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+  dark = true
+  line-numbers = true
+	navigate = true
+  side-by-side = true
+[merge]
+	conflictStyle = zdiff3
