@@ -8,7 +8,7 @@ vim.api.nvim_create_autocmd('FileType', { pattern = 'slim', command = 'setl noet
 
 vim.api.nvim_create_autocmd('BufWritePost', {
   group = vim.api.nvim_create_augroup('build-messages', { clear = true }),
-  pattern = { 'messages/en.yml', 'messages/de.yml', 'messages/bg.yml' },
+  pattern = { 'messages/**/*.yml' },
   callback = function()
     vim.fn.jobstart('yarn build:messages', {
       on_exit = function(_, exit_code)
