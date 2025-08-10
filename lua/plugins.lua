@@ -88,6 +88,7 @@ require('lazy').setup {
     event = { 'BufWritePre' },
     opts = {
       formatters_by_ft = {
+        cpp = { 'clang-format' },
         css = { 'prettier' },
         go = { 'gofmt', 'goimports' },
         graphql = { 'prettier' },
