@@ -4,15 +4,15 @@ set -e
 
 DIR=$(dirname $(realpath -s $0))
 
+ln -s $DIR/wezterm.lua .wezterm.lua
+
 ln -s $DIR/zsh .zsh
 ln -s $DIR/zshrc .zshrc
 
-ln -s $DIR/wezterm.lua .wezterm.lua
-
-ln -s $DIR/tmux.conf .tmux.conf
-
 ln -s $DIR/gitconfig .gitconfig
 ln -s $DIR/gitignore .gitignore
+
+ln -s $DIR/mise.config.toml .config/mise/config.toml
 
 ln -s $DIR/lsp .config/nvim/lsp
 ln -s $DIR/lua .config/nvim/lua
