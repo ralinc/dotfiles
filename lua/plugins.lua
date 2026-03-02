@@ -5,7 +5,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { 'Failed to clone lazy.nvim:\n', 'ErrorMsg' },
-      { out,                            'WarningMsg' },
+      { out, 'WarningMsg' },
       { '\nPress any key to exit...' },
     }, true, {})
     vim.fn.getchar()
@@ -71,15 +71,6 @@ require('lazy').setup {
     'mileszs/ack.vim',
     config = function()
       vim.g.ackprg = 'ag --nogroup --nocolor --column'
-    end,
-  },
-
-  {
-    'github/copilot.vim',
-    config = function()
-      vim.g.copilot_filetypes = { markdown = false }
-      vim.g.copilot_no_tab_map = true
-      vim.cmd 'imap <silent><script><expr> <C-o> copilot#Accept("")'
     end,
   },
 
