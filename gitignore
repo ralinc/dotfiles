@@ -1,3 +1,4 @@
+.cspell/**/*
 .mise.local.toml
 .DS_Store
 *.sw[nop]

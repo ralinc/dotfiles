@@ -22,6 +22,7 @@
   noff = merge --no-ff
   unstage = reset
   uncommit = reset --soft HEAD^
+  rollback = reset --hard HEAD^
 [core]
   autocrlf = input
   excludesfile = ~/.gitignore
