@@ -1,3 +1,6 @@
+CLAUDE.md
+.claude/**/*
+cspell.json
 .cspell/**/*
 .mise.local.toml
 .DS_Store
