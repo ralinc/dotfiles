@@ -41,7 +41,7 @@ local function build_command(config, run)
 
   local cmd
   if run == 'last' then
-    cmd = vim.g[config.last_cmd_key] or config.base_cmd
+    return vim.g[config.last_cmd_key] or (config.base_cmd .. config.suffix)
   elseif run == 'nearest' then
     cmd = string.format('%s %s:%d', config.base_cmd, path, line)
   elseif run == 'file' then

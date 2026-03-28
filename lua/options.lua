@@ -1,7 +1,6 @@
 local o = vim.o
 o.autowrite = true
 o.breakindent = true
-o.completeopt = 'menuone,noselect'
 o.cursorline = true
 o.diffopt = 'internal,filler,closeoff,vertical'
 o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'

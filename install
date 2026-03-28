@@ -4,6 +4,8 @@ set -e
 
 DIR=$(dirname $(realpath -s $0))
 
+cd $HOME
+
 ln -s $DIR/wezterm.lua .wezterm.lua
 
 ln -s $DIR/zsh .zsh
@@ -12,8 +14,10 @@ ln -s $DIR/zshrc .zshrc
 ln -s $DIR/gitconfig .gitconfig
 ln -s $DIR/gitignore .gitignore
 
+mkdir -p .config/mise
 ln -s $DIR/mise.config.toml .config/mise/config.toml
 
+mkdir -p .config/nvim
 ln -s $DIR/lsp .config/nvim/lsp
 ln -s $DIR/lua .config/nvim/lua
 ln -s $DIR/init.lua .config/nvim/init.lua
