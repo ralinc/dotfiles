@@ -1,8 +1,6 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.cmd 'filetype plugin indent on'
-vim.cmd 'syntax on'
 
 vim.api.nvim_create_autocmd('FileType', { pattern = 'markdown', command = 'setl spell nolist wrap lbr textwidth=80' })
 vim.api.nvim_create_autocmd('FileType', { pattern = 'gitcommit', command = 'setl spell textwidth=72' })
@@ -64,17 +62,15 @@ vim.o.breakindent = true
 vim.o.completeopt = 'menuone,noselect'
 vim.o.cursorline = true
 vim.o.diffopt = 'internal,filler,closeoff,vertical'
-vim.o.encoding = 'utf-8'
-vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.o.foldmethod = 'expr'
 vim.o.gdefault = true
-vim.o.grepprg = 'ag --nogroup --nocolor'
+vim.o.grepprg = 'rg --vimgrep --smart-case'
 vim.o.inccommand = 'split'
 vim.o.ignorecase = true
 vim.o.history = 50
 vim.o.listchars = 'tab: » ,trail:·,nbsp:␣'
 vim.o.modelines = 0
-vim.o.mouse = 'a'
 vim.o.scrolloff = 10
 vim.o.secure = true
 vim.o.shell = '/bin/zsh'
@@ -84,7 +80,6 @@ vim.o.splitbelow = true
 vim.o.splitright = true
 vim.o.showmode = false
 vim.o.signcolumn = 'yes'
-vim.o.termguicolors = true
 vim.o.timeoutlen = 300
 vim.o.ttimeoutlen = 100
 vim.o.updatetime = 250
@@ -92,17 +87,17 @@ vim.o.wildignore = 'tmp/**,log/**'
 vim.o.wildmode = 'list:longest,list:full'
 vim.o.writebackup = false
 
-vim.wo.list = true
-vim.wo.foldenable = false
-vim.wo.number = true
-vim.wo.numberwidth = 5
-vim.wo.relativenumber = true
-vim.wo.wrap = false
+vim.o.list = true
+vim.o.foldenable = false
+vim.o.number = true
+vim.o.numberwidth = 5
+vim.o.relativenumber = true
+vim.o.wrap = false
 
-vim.bo.expandtab = true
-vim.bo.modeline = false
-vim.bo.shiftwidth = 2
-vim.bo.softtabstop = 2
-vim.bo.swapfile = false
-vim.bo.tabstop = 2
-vim.bo.textwidth = 120
+vim.o.expandtab = true
+vim.o.modeline = false
+vim.o.shiftwidth = 2
+vim.o.softtabstop = 2
+vim.o.swapfile = false
+vim.o.tabstop = 2
+vim.o.textwidth = 120

@@ -6,9 +6,6 @@ return {
     validate = 'on',
     packageManager = nil,
     useESLintClass = false,
-    experimental = {
-      useFlatConfig = true,
-    },
     codeActionOnSave = {
       enable = false,
       mode = 'all',

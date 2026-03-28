@@ -55,17 +55,17 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map(',e', vim.lsp.buf.rename)
     map(',h', vim.lsp.buf.hover)
     map(',a', vim.lsp.buf.code_action)
-    map(',n', vim.diagnostic.goto_next)
-    map(',p', vim.diagnostic.goto_prev)
+    map(',n', function()
+      vim.diagnostic.jump { count = 1 }
+    end)
+    map(',p', function()
+      vim.diagnostic.jump { count = -1 }
+    end)
     map(',q', vim.diagnostic.setloclist)
     map(',o', vim.diagnostic.open_float)
     map(',f', vim.lsp.buf.format)
 
     local client = assert(vim.lsp.get_client_by_id(event.data.client_id))
-
-    if client:supports_method 'textDocument/completion' then
-      vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
-    end
 
     if
       client.name ~= 'ts_ls'
