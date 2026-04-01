@@ -1,7 +1,8 @@
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.uv.fs_stat(lazypath) then
   local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
-  local out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
+  local out =
+    vim.fn.system { 'git', 'clone', '--filter=blob:none', '--single-branch', '--branch=stable', lazyrepo, lazypath }
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { 'Failed to clone lazy.nvim:\n', 'ErrorMsg' },
@@ -250,6 +251,21 @@ require('lazy').setup {
           },
         },
       },
+    },
+  },
+
+  {
+    'coder/claudecode.nvim',
+    dependencies = { 'folke/snacks.nvim' },
+    config = true,
+    keys = {
+      { '<leader>c', '<cmd>ClaudeCode<cr>' },
+      { '<leader>cf', '<cmd>ClaudeCodeFocus<cr>' },
+      { '<leader>cb', '<cmd>ClaudeCodeAdd %<cr>' },
+      { '<leader>cs', '<cmd>ClaudeCodeSend<cr>', mode = 'v' },
+      { '<leader>cs', '<cmd>ClaudeCodeTreeAdd<cr>', ft = { 'NvimTree', 'neo-tree', 'oil', 'minifiles', 'netrw' } },
+      { '<leader>ca', '<cmd>ClaudeCodeDiffAccept<cr>' },
+      { '<leader>cd', '<cmd>ClaudeCodeDiffDeny<cr>' },
     },
   },
 
