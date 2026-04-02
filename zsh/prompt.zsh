@@ -37,8 +37,8 @@ prompt_shortened_path() { print "$(prompt_purple "%2~")" }
 autoload -Uz vcs_info
 
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:git*' formats $(prompt_blue "%b")
-zstyle ':vcs_info:git*' actionformats $(prompt_red "%b|%a")
+zstyle ':vcs_info:git*' formats '%F{031}%b%f'
+zstyle ':vcs_info:git*' actionformats '%F{197}%b|%a%f'
 
 prompt_git_status_symbol(){
     local letter
@@ -104,6 +104,10 @@ prompt_full_git_status(){
 function precmd {
     vcs_info
     git status 2> /dev/null >! "/tmp/git-status-$$"
+}
+
+function zshexit {
+    rm -f "/tmp/git-status-$$"
 }
 
 setopt prompt_subst

@@ -65,19 +65,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map(',f', vim.lsp.buf.format)
 
     local client = assert(vim.lsp.get_client_by_id(event.data.client_id))
-
-    if
-      client.name ~= 'ts_ls'
-      and client:supports_method 'textDocument/formatting'
-      and not client:supports_method 'textDocument/willSaveWaitUntil'
-    then
-      vim.api.nvim_create_autocmd('BufWritePre', {
-        group = vim.api.nvim_create_augroup('my.lsp', { clear = false }),
-        buffer = event.buf,
-        callback = function()
-          vim.lsp.buf.format { bufnr = event.buf, id = client.id, timeout_ms = 1000 }
-        end,
-      })
-    end
   end,
 })
