@@ -7,7 +7,7 @@ vim.g.loaded_netrwPlugin = 1
 vim.filetype.add { extension = { mq5 = 'cpp', mqh = 'cpp', mq4 = 'cpp' } }
 
 vim.lsp.config('*', { root_markers = { '.git' } })
-vim.lsp.enable { 'eslint_ls', 'lua_ls', 'ruby_ls', 'ruff_ls', 'ts_ls', 'tw_ls' }
+vim.lsp.enable { 'lua_ls', 'ruby_ls', 'ruff_ls', 'ts_ls', 'tw_ls' }
 
 require 'plugins'
 require 'options'
