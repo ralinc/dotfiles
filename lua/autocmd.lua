@@ -9,12 +9,12 @@ vim.api.nvim_create_autocmd('BufWritePost', {
   group = vim.api.nvim_create_augroup('build-messages', { clear = true }),
   pattern = { 'messages/**/*.yml' },
   callback = function()
-    vim.fn.jobstart('npm run build:messages', {
+    vim.fn.jobstart('npm run messages', {
       on_exit = function(_, exit_code)
         if exit_code == 0 then
-          print 'build:messages:ok'
+          print 'messages:ok'
         else
-          print 'build:messages:failed'
+          print 'messages:failed'
         end
       end,
     })
