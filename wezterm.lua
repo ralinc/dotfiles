@@ -10,7 +10,7 @@ config.keys = {
     key = 'O',
     mods = 'CTRL|SHIFT',
     action = wezterm.action.SpawnCommandInNewTab {
-      args = { '/bin/zsh', '-l', '-c', 'nvim /Users/ralin/Documents/todo' },
+      args = { '/bin/zsh', '-l', '-c', 'nvim /Users/ralin/Documents/TODO.md' },
     },
   },
   {

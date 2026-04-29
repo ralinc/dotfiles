@@ -2,4 +2,7 @@
 idiomatic_version_file_enable_tools = ["python", "ruby", "node"]
 
 [tools]
-node = { version = "latest", postinstall = "corepack enable" }
+node = { version = "lts", postinstall = "corepack enable" }
+npm = "latest"
+"npm:prettier" = "latest"
+ruby = "3.4.2"
