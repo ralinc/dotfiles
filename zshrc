@@ -9,6 +9,8 @@ for file in $BASE/*.zsh; do
     source "$file"
 done
 
+export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
+
 export PYTHONDONTWRITEBYTECODE=1
 
 export FZF_DEFAULT_OPTS='--height=33% --layout=reverse'
@@ -20,7 +22,8 @@ export PATH=$HOME/bin:$PATH
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
-eval "$(fzf --zsh)"
+eval "$(/opt/homebrew/bin/brew shellenv zsh)"
 eval "$(mise activate zsh)"
+eval "$(fzf --zsh)"
 
 source ~/.zshrc.local
