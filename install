@@ -2,7 +2,7 @@
 
 set -e
 
-DIR=$(dirname $(realpath -s $0))
+DIR=${0:a:h}
 
 cd $HOME
 
