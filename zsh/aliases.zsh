@@ -1,4 +1,3 @@
-alias cs="cursor ."
 alias ls="ls -FGh"
 alias sed="sed -E"
 alias ni="npm install"
