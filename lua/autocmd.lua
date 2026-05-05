@@ -5,6 +5,35 @@ vim.api.nvim_create_autocmd('FileType', { pattern = 'markdown', command = 'setl 
 vim.api.nvim_create_autocmd('FileType', { pattern = 'gitcommit', command = 'setl spell textwidth=72' })
 vim.api.nvim_create_autocmd('FileType', { pattern = 'slim', command = 'setl noet ts=2 sw=2 sts=2' })
 
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = {
+    'bash',
+    'css',
+    'dockerfile',
+    'go',
+    'graphql',
+    'html',
+    'javascript',
+    'javascriptreact',
+    'json',
+    'lua',
+    'markdown',
+    'python',
+    'ruby',
+    'scss',
+    'sh',
+    'sql',
+    'toml',
+    'typescript',
+    'typescriptreact',
+    'yaml',
+  },
+  callback = function()
+    pcall(vim.treesitter.start)
+    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+  end,
+})
+
 vim.api.nvim_create_autocmd('BufWritePost', {
   group = vim.api.nvim_create_augroup('build-messages', { clear = true }),
   pattern = { 'messages/**/*.yml' },

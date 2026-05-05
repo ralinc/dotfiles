@@ -175,15 +175,12 @@ require('lazy').setup {
 
   {
     'nvim-treesitter/nvim-treesitter',
-    branch = 'master',
-    main = 'nvim-treesitter.configs',
-    dependencies = {
-      { 'nvim-treesitter/nvim-treesitter-textobjects', branch = 'master' },
-      'RRethy/nvim-treesitter-endwise',
-    },
+    branch = 'main',
+    lazy = false,
     build = ':TSUpdate',
-    opts = {
-      ensure_installed = {
+    dependencies = { 'RRethy/nvim-treesitter-endwise' },
+    config = function()
+      require('nvim-treesitter').install {
         'bash',
         'css',
         'dockerfile',
@@ -203,51 +200,66 @@ require('lazy').setup {
         'tsx',
         'typescript',
         'yaml',
-      },
-      sync_install = false,
-      auto_install = true,
-      highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-      },
-      indent = {
-        enable = true,
-      },
-      endwise = {
-        enable = true,
-      },
-      textobjects = {
+      }
+    end,
+  },
+
+  {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    branch = 'main',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    config = function()
+      require('nvim-treesitter-textobjects').setup {
         select = {
-          enable = true,
           lookahead = true,
-          keymaps = {
-            ['af'] = '@function.outer',
-            ['if'] = '@function.inner',
-            ['ac'] = '@class.outer',
-            ['ic'] = '@class.inner',
-            ['as'] = { query = '@scope', query_group = 'locals' },
-          },
           include_surrounding_whitespace = false,
         },
         move = {
-          enable = true,
           set_jumps = true,
-          goto_next_start = {
-            [']f'] = '@function.outer',
-            [']c'] = '@class.outer',
-          },
-          goto_next_end = {
-            ['}f'] = '@function.outer',
-            ['}c'] = '@class.outer',
-          },
-          goto_previous_start = {
-            ['[f'] = '@function.outer',
-            ['[c'] = '@class.outer',
-            ['[s'] = { query = '@scope', query_group = 'locals' },
-          },
         },
-      },
-    },
+      }
+
+      local select = require 'nvim-treesitter-textobjects.select'
+      local move = require 'nvim-treesitter-textobjects.move'
+
+      vim.keymap.set({ 'x', 'o' }, 'af', function()
+        select.select_textobject('@function.outer', 'textobjects')
+      end)
+      vim.keymap.set({ 'x', 'o' }, 'if', function()
+        select.select_textobject('@function.inner', 'textobjects')
+      end)
+      vim.keymap.set({ 'x', 'o' }, 'ac', function()
+        select.select_textobject('@class.outer', 'textobjects')
+      end)
+      vim.keymap.set({ 'x', 'o' }, 'ic', function()
+        select.select_textobject('@class.inner', 'textobjects')
+      end)
+      vim.keymap.set({ 'x', 'o' }, 'as', function()
+        select.select_textobject('@local.scope', 'locals')
+      end)
+
+      vim.keymap.set({ 'n', 'x', 'o' }, ']f', function()
+        move.goto_next_start('@function.outer', 'textobjects')
+      end)
+      vim.keymap.set({ 'n', 'x', 'o' }, ']c', function()
+        move.goto_next_start('@class.outer', 'textobjects')
+      end)
+      vim.keymap.set({ 'n', 'x', 'o' }, '}f', function()
+        move.goto_next_end('@function.outer', 'textobjects')
+      end)
+      vim.keymap.set({ 'n', 'x', 'o' }, '}c', function()
+        move.goto_next_end('@class.outer', 'textobjects')
+      end)
+      vim.keymap.set({ 'n', 'x', 'o' }, '[f', function()
+        move.goto_previous_start('@function.outer', 'textobjects')
+      end)
+      vim.keymap.set({ 'n', 'x', 'o' }, '[c', function()
+        move.goto_previous_start('@class.outer', 'textobjects')
+      end)
+      vim.keymap.set({ 'n', 'x', 'o' }, '[s', function()
+        move.goto_previous_start('@local.scope', 'locals')
+      end)
+    end,
   },
 
   {
