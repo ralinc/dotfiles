@@ -1,4 +1,7 @@
-.claude/**/*
+.claude/settings.local.json
+.mcp.local.json
+CLAUDE.local.md
+AGENTS.local.md
 cspell.json
 .cspell/**/*
 .mise.local.toml
