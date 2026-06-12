@@ -89,6 +89,8 @@ nmap('<leader>ql', ':colder<CR>')
 
 nmap('<leader>gb', ':G blame<CR>')
 nmap('<leader>gd', ':Gdiff :0<CR>')
+nmap('<leader>ga', ':Git difftool -y<CR>')
+nmap('<leader>go', ':Git difftool -y --merge-base origin/HEAD<CR>')
 
 nmap('<Leader>ra', ':A<CR>')
 nmap('<Leader>rr', ':R<CR>')
