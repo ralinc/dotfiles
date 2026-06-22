@@ -8,6 +8,7 @@
 [advice]
   skippedCherryPicks = false
 [alias]
+  do = "!git diff origin/$(git branch --show-current)"
   fix = commit --fixup
   my = log --oneline --author=\"Ralin Chimev\"
   files = diff-tree --no-commit-id --name-only -r
