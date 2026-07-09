@@ -14,7 +14,7 @@ if not vim.uv.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup {
+require('lazy').setup({
   'tpope/vim-fugitive',
   'tpope/vim-rails',
   'tpope/vim-sleuth',
@@ -27,16 +27,6 @@ require('lazy').setup {
     config = function()
       vim.cmd.colorscheme 'rose-pine'
     end,
-  },
-
-  {
-    'tjdevries/colorbuddy.nvim',
-    priority = 1000,
-  },
-
-  {
-    'nanotech/jellybeans.vim',
-    priority = 1000,
   },
 
   {
@@ -54,7 +44,7 @@ require('lazy').setup {
   {
     'mileszs/ack.vim',
     config = function()
-      vim.g.ackprg = 'ag --nogroup --nocolor --column'
+      vim.g.ackprg = 'rg --vimgrep'
     end,
   },
 
@@ -81,7 +71,6 @@ require('lazy').setup {
           end
         end,
         sql = { 'sqlfluff' },
-        toml = { 'prettier' },
         typescript = { 'prettier' },
         typescriptreact = { 'prettier' },
         xml = { 'xmlformatter' },
@@ -276,8 +265,8 @@ require('lazy').setup {
       { '<leader>cd', '<cmd>ClaudeCodeDiffDeny<cr>' },
     },
   },
-
+}, {
   checker = {
     enabled = true,
   },
-}
+})

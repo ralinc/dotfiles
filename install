@@ -8,14 +8,11 @@ cd $HOME
 
 ln -sf $DIR/wezterm.lua .wezterm.lua
 
-ln -sf $DIR/zsh .zsh
+ln -sfn $DIR/zsh .zsh
 ln -sf $DIR/zshrc .zshrc
 
 ln -sf $DIR/gitconfig .gitconfig
 ln -sf $DIR/gitignore .gitignore
-
-mkdir -p .config/mise
-ln -sf $DIR/mise.config.toml .config/mise/config.toml
 
 mkdir -p .config/nvim
 ln -sfn $DIR/lsp .config/nvim/lsp
@@ -25,6 +22,5 @@ ln -sf $DIR/init.lua .config/nvim/init.lua
 ln -sf $DIR/gemrc .gemrc
 ln -sf $DIR/pryrc .pryrc
 ln -sf $DIR/psqlrc .psqlrc
-ln -sf $DIR/agignore .agignore
 
 touch .zshrc.local

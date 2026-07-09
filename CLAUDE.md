@@ -20,7 +20,6 @@ Idempotent: re-run after adding new top-level configs that need symlinking. Only
 - `init.lua` (Neovim entry) sets leader keys, enables LSPs from `lsp/*.lua` via `vim.lsp.enable`, and `require`s the modules in `lua/` in a fixed order: `plugins`, `options`, `mappings`, `autocmd`, `rename`, `spec`. Plugins are managed by `lazy.nvim` (bootstrapped on first run inside `lua/plugins.lua`).
 - `init.min.lua` is a standalone, plugin-free fallback config — keep it self-contained; do not `require` from `lua/`.
 - `lsp/*.lua` files are auto-discovered by Neovim's native `vim.lsp.config` mechanism (filename = server name). To add a server, drop a file here and add its name to the `vim.lsp.enable { ... }` list in `init.lua`.
-- `mise.config.toml` → linked to `~/.config/mise/config.toml`. Tool versions for project work generally come from per-project `.tool-versions` / idiomatic version files; this file mainly sets node and enables idiomatic version files for python/ruby/node.
 
 ## Notable Neovim wiring
 

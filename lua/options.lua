@@ -6,7 +6,6 @@ o.cursorline = true
 o.diffopt = 'internal,filler,closeoff,vertical'
 o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 o.foldmethod = 'expr'
-o.gdefault = true
 o.grepprg = 'rg --vimgrep --smart-case'
 o.inccommand = 'split'
 o.ignorecase = true

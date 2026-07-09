@@ -69,23 +69,21 @@ prompt_git_relative_branch_status_symbol(){
 }
 
 prompt_git_status() {
-    local git_status="$(cat "/tmp/git-status-$$")"
-    if print "$git_status" | command grep -qF "Changes not staged" ; then
+    if print "$_prompt_git_status" | command grep -qE "^[12u] .[^.]"; then
         print "changed"
-    elif print "$git_status" | command grep -qF "Changes to be committed"; then
+    elif print "$_prompt_git_status" | command grep -qE "^[12u] [^.]"; then
         print "staged"
-    elif print "$git_status" | command grep -qF "Untracked files"; then
+    elif print "$_prompt_git_status" | command grep -qE "^\?"; then
         print "untracked"
-    elif print "$git_status" | command grep -qF "working tree clean"; then
+    else
         print "unchanged"
     fi
 }
 
 prompt_git_relative_branch_status(){
-    local git_status="$(cat "/tmp/git-status-$$")"
-    if print "$git_status" | command grep -qF "Your branch is behind"; then
+    if print "$_prompt_git_status" | command grep -qE "^# branch\.ab .* -[1-9]"; then
         print "behind"
-    elif print "$git_status" | command grep -qF "Your branch is ahead"; then
+    elif print "$_prompt_git_status" | command grep -qE "^# branch\.ab \+[1-9]"; then
         print "ahead"
     fi
 }
@@ -103,11 +101,7 @@ prompt_full_git_status(){
 
 function precmd {
     vcs_info
-    git status 2> /dev/null >! "/tmp/git-status-$$"
-}
-
-function zshexit {
-    rm -f "/tmp/git-status-$$"
+    _prompt_git_status="$(git status --porcelain=v2 --branch 2> /dev/null)"
 }
 
 setopt prompt_subst

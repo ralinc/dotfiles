@@ -5,7 +5,7 @@ local function rename_file()
   if new_name ~= '' and new_name ~= old_name then
     vim.fn.rename(old_name, new_name)
     vim.cmd('edit ' .. vim.fn.fnameescape(new_name))
-    vim.cmd('bdelete #')
+    vim.cmd 'bdelete #'
     vim.cmd 'redraw!'
   end
 end

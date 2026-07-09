@@ -1,7 +1,6 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-
 vim.api.nvim_create_autocmd('FileType', { pattern = 'markdown', command = 'setl spell nolist wrap lbr textwidth=80' })
 vim.api.nvim_create_autocmd('FileType', { pattern = 'gitcommit', command = 'setl spell textwidth=72' })
 
@@ -62,7 +61,6 @@ vim.o.cursorline = true
 vim.o.diffopt = 'internal,filler,closeoff,vertical'
 vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.o.foldmethod = 'expr'
-vim.o.gdefault = true
 vim.o.grepprg = 'rg --vimgrep --smart-case'
 vim.o.inccommand = 'split'
 vim.o.ignorecase = true

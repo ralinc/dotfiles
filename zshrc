@@ -14,7 +14,7 @@ export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
 export PYTHONDONTWRITEBYTECODE=1
 
 export FZF_DEFAULT_OPTS='--height=33% --layout=reverse'
-export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_DEFAULT_COMMAND='rg --files'
 
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/bin:$PATH
