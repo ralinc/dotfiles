@@ -19,6 +19,12 @@ ln -sfn $DIR/lsp .config/nvim/lsp
 ln -sfn $DIR/lua .config/nvim/lua
 ln -sf $DIR/init.lua .config/nvim/init.lua
 
+mkdir -p .config/cmux
+ln -sf $DIR/cmux/cmux.json .config/cmux/cmux.json
+
+mkdir -p .config/ghostty
+ln -sf $DIR/ghostty/config .config/ghostty/config
+
 ln -sf $DIR/gemrc .gemrc
 ln -sf $DIR/pryrc .pryrc
 ln -sf $DIR/psqlrc .psqlrc
