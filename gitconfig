@@ -10,8 +10,9 @@
 [alias]
   do = "!git diff origin/$(git branch --show-current)"
   fix = commit --fixup
-  my = log --oneline --author=\"Ralin Chimev\"
   files = diff-tree --no-commit-id --name-only -r
+  myc = log --oneline --author=\"Ralin Chimev\"
+  myb = !git for-each-ref --format='%(authoremail) %(refname:short)' refs/heads/ | grep "$(git config user.email)" | awk '{print $2}'
   branches = for-each-ref --sort=-committerdate --format=\"%(color:blue)%(committerdate:relative)\t%(color:red)%(authorname)\t%(color:white)%(color:bold)%(refname:short)\" refs/remotes
   ff = merge --ff-only
   noff = merge --no-ff
