@@ -43,7 +43,7 @@ require('lazy').setup({
 
   {
     'mileszs/ack.vim',
-    config = function()
+    init = function()
       vim.g.ackprg = 'rg --vimgrep'
     end,
   },
