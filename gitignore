@@ -5,6 +5,7 @@ AGENTS.local.md
 cspell.json
 .cspell/**/*
 .mise.local.toml
+.zed/
 .DS_Store
 *.sw[nop]
 .bundle
