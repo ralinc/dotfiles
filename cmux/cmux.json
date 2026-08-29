@@ -1,3 +1,11 @@
 {
-  "$schema": "https://raw.githubusercontent.com/manaflow-ai/cmux/main/web/data/cmux.schema.json"
+  "$schema": "https://raw.githubusercontent.com/manaflow-ai/cmux/main/web/data/cmux.schema.json",
+  "shortcuts": {
+    "bindings": {
+      "focusLeft": "ctrl+h",
+      "focusDown": "ctrl+j",
+      "focusUp": "ctrl+k",
+      "focusRight": "ctrl+l"
+    }
+  }
 }
