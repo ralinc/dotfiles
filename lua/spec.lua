@@ -1,38 +1,14 @@
-local function get_next_pane_id()
-  local raw = vim.fn.system 'wezterm cli list --format json'
-  local panes = vim.fn.json_decode(raw)
-  local current = tonumber(os.getenv 'WEZTERM_PANE')
+local function next_surface_id()
+  local raw = vim.fn.system 'cmux list-panes --json --id-format both'
+  local panes = vim.fn.json_decode(raw).panes
 
-  local current_pane
-  for _, p in ipairs(panes) do
-    if p.pane_id == current then
-      current_pane = p
-      break
+  for i, pane in ipairs(panes) do
+    if vim.tbl_contains(pane.surface_ids, vim.env.CMUX_SURFACE_ID) then
+      return #panes > 1 and panes[i % #panes + 1].selected_surface_id or nil
     end
   end
 
-  if not current_pane then
-    return nil
-  end
-
-  local same_tab = {}
-  for _, p in ipairs(panes) do
-    if p.window_id == current_pane.window_id and p.tab_id == current_pane.tab_id then
-      table.insert(same_tab, p)
-    end
-  end
-
-  table.sort(same_tab, function(a, b)
-    return a.pane_id < b.pane_id
-  end)
-
-  for _, p in ipairs(same_tab) do
-    if p.pane_id > current then
-      return p.pane_id
-    end
-  end
-
-  return same_tab[1] and same_tab[1].pane_id or nil
+  return nil
 end
 
 local function build_command(config, run)
@@ -78,21 +54,13 @@ local function run_spec(spec, run)
   local cmd = build_command(config, run)
   vim.g[config.last_cmd_key] = cmd
 
-  local target = get_next_pane_id()
+  local target = next_surface_id()
   if not target then
     vim.api.nvim_err_writeln 'No target pane found.'
     return
   end
 
-  vim.fn.jobstart({
-    'wezterm',
-    'cli',
-    'send-text',
-    '--no-paste',
-    '--pane-id',
-    tostring(target),
-    cmd .. '\n',
-  }, { detach = true })
+  vim.fn.jobstart({ 'cmux', 'send', '--surface', target, cmd .. '\n' }, { detach = true })
 end
 
 for _, keymap_config in ipairs {
