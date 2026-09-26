@@ -42,20 +42,13 @@ require('lazy').setup({
   },
 
   {
-    'mileszs/ack.vim',
-    init = function()
-      vim.g.ackprg = 'rg --vimgrep'
-    end,
-  },
-
-  {
     'stevearc/conform.nvim',
     event = { 'BufWritePre' },
     opts = {
       formatters_by_ft = {
         cpp = { 'clang-format' },
         css = { 'prettier' },
-        go = { 'gofmt', 'goimports' },
+        go = { 'goimports' },
         graphql = { 'prettier' },
         html = { 'prettier' },
         javascript = { 'prettier' },
@@ -120,12 +113,10 @@ require('lazy').setup({
       sources = { default = { 'lsp', 'path', 'buffer' } },
       fuzzy = { implementation = 'prefer_rust_with_warning' },
     },
-    opts_extend = { 'sources.default' },
   },
 
   {
     'nvim-telescope/telescope.nvim',
-    event = 'VimEnter',
     dependencies = {
       'nvim-lua/plenary.nvim',
       {
@@ -230,23 +221,20 @@ require('lazy').setup({
       vim.keymap.set({ 'n', 'x', 'o' }, ']f', function()
         move.goto_next_start('@function.outer', 'textobjects')
       end)
-      vim.keymap.set({ 'n', 'x', 'o' }, ']c', function()
+      vim.keymap.set({ 'n', 'x', 'o' }, ']k', function()
         move.goto_next_start('@class.outer', 'textobjects')
       end)
-      vim.keymap.set({ 'n', 'x', 'o' }, '}f', function()
+      vim.keymap.set({ 'n', 'x', 'o' }, ']F', function()
         move.goto_next_end('@function.outer', 'textobjects')
       end)
-      vim.keymap.set({ 'n', 'x', 'o' }, '}c', function()
+      vim.keymap.set({ 'n', 'x', 'o' }, ']K', function()
         move.goto_next_end('@class.outer', 'textobjects')
       end)
       vim.keymap.set({ 'n', 'x', 'o' }, '[f', function()
         move.goto_previous_start('@function.outer', 'textobjects')
       end)
-      vim.keymap.set({ 'n', 'x', 'o' }, '[c', function()
+      vim.keymap.set({ 'n', 'x', 'o' }, '[k', function()
         move.goto_previous_start('@class.outer', 'textobjects')
-      end)
-      vim.keymap.set({ 'n', 'x', 'o' }, '[s', function()
-        move.goto_previous_start('@local.scope', 'locals')
       end)
     end,
   },
@@ -260,7 +248,7 @@ require('lazy').setup({
       { '<leader>cf', '<cmd>ClaudeCodeFocus<cr>' },
       { '<leader>cb', '<cmd>ClaudeCodeAdd %<cr>' },
       { '<leader>cs', '<cmd>ClaudeCodeSend<cr>', mode = 'v' },
-      { '<leader>cs', '<cmd>ClaudeCodeTreeAdd<cr>', ft = { 'NvimTree', 'neo-tree', 'oil', 'minifiles', 'netrw' } },
+      { '<leader>cs', '<cmd>ClaudeCodeTreeAdd<cr>', ft = 'NvimTree' },
       { '<leader>ca', '<cmd>ClaudeCodeDiffAccept<cr>' },
       { '<leader>cd', '<cmd>ClaudeCodeDiffDeny<cr>' },
     },

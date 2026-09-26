@@ -3,14 +3,13 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
 config.color_scheme = 'OLEDppuccin'
--- config.color_scheme = 'Dracula'
 
 config.keys = {
   {
     key = 'O',
     mods = 'CTRL|SHIFT',
     action = wezterm.action.SpawnCommandInNewTab {
-      args = { '/bin/zsh', '-l', '-c', 'nvim /Users/ralin/Documents/TODO.md' },
+      args = { '/bin/zsh', '-l', '-c', 'nvim ~/Documents/TODO.md' },
     },
   },
   {

@@ -1,70 +1,27 @@
-vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, { pattern = '*.slim', command = 'setl filetype=slim' })
-vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, { pattern = '*.go', command = 'setl noet ts=2 sw=2 sts=2' })
-
-vim.api.nvim_create_autocmd('FileType', { pattern = 'markdown', command = 'setl spell nolist wrap lbr textwidth=80' })
-vim.api.nvim_create_autocmd('FileType', { pattern = 'gitcommit', command = 'setl spell textwidth=72' })
-vim.api.nvim_create_autocmd('FileType', { pattern = 'slim', command = 'setl noet ts=2 sw=2 sts=2' })
-
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = {
-    'bash',
-    'css',
-    'dockerfile',
-    'go',
-    'graphql',
-    'html',
-    'javascript',
-    'javascriptreact',
-    'json',
-    'lua',
-    'markdown',
-    'python',
-    'ruby',
-    'scss',
-    'sh',
-    'sql',
-    'toml',
-    'typescript',
-    'typescriptreact',
-    'yaml',
-  },
-  callback = function()
-    pcall(vim.treesitter.start)
-    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+  callback = function(event)
+    local lang = vim.treesitter.language.get_lang(event.match)
+    if pcall(vim.treesitter.start) and vim.treesitter.query.get(lang, 'indents') then
+      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end
   end,
 })
 
-vim.api.nvim_create_autocmd('BufWritePost', {
-  group = vim.api.nvim_create_augroup('build-messages', { clear = true }),
-  pattern = { 'messages/**/*.yml' },
-  callback = function()
-    vim.fn.jobstart('npm run messages', {
-      on_exit = function(_, exit_code)
-        if exit_code == 0 then
-          print 'messages:ok'
-        else
-          print 'messages:failed'
-        end
-      end,
-    })
-  end,
-})
-
-vim.api.nvim_create_autocmd('BufWritePost', {
-  group = vim.api.nvim_create_augroup('codegen-translations', { clear = true }),
-  pattern = { 'config/locales/gamma.en.yml' },
-  callback = function()
-    vim.fn.jobstart('bin/rake codegen:translations', {
-      on_exit = function(_, exit_code)
-        if exit_code == 0 then
-          print 'codegen:translations:ok'
-        else
-          print 'codegen:translations:failed'
-        end
-      end,
-    })
-  end,
-})
+for pattern, cmd in pairs {
+  ['messages/**/*.yml'] = 'npm run messages',
+  ['config/locales/gamma.en.yml'] = 'bin/rake codegen:translations',
+} do
+  vim.api.nvim_create_autocmd('BufWritePost', {
+    pattern = pattern,
+    callback = function()
+      vim.fn.jobstart(cmd, {
+        on_exit = function(_, exit_code)
+          print(cmd .. (exit_code == 0 and ': ok' or ': failed'))
+        end,
+      })
+    end,
+  })
+end
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('my.lsp', {}),
@@ -91,6 +48,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end)
     map(',q', vim.diagnostic.setloclist)
     map(',o', vim.diagnostic.open_float)
-    map(',f', vim.lsp.buf.format)
   end,
 })
+
+vim.keymap.set('n', ',f', function()
+  require('conform').format { lsp_format = 'fallback' }
+end)

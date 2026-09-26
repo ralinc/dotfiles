@@ -1,17 +1,11 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-vim.g.have_nerd_font = false
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-vim.filetype.add { extension = { mq5 = 'cpp', mqh = 'cpp', mq4 = 'cpp' } }
+dofile(vim.fn.stdpath 'config' .. '/init.min.lua')
 
-vim.lsp.config('*', { root_markers = { '.git' } })
-vim.lsp.enable { 'lua_ls', 'ruby_ls', 'ruff_ls', 'ts_ls', 'tw_ls' }
+vim.lsp.enable { 'lua_ls', 'rubocop', 'ruff_ls', 'ts_ls', 'tw_ls' }
 
 require 'plugins'
-require 'options'
 require 'mappings'
 require 'autocmd'
-require 'rename'
 require 'spec'

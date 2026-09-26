@@ -1,3 +1,5 @@
+eval "$(/opt/homebrew/bin/brew shellenv zsh)"
+
 BASE="$HOME/.zsh"
 ZSH_THEME=""
 
@@ -22,7 +24,6 @@ export PATH=$HOME/bin:$PATH
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
-eval "$(/opt/homebrew/bin/brew shellenv zsh)"
 eval "$(mise activate zsh)"
 eval "$(fzf --zsh)"
 

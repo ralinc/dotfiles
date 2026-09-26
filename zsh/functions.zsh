@@ -8,29 +8,16 @@ function wip() {
 }
 
 function res() {
+    local branch
     case $1 in
-        m)
-            if git ls-remote --heads origin main | grep -q 'refs/heads/main$' &> /dev/null; then
-                BRANCH="main"
-            else
-                BRANCH="master"
-            fi
-            ;;
-        p)
-            BRANCH="production"
-            ;;
-        s)
-            BRANCH="staging"
-            ;;
-        *)
-            BRANCH=$1
-            ;;
+        m) branch=${$(git rev-parse --abbrev-ref origin/HEAD)#origin/} ;;
+        p) branch=production ;;
+        s) branch=staging ;;
+        '') print -u2 'usage: res m|p|s|<branch>'; return 1 ;;
+        *) branch=$1 ;;
     esac
 
-    git fetch
-    git checkout $BRANCH
-    git reset --hard origin/$BRANCH
-    git checkout -
+    git fetch origin "+$branch:$branch"
 }
 
 function csql() {
@@ -39,5 +26,5 @@ function csql() {
 }
 
 function rsql() {
-    git checkout master -- db/structure.sql
+    git checkout "${$(git rev-parse --abbrev-ref origin/HEAD)#origin/}" -- db/structure.sql
 }

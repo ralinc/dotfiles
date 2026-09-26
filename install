@@ -7,6 +7,7 @@ DIR=${0:a:h}
 cd $HOME
 
 ln -sf $DIR/wezterm.lua .wezterm.lua
+ln -sf $DIR/tmux.conf .tmux.conf
 
 ln -sfn $DIR/zsh .zsh
 ln -sf $DIR/zshrc .zshrc
@@ -18,14 +19,18 @@ mkdir -p .config/nvim
 ln -sfn $DIR/lsp .config/nvim/lsp
 ln -sfn $DIR/lua .config/nvim/lua
 ln -sf $DIR/init.lua .config/nvim/init.lua
+ln -sf $DIR/init.min.lua .config/nvim/init.min.lua
+ln -sf $DIR/lazy-lock.json .config/nvim/lazy-lock.json
 
 mkdir -p .config/cmux
 ln -sf $DIR/cmux/cmux.json .config/cmux/cmux.json
 
 mkdir -p .config/ghostty
 ln -sf $DIR/ghostty/config .config/ghostty/config
+ln -sfn $DIR/ghostty/themes .config/ghostty/themes
 
 ln -sf $DIR/gemrc .gemrc
+ln -sf $DIR/irbrc .irbrc
 ln -sf $DIR/pryrc .pryrc
 ln -sf $DIR/psqlrc .psqlrc
 
