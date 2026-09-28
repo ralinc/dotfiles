@@ -17,7 +17,12 @@ function res() {
         *) branch=$1 ;;
     esac
 
-    git fetch origin "+$branch:$branch"
+    git fetch origin "$branch"
+    if [[ $(git rev-parse --abbrev-ref HEAD) == "$branch" ]]; then
+        git reset --hard "origin/$branch"
+    else
+        git branch -f "$branch" "origin/$branch"
+    fi
 }
 
 function csql() {
