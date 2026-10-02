@@ -1,4 +1,4 @@
-eval "$(/opt/homebrew/bin/brew shellenv zsh)"
+[[ -x /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv zsh)"
 
 BASE="$HOME/.zsh"
 ZSH_THEME=""
@@ -12,8 +12,6 @@ for file in $BASE/*.zsh; do
 done
 
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
-
-export PYTHONDONTWRITEBYTECODE=1
 
 export FZF_DEFAULT_OPTS='--height=33% --layout=reverse'
 export FZF_DEFAULT_COMMAND='rg --files'

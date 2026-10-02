@@ -1,0 +1,4 @@
+[tools]
+fzf = "0.74.4"
+neovim = "0.12.5"
+ripgrep = "15.2.0"
