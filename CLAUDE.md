@@ -27,3 +27,4 @@ Idempotent: re-run after adding new top-level configs that need symlinking. Only
 
 - Lua: stylua, configured by `.stylua.toml`. Run `stylua .` before committing Lua changes.
 - Keep changes minimal and match surrounding style. These are personal configs; consistency matters more than convention.
+- Commit messages are a subject line only, never a body. This overrides the body rules in the `commit-message` skill; its subject rules still apply.
