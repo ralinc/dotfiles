@@ -1,4 +1,4 @@
-alias ls="ls -FGh"
+alias ls="ls -Fh --color=auto"
 alias ni="npm install"
 alias nr="npm run"
 alias ns='npm run --workspace=server'
