@@ -16,7 +16,6 @@ Idempotent: re-run after adding new top-level configs that need symlinking. Only
 
 - `init.min.lua` is the plugin-free core: options, mappings and autocmds. `init.lua` runs it first, then loads plugins and the `lua/` modules that depend on them. Keep it self-contained; do not `require` from `lua/`. A setting that needs no plugin belongs here, not in `lua/`.
 - `lsp/*.lua` files are auto-discovered by Neovim's native `vim.lsp.config` mechanism (filename = server name). To add a server, drop a file here and add its name to the `vim.lsp.enable { ... }` list in `init.lua`.
-- `lazy-lock.json` is tracked here and linked into `~/.config/nvim`, so plugin versions follow the repo.
 
 ## Notable Neovim wiring
 

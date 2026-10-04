@@ -19,7 +19,6 @@ ln -sfn $DIR/lsp .config/nvim/lsp
 ln -sfn $DIR/lua .config/nvim/lua
 ln -sf $DIR/init.lua .config/nvim/init.lua
 ln -sf $DIR/init.min.lua .config/nvim/init.min.lua
-ln -sf $DIR/lazy-lock.json .config/nvim/lazy-lock.json
 
 mkdir -p .config/mise
 ln -sf $DIR/mise/config.toml .config/mise/config.toml
