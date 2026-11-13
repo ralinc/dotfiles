@@ -238,21 +238,6 @@ require('lazy').setup({
       end)
     end,
   },
-
-  {
-    'coder/claudecode.nvim',
-    dependencies = { 'folke/snacks.nvim' },
-    config = true,
-    keys = {
-      { '<leader>c', '<cmd>ClaudeCode<cr>' },
-      { '<leader>cf', '<cmd>ClaudeCodeFocus<cr>' },
-      { '<leader>cb', '<cmd>ClaudeCodeAdd %<cr>' },
-      { '<leader>cs', '<cmd>ClaudeCodeSend<cr>', mode = 'v' },
-      { '<leader>cs', '<cmd>ClaudeCodeTreeAdd<cr>', ft = 'NvimTree' },
-      { '<leader>ca', '<cmd>ClaudeCodeDiffAccept<cr>' },
-      { '<leader>cd', '<cmd>ClaudeCodeDiffDeny<cr>' },
-    },
-  },
 }, {
   checker = {
     enabled = true,
