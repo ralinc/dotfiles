@@ -16,7 +16,6 @@ rerun.txt
 tags
 !tags/
 tmp/**/*
-!tmp/cache/.keep
 *.pyc
 node_modules
 pyrightconfig.json

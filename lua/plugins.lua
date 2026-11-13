@@ -15,6 +15,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
+  'christoomey/vim-tmux-navigator',
   'tpope/vim-fugitive',
   'tpope/vim-rails',
   'tpope/vim-sleuth',
@@ -52,6 +53,7 @@ require('lazy').setup({
         graphql = { 'prettier' },
         html = { 'prettier' },
         javascript = { 'prettier' },
+        javascriptreact = { 'prettier' },
         json = { 'prettier' },
         jsonc = { 'prettier' },
         lua = { 'stylua' },
@@ -63,6 +65,7 @@ require('lazy').setup({
             return { 'black', 'isort' }
           end
         end,
+        scss = { 'prettier' },
         sql = { 'sqlfluff' },
         typescript = { 'prettier' },
         typescriptreact = { 'prettier' },
@@ -107,11 +110,7 @@ require('lazy').setup({
     'saghen/blink.cmp',
     version = '1.*',
     opts = {
-      keymap = { preset = 'default' },
-      appearance = { nerd_font_variant = 'mono' },
-      completion = { documentation = { auto_show = false } },
       sources = { default = { 'lsp', 'path', 'buffer' } },
-      fuzzy = { implementation = 'prefer_rust_with_warning' },
     },
   },
 
@@ -132,10 +131,10 @@ require('lazy').setup({
       require('telescope').setup {
         defaults = {
           file_ignore_patterns = {
-            'go.sum',
-            'go.mod',
-            'poetry.lock',
-            'yarn.lock',
+            'go%.sum$',
+            'go%.mod$',
+            'poetry%.lock$',
+            'yarn%.lock$',
             '^public/',
             '^vendor/',
             '^dist/',
@@ -241,5 +240,8 @@ require('lazy').setup({
 }, {
   checker = {
     enabled = true,
+  },
+  rocks = {
+    enabled = false,
   },
 })

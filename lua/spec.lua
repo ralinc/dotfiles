@@ -1,4 +1,8 @@
 local function next_surface_id()
+  if not vim.env.CMUX_SURFACE_ID then
+    return nil
+  end
+
   local raw = vim.fn.system 'cmux list-panes --json --id-format both'
   local panes = vim.fn.json_decode(raw).panes
 
@@ -24,7 +28,7 @@ local function send(runner, cmd)
 end
 
 for prefix, runner in pairs {
-  p = { cmd = 'yarn playwright test', suffix = ' --project=chromium' },
+  p = { cmd = 'npx playwright test', suffix = ' --project=chromium' },
   s = { cmd = 'bundle exec rspec', suffix = '' },
 } do
   vim.keymap.set('n', '<leader>' .. prefix .. 'a', function()

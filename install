@@ -37,3 +37,9 @@ if [[ $OSTYPE == darwin* ]]; then
   ln -sf $DIR/ghostty/config .config/ghostty/config
   ln -sfn $DIR/ghostty/themes .config/ghostty/themes
 fi
+
+for link in .*(N-@) .config/{nvim,cmux,ghostty}/*(N-@); do
+  if [[ $(readlink $link) == $DIR/* ]]; then
+    rm $link
+  fi
+done

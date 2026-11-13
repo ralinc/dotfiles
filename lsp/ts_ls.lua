@@ -8,5 +8,5 @@ return {
     return vim.lsp.rpc.start(cmd, dispatchers, { cwd = root })
   end,
   filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
-  root_markers = { 'tsconfig.json', 'package.json' },
+  root_markers = { { 'package-lock.json', 'yarn.lock', 'pnpm-lock.yaml', 'bun.lock' }, '.git' },
 }

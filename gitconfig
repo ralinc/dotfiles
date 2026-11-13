@@ -3,8 +3,6 @@
   name = Ralin Chimev
 [github]
   user = ralinc
-[color]
-  ui = auto
 [advice]
   skippedCherryPicks = false
 [alias]
@@ -27,6 +25,7 @@
   prune = true
 [push]
   default = current
+  autoSetupRemote = true
 [rebase]
   autosquash = true
 [interactive]

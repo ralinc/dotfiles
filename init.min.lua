@@ -5,7 +5,7 @@ vim.o.autowrite = true
 vim.o.breakindent = true
 vim.o.completeopt = 'menuone,noselect'
 vim.o.cursorline = true
-vim.o.diffopt = 'internal,filler,closeoff,vertical'
+vim.opt.diffopt:append 'vertical'
 vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.o.foldmethod = 'expr'
 vim.o.grepprg = 'rg --vimgrep --smart-case'
@@ -49,7 +49,7 @@ vim.api.nvim_create_autocmd(
   'FileType',
   { group = group, pattern = 'markdown', command = 'setl spell nolist wrap lbr textwidth=80' }
 )
-vim.api.nvim_create_autocmd('FileType', { group = group, pattern = 'gitcommit', command = 'setl spell textwidth=72' })
+vim.api.nvim_create_autocmd('FileType', { group = group, pattern = 'gitcommit', command = 'setl spell textwidth=80' })
 vim.api.nvim_create_autocmd(
   'FileType',
   { group = group, pattern = { 'go', 'slim' }, command = 'setl noet ts=2 sw=2 sts=2' }
@@ -57,8 +57,8 @@ vim.api.nvim_create_autocmd(
 vim.api.nvim_create_autocmd('QuickFixCmdPost', { group = group, pattern = 'grep', command = 'cwindow' })
 
 vim.keymap.set('i', 'jk', '<esc>')
-vim.keymap.set('n', 'j', 'gj')
-vim.keymap.set('n', 'k', 'gk')
+vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true })
+vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true })
 
 vim.keymap.set('t', 'jk', '<C-\\><C-n>')
 
@@ -114,7 +114,7 @@ end)
 vim.keymap.set('n', '<leader>nr', ':set norelativenumber<CR>')
 vim.keymap.set('n', '<leader>rn', ':set relativenumber<CR>')
 
-vim.keymap.set('n', '<leader>so', ':source $MYVIMRC<CR>')
+vim.keymap.set('n', '<leader>so', ':source ' .. debug.getinfo(1, 'S').source:sub(2) .. '<CR>')
 
 vim.keymap.set('n', '<leader>pry', 'obinding.pry<esc>:w<CR>')
 
