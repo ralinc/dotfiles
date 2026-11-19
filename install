@@ -8,6 +8,9 @@ cd $HOME
 
 ln -sf $DIR/tmux.conf .tmux.conf
 
+mkdir -p .config/herdr
+ln -sf $DIR/herdr/config.toml .config/herdr/config.toml
+
 ln -sfn $DIR/zsh .zsh
 ln -sf $DIR/zshrc .zshrc
 
@@ -37,7 +40,7 @@ if [[ $OSTYPE == darwin* ]]; then
   ln -sf $DIR/ghostty/config .config/ghostty/config
 fi
 
-for link in .*(N-@) .config/{nvim,cmux,ghostty}/*(N-@); do
+for link in .*(N-@) .config/{nvim,herdr,cmux,ghostty}/*(N-@); do
   if [[ $(readlink $link) == $DIR/* ]]; then
     rm $link
   fi
