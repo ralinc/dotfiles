@@ -17,6 +17,18 @@ end
 
 local function send(runner, cmd)
   runner.last = cmd
+  local text = cmd .. runner.suffix .. '\n'
+
+  if vim.env.WEZTERM_PANE then
+    local pane = vim.trim(vim.fn.system 'wezterm cli get-pane-direction Next')
+    if pane == vim.env.WEZTERM_PANE then
+      pane = vim.trim(vim.fn.system 'wezterm cli split-pane --right')
+      vim.fn.system 'wezterm cli activate-pane'
+    end
+
+    vim.fn.jobstart({ 'wezterm', 'cli', 'send-text', '--pane-id', pane, '--no-paste', text }, { detach = true })
+    return
+  end
 
   local target = next_surface_id()
   if not target then
@@ -24,7 +36,7 @@ local function send(runner, cmd)
     return
   end
 
-  vim.fn.jobstart({ 'cmux', 'send', '--surface', target, cmd .. runner.suffix .. '\n' }, { detach = true })
+  vim.fn.jobstart({ 'cmux', 'send', '--surface', target, text }, { detach = true })
 end
 
 for prefix, runner in pairs {
