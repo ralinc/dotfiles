@@ -2,7 +2,13 @@ local wezterm = require 'wezterm'
 
 local config = wezterm.config_builder()
 
-config.color_scheme = 'OLEDppuccin'
+if wezterm.gui.get_appearance():find 'Dark' then
+  config.color_scheme = 'rose-pine'
+  config.colors = { selection_bg = '#403d52' }
+else
+  config.color_scheme = 'rose-pine-dawn'
+  config.colors = { selection_bg = '#dfdad9' }
+end
 
 config.keys = {
   {
