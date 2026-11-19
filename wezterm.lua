@@ -10,6 +10,8 @@ else
   config.colors = { selection_bg = '#dfdad9' }
 end
 
+config.leader = { key = 's', mods = 'CTRL' }
+
 config.keys = {
   {
     key = 'O',
@@ -24,13 +26,13 @@ config.keys = {
     action = wezterm.action.ClearScrollback 'ScrollbackAndViewport',
   },
   {
-    key = '\\',
-    mods = 'CTRL',
+    key = 'v',
+    mods = 'LEADER',
     action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
   },
   {
-    key = '-',
-    mods = 'CTRL',
+    key = 'x',
+    mods = 'LEADER',
     action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
   },
   {
