@@ -1,1 +1,9 @@
 theme = light:Rose Pine Dawn,dark:Rose Pine
+
+keybind = ctrl+s>v=new_split:right
+keybind = ctrl+s>x=new_split:down
+keybind = ctrl+h=goto_split:left
+keybind = ctrl+j=goto_split:down
+keybind = ctrl+k=goto_split:up
+keybind = ctrl+l=goto_split:right
+keybind = cmd+z=toggle_split_zoom

@@ -1,23 +1,6 @@
-local function next_surface_id()
-  if not vim.env.CMUX_SURFACE_ID then
-    return nil
-  end
-
-  local raw = vim.fn.system 'cmux list-panes --json --id-format both'
-  local panes = vim.fn.json_decode(raw).panes
-
-  for i, pane in ipairs(panes) do
-    if vim.tbl_contains(pane.surface_ids, vim.env.CMUX_SURFACE_ID) then
-      return #panes > 1 and panes[i % #panes + 1].selected_surface_id or nil
-    end
-  end
-
-  return nil
-end
-
 local function send(runner, cmd)
   runner.last = cmd
-  local text = cmd .. runner.suffix .. '\n'
+  local text = cmd .. runner.suffix
 
   if vim.env.WEZTERM_PANE then
     local pane = vim.trim(vim.fn.system 'wezterm cli get-pane-direction Next')
@@ -26,17 +9,36 @@ local function send(runner, cmd)
       vim.fn.system 'wezterm cli activate-pane'
     end
 
-    vim.fn.jobstart({ 'wezterm', 'cli', 'send-text', '--pane-id', pane, '--no-paste', text }, { detach = true })
-    return
+    vim.fn.jobstart({ 'wezterm', 'cli', 'send-text', '--pane-id', pane, '--no-paste', text .. '\n' }, { detach = true })
+  elseif vim.env.GHOSTTY_RESOURCES_DIR then
+    vim.fn.jobstart({
+      'osascript',
+      '-e',
+      [[
+        on run argv
+          tell application "Ghostty"
+            set nvim to focused terminal of selected tab of front window
+            set panes to terminals of selected tab of front window
+            if (count of panes) is 1 then
+              set target to split nvim direction right
+              focus nvim
+            else
+              repeat with i from 1 to count of panes
+                if id of item i of panes is id of nvim then
+                  set target to item (i mod (count of panes) + 1) of panes
+                end if
+              end repeat
+            end if
+            input text (item 1 of argv) to target
+            send key "enter" to target
+          end tell
+        end run
+      ]],
+      text,
+    }, { detach = true })
+  else
+    vim.notify('No WezTerm or Ghostty pane to send to.', vim.log.levels.ERROR)
   end
-
-  local target = next_surface_id()
-  if not target then
-    vim.notify('No target pane found.', vim.log.levels.ERROR)
-    return
-  end
-
-  vim.fn.jobstart({ 'cmux', 'send', '--surface', target, text }, { detach = true })
 end
 
 for prefix, runner in pairs {

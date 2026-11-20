@@ -19,7 +19,7 @@ Idempotent: re-run after adding new top-level configs that need symlinking. Only
 
 ## Notable Neovim wiring
 
-- `lua/spec.lua` runs RSpec / Playwright tests by sending the command to the next pane, with `wezterm cli send-text` in WezTerm and `cmux send` in cmux (mappings: `<leader>s{a,f,n,l}` for rspec, `<leader>p{a,f,n,l}` for playwright: all/file/nearest/last). It reads `WEZTERM_PANE` and `CMUX_SURFACE_ID`, so it only works when nvim runs inside one of the two. In WezTerm it splits a pane to the right when nvim is alone in the tab; in cmux it reports an error.
+- `lua/spec.lua` runs RSpec / Playwright tests by sending the command to the next pane, with `wezterm cli send-text` in WezTerm and AppleScript in Ghostty (mappings: `<leader>s{a,f,n,l}` for rspec, `<leader>p{a,f,n,l}` for playwright: all/file/nearest/last). It reads `WEZTERM_PANE` and `GHOSTTY_RESOURCES_DIR`, so it only works when nvim runs inside one of the two. It splits a pane to the right when nvim is alone in the tab.
 - `lua/autocmd.lua` has project-specific `BufWritePost` hooks: writing `messages/**/*.yml` runs `npm run messages`, writing `config/locales/gamma.en.yml` runs `bin/rake codegen:translations`. These fire silently in any repo that matches those paths, so expect a stray job if you edit such a file elsewhere.
 
 ## Style
