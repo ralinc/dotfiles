@@ -14,13 +14,6 @@ config.leader = { key = 's', mods = 'CTRL' }
 
 config.keys = {
   {
-    key = 'O',
-    mods = 'CTRL|SHIFT',
-    action = wezterm.action.SpawnCommandInNewTab {
-      args = { '/bin/zsh', '-l', '-c', 'nvim ~/Documents/TODO.md' },
-    },
-  },
-  {
     key = 'k',
     mods = 'CMD',
     action = wezterm.action.ClearScrollback 'ScrollbackAndViewport',
