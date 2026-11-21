@@ -2,7 +2,17 @@ local function send(runner, cmd)
   runner.last = cmd
   local text = cmd .. runner.suffix
 
-  if vim.env.WEZTERM_PANE then
+  if vim.env.TMUX then
+    local pane = vim.trim(vim.fn.system { 'tmux', 'display-message', '-p', '-t', '{next}', '#{pane_id}' })
+    if pane == vim.env.TMUX_PANE then
+      pane = vim.trim(vim.fn.system { 'tmux', 'split-window', '-h', '-d', '-P', '-F', '#{pane_id}' })
+    end
+
+    vim.fn.jobstart(
+      { 'tmux', 'send-keys', '-t', pane, '-l', text, ';', 'send-keys', '-t', pane, 'Enter' },
+      { detach = true }
+    )
+  elseif vim.env.WEZTERM_PANE then
     local pane = vim.trim(vim.fn.system 'wezterm cli get-pane-direction Next')
     if pane == vim.env.WEZTERM_PANE then
       pane = vim.trim(vim.fn.system 'wezterm cli split-pane --right')
@@ -37,7 +47,7 @@ local function send(runner, cmd)
       text,
     }, { detach = true })
   else
-    vim.notify('No WezTerm or Ghostty pane to send to.', vim.log.levels.ERROR)
+    vim.notify('No tmux, WezTerm or Ghostty pane to send to.', vim.log.levels.ERROR)
   end
 end
 
